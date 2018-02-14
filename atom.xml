@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://memicat.com/"/>
-  <updated>2018-02-05T16:32:24.295Z</updated>
+  <updated>2018-02-14T15:03:44.466Z</updated>
   <id>http://memicat.com/</id>
   
   <author>
@@ -15,6 +15,101 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Hexo常用排版格式</title>
+    <link href="http://memicat.com/2018/02/14/Hexo%20%E6%8E%92%E7%89%88%E6%A0%BC%E5%BC%8F/"/>
+    <id>http://memicat.com/2018/02/14/Hexo 排版格式/</id>
+    <published>2018-02-13T23:00:00.000Z</published>
+    <updated>2018-02-14T15:03:44.466Z</updated>
+    
+    <content type="html"><![CDATA[<p>本文主要记录我在写博客期间遇到的一些排版格式，怕自己忘了，所以记录下来怕自己忘记。<br><a id="more"></a></p><h3 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h3><h4 id="字体"><a href="#字体" class="headerlink" title="字体"></a>字体</h4><p>加粗: **<br>斜体: *</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;本文主要记录我在写博客期间遇到的一些排版格式，怕自己忘了，所以记录下来怕自己忘记。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Hexo" scheme="http://memicat.com/categories/Hexo/"/>
+    
+    
+      <category term="Latex排版" scheme="http://memicat.com/tags/Latex%E6%8E%92%E7%89%88/"/>
+    
+      <category term="Hexo排版" scheme="http://memicat.com/tags/Hexo%E6%8E%92%E7%89%88/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hexo常用数学公式</title>
+    <link href="http://memicat.com/2018/02/14/Hexo%20%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F/"/>
+    <id>http://memicat.com/2018/02/14/Hexo 数学公式/</id>
+    <published>2018-02-13T23:00:00.000Z</published>
+    <updated>2018-02-14T15:03:40.908Z</updated>
+    
+    <content type="html"><![CDATA[<p>本文主要记录我在写博客期间遇到的一些常用的及特殊的数学公式，怕自己忘了，所以记录下来怕自己忘记。<br><a id="more"></a></p><h3 id="常见数学符号"><a href="#常见数学符号" class="headerlink" title="常见数学符号"></a>常见数学符号</h3><p>$\theta$: \theta<br>$\times$: \times<br>$\prod$: \prod<br>$\pm$: \pm<br>$\mp$: \mp<br>$\ell$: \ell</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;本文主要记录我在写博客期间遇到的一些常用的及特殊的数学公式，怕自己忘了，所以记录下来怕自己忘记。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Hexo" scheme="http://memicat.com/categories/Hexo/"/>
+    
+    
+      <category term="math formula" scheme="http://memicat.com/tags/math-formula/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Linear Mixed Models</title>
+    <link href="http://memicat.com/2018/02/14/Linear%20mixed%20model/"/>
+    <id>http://memicat.com/2018/02/14/Linear mixed model/</id>
+    <published>2018-02-13T23:00:00.000Z</published>
+    <updated>2018-02-14T14:52:29.574Z</updated>
+    
+    <content type="html"><![CDATA[<p>首先来区分Factor（因子） &amp; Covariates （协变量）：<br>前者是名目变量，一般只含两至数个类别，每个类别至少有30个案例，后者是连续或定距变量（可以含成千上百个类别，每个类别中只含一至数个案例）。协变量一般用来指“控制变量”，可以说连续变量（如年龄）、也可以是名目变量（如性别）。</p><p>Fixed factor: qualitative covariate，固定因子 = 定性协变量， 例如gender, agegroup.<br>Fixed effect: quantitative covariate，定量协变量， 例如age.<br>Random factor: qualitative variable whose levels are randomly sampled from a population of levels being studied.<br>Random effect：quantitative variable whose levels are randomly sampled from a population of levels being studied.</p><h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><p><a href="http://zjz06.blogspot.se/2011/08/fixed-factorsrandom-factorscovariates.html" target="_blank" rel="noopener">http://zjz06.blogspot.se/2011/08/fixed-factorsrandom-factorscovariates.html</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;首先来区分Factor（因子） &amp;amp; Covariates （协变量）：&lt;br&gt;前者是名目变量，一般只含两至数个类别，每个类别至少有30个案例，后者是连续或定距变量（可以含成千上百个类别，每个类别中只含一至数个案例）。协变量一般用来指“控制变量”，可以说连续变量（如年
+      
+    
+    </summary>
+    
+      <category term="Data Mining" scheme="http://memicat.com/categories/Data-Mining/"/>
+    
+    
+      <category term="Linear Mixed Models" scheme="http://memicat.com/tags/Linear-Mixed-Models/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>最大似然估计(Maximum likelihood estimation)</title>
+    <link href="http://memicat.com/2018/02/14/%E6%9C%80%E5%A4%A7%E4%BC%BC%E7%84%B6%E4%BC%B0%E8%AE%A1/"/>
+    <id>http://memicat.com/2018/02/14/最大似然估计/</id>
+    <published>2018-02-13T23:00:00.000Z</published>
+    <updated>2018-02-14T15:00:35.587Z</updated>
+    
+    <content type="html"><![CDATA[<p>最大似然估计提供了一种给定观察数据来评估模型参数的方法，即：“模型已定，参数未知”。最大似然估计中的采样需要满足假设：所有的采样都是独立分布的。<br><a id="more"></a><br>首先，假设$x_1,x_2,……x_n$为独立同分布的采样，$\theta$为模型参数，$f$为我们所使用的模型，遵循独立同步假设。那么参数为$\theta$的模型f可表示为：</p><script type="math/tex; mode=display">f(x_1,x_2,...,x_n|\theta) = f(x_1|\theta) \times f(x_2|\theta),...,f(x_n|\theta)</script><p>模型已定，参数未知：已知的为$x_1,x_2,……x_n$，未知的为$\theta$, 故似然定义为：</p><script type="math/tex; mode=display">L(\theta|x_1,x_2,...,x_n) = f(x_1,...,x_n|\theta) = \prod_{i=1}^nf(x_i|\theta)</script><p>两边取对数，得到：</p><script type="math/tex; mode=display">InL(\theta|x_1,...x_n) = \sum_{i=1}^nInf(x_i|\theta),假设 \ell_{avg} = \frac{1}{n}InL</script><p>其中的<script type="math/tex">InL(\theta|x_1,...x_n)</script>称为对数似然，而 $\ell_{avg}$为平均对数似然。平时接触最多的最大似然其实是最大的对数平均似然，即：</p><script type="math/tex; mode=display">\theta^{max}= max\ell_{avg}(\theta|x_1,...,x_n)</script><p>例如，一个袋子里装有黑白两种球，球的数量不知道，做100次放回性取球抽样实验，记录下每次取球的颜色。假设100次实验中，取得白球的概率是70%，黑球30%，则一般认为白球占总数的70%。虽然可以这么说，但这是一个直接的带有感官的答案，缺乏理论证明。接下来对其进行证明：<br>假设白球的所占比是p,那么黑球就是1-p. M是所给的模型，<script type="math/tex">Data = \{x_1,x_2,...,x_{100}\}</script> 是这一百次抽样结果的数据，则：</p><script type="math/tex; mode=display">P(Data|M) = P(x_1,x_2,...,x_{100}|M) = P(x_1|M) P(x_2|M)...P(x_{100}|M)=p^{70}(1-p)^{30}</script><p>那么，从基本的数学知识可知，要想找到这个结果的最大值，应对其进行求导，并使其导数等于0. 即：<script type="math/tex">70p^{69}\times(1-p)^{30}-p^{70}\times(1-p)^{29}=0</script>, 解得p=0.7. 也就是说白球所占比为0.7的可能性最大。</p><h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><p><a href="https://www.cnblogs.com/liliu/archive/2010/11/22/1883702.html" target="_blank" rel="noopener">https://www.cnblogs.com/liliu/archive/2010/11/22/1883702.html</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;最大似然估计提供了一种给定观察数据来评估模型参数的方法，即：“模型已定，参数未知”。最大似然估计中的采样需要满足假设：所有的采样都是独立分布的。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Math" scheme="http://memicat.com/categories/Math/"/>
+    
+    
+      <category term="最大似然估计" scheme="http://memicat.com/tags/%E6%9C%80%E5%A4%A7%E4%BC%BC%E7%84%B6%E4%BC%B0%E8%AE%A1/"/>
+    
+      <category term="Maximum likelihood estimation" scheme="http://memicat.com/tags/Maximum-likelihood-estimation/"/>
+    
+  </entry>
   
   <entry>
     <title>从这说起</title>
