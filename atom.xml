@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://memicat.com/"/>
-  <updated>2018-02-14T15:03:44.466Z</updated>
+  <updated>2018-02-18T13:47:25.012Z</updated>
   <id>http://memicat.com/</id>
   
   <author>
@@ -17,11 +17,42 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>流数据的无监督实时异常检测</title>
+    <link href="http://memicat.com/2018/02/18/%E6%B5%81%E6%95%B0%E6%8D%AE%E7%9A%84%E9%9D%9E%E7%9B%91%E7%9D%A3%E5%AE%9E%E6%97%B6%E5%BC%82%E5%B8%B8%E7%9B%91%E6%B5%8B/"/>
+    <id>http://memicat.com/2018/02/18/流数据的非监督实时异常监测/</id>
+    <published>2018-02-17T23:00:00.000Z</published>
+    <updated>2018-02-18T13:47:25.012Z</updated>
+    
+    <content type="html"><![CDATA[<p>异常检测在工业实时流数据中非常重要，例如预防性维护，防欺诈，故障检测和监控（Preventative maintenance, fraud prevention, fault de- tection, and monitoring）等。异常可能是暂时性的（Temporal anomaly），暂时性异常可以预先发现潜在的问题，但是这种异常往往很难在实时数据流中被检测到，所以检测暂时性异常非常重要.<br>Batch processing, data is split into train/test sets, and algorithms cannot look ahead, but data streaming is not. 流数据处理（Data streaming）和批处理(Batch processing)不同，流数据处理是处理源源不断的数据流，而批处理是处理整个数据集 (full dataset)。<br>The concept drift means that the statistical properties of the target variable, change over time in unforeseen ways. This causes problems because the predictions become less accurate as time passes.<br>Let the vector $\chi_t$ represent the state of a real-time system at time $t$.</p><script type="math/tex; mode=display">...,\chi_{t-2},\chi_{t-1},\chi_{t},\chi_{t+1},\chi_{t+2},...</script><p>We define the ideal characteristics of the real-world anomaly detection algorithm as follows:  </p><ol><li>Predictions must be made online; i.e., the algorithm must identify state <script type="math/tex">\chi_t</script> as normal or anomalous before receiving the subsequent <script type="math/tex">\chi_{t+1}</script>.</li><li>The algorithm must learn continuously without a requirement to store the entire stream.</li><li>The algorithm must run in an unsupervised, automated fashion,i.e., without data labels or manual parameter tweaking.</li><li>Algorithms must adapt to dynamic environments and concept drift, as the underlying statistics of the data stream is often non-stationary.</li><li>Algorithms should make anomaly detections as early as possi- ble.</li><li>Algorithms should minimize false positives and false negatives (this is true for batch scenarios as well).</li></ol><h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;异常检测在工业实时流数据中非常重要，例如预防性维护，防欺诈，故障检测和监控（Preventative maintenance, fraud prevention, fault de- tection, and monitoring）等。异常可能是暂时性的（Temporal 
+      
+    
+    </summary>
+    
+      <category term="Data Mining" scheme="http://memicat.com/categories/Data-Mining/"/>
+    
+    
+      <category term="Data streaming" scheme="http://memicat.com/tags/Data-streaming/"/>
+    
+      <category term="流数据" scheme="http://memicat.com/tags/%E6%B5%81%E6%95%B0%E6%8D%AE/"/>
+    
+      <category term="Abnormal detection" scheme="http://memicat.com/tags/Abnormal-detection/"/>
+    
+      <category term="异常检测" scheme="http://memicat.com/tags/%E5%BC%82%E5%B8%B8%E6%A3%80%E6%B5%8B/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Hexo常用排版格式</title>
     <link href="http://memicat.com/2018/02/14/Hexo%20%E6%8E%92%E7%89%88%E6%A0%BC%E5%BC%8F/"/>
     <id>http://memicat.com/2018/02/14/Hexo 排版格式/</id>
     <published>2018-02-13T23:00:00.000Z</published>
-    <updated>2018-02-14T15:03:44.466Z</updated>
+    <updated>2018-02-18T10:41:33.231Z</updated>
     
     <content type="html"><![CDATA[<p>本文主要记录我在写博客期间遇到的一些排版格式，怕自己忘了，所以记录下来怕自己忘记。<br><a id="more"></a></p><h3 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h3><h4 id="字体"><a href="#字体" class="headerlink" title="字体"></a>字体</h4><p>加粗: **<br>斜体: *</p>]]></content>
     
@@ -45,7 +76,7 @@
     <link href="http://memicat.com/2018/02/14/Hexo%20%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F/"/>
     <id>http://memicat.com/2018/02/14/Hexo 数学公式/</id>
     <published>2018-02-13T23:00:00.000Z</published>
-    <updated>2018-02-14T15:03:40.908Z</updated>
+    <updated>2018-02-18T10:41:31.964Z</updated>
     
     <content type="html"><![CDATA[<p>本文主要记录我在写博客期间遇到的一些常用的及特殊的数学公式，怕自己忘了，所以记录下来怕自己忘记。<br><a id="more"></a></p><h3 id="常见数学符号"><a href="#常见数学符号" class="headerlink" title="常见数学符号"></a>常见数学符号</h3><p>$\theta$: \theta<br>$\times$: \times<br>$\prod$: \prod<br>$\pm$: \pm<br>$\mp$: \mp<br>$\ell$: \ell</p>]]></content>
     
@@ -58,7 +89,7 @@
       <category term="Hexo" scheme="http://memicat.com/categories/Hexo/"/>
     
     
-      <category term="math formula" scheme="http://memicat.com/tags/math-formula/"/>
+      <category term="Math formul" scheme="http://memicat.com/tags/Math-formul/"/>
     
   </entry>
   
@@ -67,16 +98,13 @@
     <link href="http://memicat.com/2018/02/14/Linear%20mixed%20model/"/>
     <id>http://memicat.com/2018/02/14/Linear mixed model/</id>
     <published>2018-02-13T23:00:00.000Z</published>
-    <updated>2018-02-14T14:52:29.574Z</updated>
+    <updated>2018-02-18T10:41:51.456Z</updated>
     
-    <content type="html"><![CDATA[<p>首先来区分Factor（因子） &amp; Covariates （协变量）：<br>前者是名目变量，一般只含两至数个类别，每个类别至少有30个案例，后者是连续或定距变量（可以含成千上百个类别，每个类别中只含一至数个案例）。协变量一般用来指“控制变量”，可以说连续变量（如年龄）、也可以是名目变量（如性别）。</p><p>Fixed factor: qualitative covariate，固定因子 = 定性协变量， 例如gender, agegroup.<br>Fixed effect: quantitative covariate，定量协变量， 例如age.<br>Random factor: qualitative variable whose levels are randomly sampled from a population of levels being studied.<br>Random effect：quantitative variable whose levels are randomly sampled from a population of levels being studied.</p><h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><p><a href="http://zjz06.blogspot.se/2011/08/fixed-factorsrandom-factorscovariates.html" target="_blank" rel="noopener">http://zjz06.blogspot.se/2011/08/fixed-factorsrandom-factorscovariates.html</a></p>]]></content>
+    <content type="html"><![CDATA[<p>首先来区分Factor（因子） &amp; Covariates （协变量）：<br>前者是名目变量，一般只含两至数个类别，每个类别至少有30个案例，后者是连续或定距变量（可以含成千上百个类别，每个类别中只含一至数个案例）。协变量一般用来指“控制变量”，可以说连续变量（如年龄）、也可以是名目变量（如性别）。<br><a id="more"></a><br>Fixed factor: qualitative covariate，固定因子 = 定性协变量， 例如gender, agegroup.<br>Fixed effect: quantitative covariate，定量协变量， 例如age.<br>Random factor: qualitative variable whose levels are randomly sampled from a population of levels being studied.<br>Random effect：quantitative variable whose levels are randomly sampled from a population of levels being studied.</p><h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><p><a href="http://zjz06.blogspot.se/2011/08/fixed-factorsrandom-factorscovariates.html" target="_blank" rel="noopener">http://zjz06.blogspot.se/2011/08/fixed-factorsrandom-factorscovariates.html</a></p>]]></content>
     
     <summary type="html">
     
-      
-      
-        &lt;p&gt;首先来区分Factor（因子） &amp;amp; Covariates （协变量）：&lt;br&gt;前者是名目变量，一般只含两至数个类别，每个类别至少有30个案例，后者是连续或定距变量（可以含成千上百个类别，每个类别中只含一至数个案例）。协变量一般用来指“控制变量”，可以说连续变量（如年
-      
+      &lt;p&gt;首先来区分Factor（因子） &amp;amp; Covariates （协变量）：&lt;br&gt;前者是名目变量，一般只含两至数个类别，每个类别至少有30个案例，后者是连续或定距变量（可以含成千上百个类别，每个类别中只含一至数个案例）。协变量一般用来指“控制变量”，可以说连续变量（如年龄）、也可以是名目变量（如性别）。&lt;br&gt;
     
     </summary>
     
@@ -92,7 +120,7 @@
     <link href="http://memicat.com/2018/02/14/%E6%9C%80%E5%A4%A7%E4%BC%BC%E7%84%B6%E4%BC%B0%E8%AE%A1/"/>
     <id>http://memicat.com/2018/02/14/最大似然估计/</id>
     <published>2018-02-13T23:00:00.000Z</published>
-    <updated>2018-02-14T15:00:35.587Z</updated>
+    <updated>2018-02-18T10:41:36.265Z</updated>
     
     <content type="html"><![CDATA[<p>最大似然估计提供了一种给定观察数据来评估模型参数的方法，即：“模型已定，参数未知”。最大似然估计中的采样需要满足假设：所有的采样都是独立分布的。<br><a id="more"></a><br>首先，假设$x_1,x_2,……x_n$为独立同分布的采样，$\theta$为模型参数，$f$为我们所使用的模型，遵循独立同步假设。那么参数为$\theta$的模型f可表示为：</p><script type="math/tex; mode=display">f(x_1,x_2,...,x_n|\theta) = f(x_1|\theta) \times f(x_2|\theta),...,f(x_n|\theta)</script><p>模型已定，参数未知：已知的为$x_1,x_2,……x_n$，未知的为$\theta$, 故似然定义为：</p><script type="math/tex; mode=display">L(\theta|x_1,x_2,...,x_n) = f(x_1,...,x_n|\theta) = \prod_{i=1}^nf(x_i|\theta)</script><p>两边取对数，得到：</p><script type="math/tex; mode=display">InL(\theta|x_1,...x_n) = \sum_{i=1}^nInf(x_i|\theta),假设 \ell_{avg} = \frac{1}{n}InL</script><p>其中的<script type="math/tex">InL(\theta|x_1,...x_n)</script>称为对数似然，而 $\ell_{avg}$为平均对数似然。平时接触最多的最大似然其实是最大的对数平均似然，即：</p><script type="math/tex; mode=display">\theta^{max}= max\ell_{avg}(\theta|x_1,...,x_n)</script><p>例如，一个袋子里装有黑白两种球，球的数量不知道，做100次放回性取球抽样实验，记录下每次取球的颜色。假设100次实验中，取得白球的概率是70%，黑球30%，则一般认为白球占总数的70%。虽然可以这么说，但这是一个直接的带有感官的答案，缺乏理论证明。接下来对其进行证明：<br>假设白球的所占比是p,那么黑球就是1-p. M是所给的模型，<script type="math/tex">Data = \{x_1,x_2,...,x_{100}\}</script> 是这一百次抽样结果的数据，则：</p><script type="math/tex; mode=display">P(Data|M) = P(x_1,x_2,...,x_{100}|M) = P(x_1|M) P(x_2|M)...P(x_{100}|M)=p^{70}(1-p)^{30}</script><p>那么，从基本的数学知识可知，要想找到这个结果的最大值，应对其进行求导，并使其导数等于0. 即：<script type="math/tex">70p^{69}\times(1-p)^{30}-p^{70}\times(1-p)^{29}=0</script>, 解得p=0.7. 也就是说白球所占比为0.7的可能性最大。</p><h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><p><a href="https://www.cnblogs.com/liliu/archive/2010/11/22/1883702.html" target="_blank" rel="noopener">https://www.cnblogs.com/liliu/archive/2010/11/22/1883702.html</a></p>]]></content>
     
@@ -116,16 +144,13 @@
     <link href="http://memicat.com/2018/01/30/%E4%BB%8E%E8%BF%99%E8%AF%B4%E8%B5%B7/"/>
     <id>http://memicat.com/2018/01/30/从这说起/</id>
     <published>2018-01-29T23:00:00.000Z</published>
-    <updated>2018-02-05T16:32:24.295Z</updated>
+    <updated>2018-02-18T10:40:38.556Z</updated>
     
-    <content type="html"><![CDATA[<p>第一次有想写博客的想法其实是在2017年12月份，然后去英国过了个圣诞，回来后学习热情消失殆尽，故一直拖到如今，有几个原因促成这个博客的诞生：<br>1.自己虽大学毕业了， 但是让自己总结大学四年学到了什么专业知识，我竟一时语塞；甚至让我回想一些对自己影响颇深的人和事，记住的也是寥寥无几。古人说，“好记性不如烂笔头”，用在这再贴合不过了。人的记忆有限，况且时代变化还这么快，想要通过文字来记录自己的所学，所想，所感！<br>2.身边有不少朋友经营着自己的微信公众号，有分享自己摄影作品的，有分享自己所感所想的，甚至还有和商业合作专门写软文的，发展兴趣的同时赚点外快，有点心生羡慕，公众号的发展也让有好文采的人能够大展身手.<br>3.关于我为什么不选择开通一个微信公众号，那当然是觉得自己的文字能力有限TT,同时我想要的是一个远离社交圈的灵魂栖息地，一个真正属于自己的小小空间，可以在这肆意发疯，记下自己的碎碎念，见证自己的成长。</p><p>博客涵盖内容：计算机相关 投资理财 鸡汤</p>]]></content>
+    <content type="html"><![CDATA[<p>第一次有想写博客的想法其实是在2017年12月份，然后去英国过了个圣诞，回来后学习热情消失殆尽，故一直拖到如今，有几个原因促成这个博客的诞生：<br><a id="more"></a><br>1.自己虽大学毕业了， 但是让自己总结大学四年学到了什么专业知识，我竟一时语塞；甚至让我回想一些对自己影响颇深的人和事，记住的也是寥寥无几。古人说，“好记性不如烂笔头”，用在这再贴合不过了。人的记忆有限，况且时代变化还这么快，想要通过文字来记录自己的所学，所想，所感！<br>2.身边有不少朋友经营着自己的微信公众号，有分享自己摄影作品的，有分享自己所感所想的，甚至还有和商业合作专门写软文的，发展兴趣的同时赚点外快，有点心生羡慕，公众号的发展也让有好文采的人能够大展身手.<br>3.关于我为什么不选择开通一个微信公众号，那当然是觉得自己的文字能力有限TT,同时我想要的是一个远离社交圈的灵魂栖息地，一个真正属于自己的小小空间，可以在这肆意发疯，记下自己的碎碎念，见证自己的成长。</p><p>博客涵盖内容：计算机相关 投资理财 鸡汤</p>]]></content>
     
     <summary type="html">
     
-      
-      
-        &lt;p&gt;第一次有想写博客的想法其实是在2017年12月份，然后去英国过了个圣诞，回来后学习热情消失殆尽，故一直拖到如今，有几个原因促成这个博客的诞生：&lt;br&gt;1.自己虽大学毕业了， 但是让自己总结大学四年学到了什么专业知识，我竟一时语塞；甚至让我回想一些对自己影响颇深的人和事，记住
-      
+      &lt;p&gt;第一次有想写博客的想法其实是在2017年12月份，然后去英国过了个圣诞，回来后学习热情消失殆尽，故一直拖到如今，有几个原因促成这个博客的诞生：&lt;br&gt;
     
     </summary>
     

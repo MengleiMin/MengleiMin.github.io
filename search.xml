@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[Hexo常用数学公式]]></title>
-    <url>%2F2018%2F02%2F14%2FHexo%20%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F%2F</url>
-    <content type="text"><![CDATA[本文主要记录我在写博客期间遇到的一些常用的及特殊的数学公式，怕自己忘了，所以记录下来怕自己忘记。 常见数学符号$\theta$: \theta$\times$: \times$\prod$: \prod$\pm$: \pm$\mp$: \mp$\ell$: \ell]]></content>
+    <title><![CDATA[流数据的无监督实时异常检测]]></title>
+    <url>%2F2018%2F02%2F18%2F%E6%B5%81%E6%95%B0%E6%8D%AE%E7%9A%84%E9%9D%9E%E7%9B%91%E7%9D%A3%E5%AE%9E%E6%97%B6%E5%BC%82%E5%B8%B8%E7%9B%91%E6%B5%8B%2F</url>
+    <content type="text"><![CDATA[异常检测在工业实时流数据中非常重要，例如预防性维护，防欺诈，故障检测和监控（Preventative maintenance, fraud prevention, fault de- tection, and monitoring）等。异常可能是暂时性的（Temporal anomaly），暂时性异常可以预先发现潜在的问题，但是这种异常往往很难在实时数据流中被检测到，所以检测暂时性异常非常重要.Batch processing, data is split into train/test sets, and algorithms cannot look ahead, but data streaming is not. 流数据处理（Data streaming）和批处理(Batch processing)不同，流数据处理是处理源源不断的数据流，而批处理是处理整个数据集 (full dataset)。The concept drift means that the statistical properties of the target variable, change over time in unforeseen ways. This causes problems because the predictions become less accurate as time passes.Let the vector $\chi_t$ represent the state of a real-time system at time $t$. ...,\chi_{t-2},\chi_{t-1},\chi_{t},\chi_{t+1},\chi_{t+2},...We define the ideal characteristics of the real-world anomaly detection algorithm as follows: Predictions must be made online; i.e., the algorithm must identify state \chi_t as normal or anomalous before receiving the subsequent \chi_{t+1}. The algorithm must learn continuously without a requirement to store the entire stream. The algorithm must run in an unsupervised, automated fashion,i.e., without data labels or manual parameter tweaking. Algorithms must adapt to dynamic environments and concept drift, as the underlying statistics of the data stream is often non-stationary. Algorithms should make anomaly detections as early as possi- ble. Algorithms should minimize false positives and false negatives (this is true for batch scenarios as well). Reference]]></content>
       <categories>
-        <category>Hexo</category>
+        <category>Data Mining</category>
       </categories>
       <tags>
-        <tag>math formula</tag>
+        <tag>Data streaming</tag>
+        <tag>流数据</tag>
+        <tag>Abnormal detection</tag>
+        <tag>异常检测</tag>
       </tags>
   </entry>
   <entry>
@@ -24,9 +27,20 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[Hexo常用数学公式]]></title>
+    <url>%2F2018%2F02%2F14%2FHexo%20%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F%2F</url>
+    <content type="text"><![CDATA[本文主要记录我在写博客期间遇到的一些常用的及特殊的数学公式，怕自己忘了，所以记录下来怕自己忘记。 常见数学符号$\theta$: \theta$\times$: \times$\prod$: \prod$\pm$: \pm$\mp$: \mp$\ell$: \ell]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Math formul</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Linear Mixed Models]]></title>
     <url>%2F2018%2F02%2F14%2FLinear%20mixed%20model%2F</url>
-    <content type="text"><![CDATA[首先来区分Factor（因子） &amp; Covariates （协变量）：前者是名目变量，一般只含两至数个类别，每个类别至少有30个案例，后者是连续或定距变量（可以含成千上百个类别，每个类别中只含一至数个案例）。协变量一般用来指“控制变量”，可以说连续变量（如年龄）、也可以是名目变量（如性别）。 Fixed factor: qualitative covariate，固定因子 = 定性协变量， 例如gender, agegroup.Fixed effect: quantitative covariate，定量协变量， 例如age.Random factor: qualitative variable whose levels are randomly sampled from a population of levels being studied.Random effect：quantitative variable whose levels are randomly sampled from a population of levels being studied. Referencehttp://zjz06.blogspot.se/2011/08/fixed-factorsrandom-factorscovariates.html]]></content>
+    <content type="text"><![CDATA[首先来区分Factor（因子） &amp; Covariates （协变量）：前者是名目变量，一般只含两至数个类别，每个类别至少有30个案例，后者是连续或定距变量（可以含成千上百个类别，每个类别中只含一至数个案例）。协变量一般用来指“控制变量”，可以说连续变量（如年龄）、也可以是名目变量（如性别）。Fixed factor: qualitative covariate，固定因子 = 定性协变量， 例如gender, agegroup.Fixed effect: quantitative covariate，定量协变量， 例如age.Random factor: qualitative variable whose levels are randomly sampled from a population of levels being studied.Random effect：quantitative variable whose levels are randomly sampled from a population of levels being studied. Referencehttp://zjz06.blogspot.se/2011/08/fixed-factorsrandom-factorscovariates.html]]></content>
       <categories>
         <category>Data Mining</category>
       </categories>
