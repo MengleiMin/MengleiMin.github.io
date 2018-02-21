@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="1. 数据异质性假设自变量是X，因变量是Y。那么如果要识别X是如何影响Y的，则要保证其他因素（非观测因素）不变。为了逻辑清晰可见，把非观测因素的作用归结为Z。如果X的值变化了，Z的值也随之变动，此时你观测到的Y的变动，到底是X引起的，还是Z引起的？如果其他因素Z不变，则其可以被看作是误差项，并认为这个误差项的方差应该是保持不变的，这样的就叫“同方差”。但是如果Z随X的变化而变化，那么Z的方差就不是">
+<meta name="description" content="1.基础知识1.1 数据异质性假设自变量是X，因变量是Y。那么如果要识别X是如何影响Y的，则要保证其他因素（非观测因素）不变。为了逻辑清晰可见，把非观测因素的作用归结为Z。如果X的值变化了，Z的值也随之变动，此时你观测到的Y的变动，到底是X引起的，还是Z引起的？如果其他因素Z不变，则其可以被看作是误差项，并认为这个误差项的方差应该是保持不变的，这样的就叫“同方差”。但是如果Z随X的变化而变化，那么">
 <meta name="keywords" content="Big data,大数据,Least Squares Estimator,最小二乘估计">
 <meta property="og:type" content="article">
 <meta property="og:title" content="大数据分布式挖掘的在线学习算法">
 <meta property="og:url" content="http://memicat.com/2018/02/21/大数据/index.html">
 <meta property="og:site_name" content="Memicat&#39;s blog!">
-<meta property="og:description" content="1. 数据异质性假设自变量是X，因变量是Y。那么如果要识别X是如何影响Y的，则要保证其他因素（非观测因素）不变。为了逻辑清晰可见，把非观测因素的作用归结为Z。如果X的值变化了，Z的值也随之变动，此时你观测到的Y的变动，到底是X引起的，还是Z引起的？如果其他因素Z不变，则其可以被看作是误差项，并认为这个误差项的方差应该是保持不变的，这样的就叫“同方差”。但是如果Z随X的变化而变化，那么Z的方差就不是">
+<meta property="og:description" content="1.基础知识1.1 数据异质性假设自变量是X，因变量是Y。那么如果要识别X是如何影响Y的，则要保证其他因素（非观测因素）不变。为了逻辑清晰可见，把非观测因素的作用归结为Z。如果X的值变化了，Z的值也随之变动，此时你观测到的Y的变动，到底是X引起的，还是Z引起的？如果其他因素Z不变，则其可以被看作是误差项，并认为这个误差项的方差应该是保持不变的，这样的就叫“同方差”。但是如果Z随X的变化而变化，那么">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-02-21T16:46:54.778Z">
+<meta property="og:updated_time" content="2018-02-21T17:21:27.445Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="大数据分布式挖掘的在线学习算法">
-<meta name="twitter:description" content="1. 数据异质性假设自变量是X，因变量是Y。那么如果要识别X是如何影响Y的，则要保证其他因素（非观测因素）不变。为了逻辑清晰可见，把非观测因素的作用归结为Z。如果X的值变化了，Z的值也随之变动，此时你观测到的Y的变动，到底是X引起的，还是Z引起的？如果其他因素Z不变，则其可以被看作是误差项，并认为这个误差项的方差应该是保持不变的，这样的就叫“同方差”。但是如果Z随X的变化而变化，那么Z的方差就不是">
+<meta name="twitter:description" content="1.基础知识1.1 数据异质性假设自变量是X，因变量是Y。那么如果要识别X是如何影响Y的，则要保证其他因素（非观测因素）不变。为了逻辑清晰可见，把非观测因素的作用归结为Z。如果X的值变化了，Z的值也随之变动，此时你观测到的Y的变动，到底是X引起的，还是Z引起的？如果其他因素Z不变，则其可以被看作是误差项，并认为这个误差项的方差应该是保持不变的，这样的就叫“同方差”。但是如果Z随X的变化而变化，那么">
 
 
 
@@ -363,11 +363,11 @@
       
 
       
-        <h3 id="1-数据异质性"><a href="#1-数据异质性" class="headerlink" title="1. 数据异质性"></a>1. 数据异质性</h3><p>假设自变量是X，因变量是Y。那么如果要识别X是如何影响Y的，则要保证其他因素（非观测因素）不变。为了逻辑清晰可见，把非观测因素的作用归结为Z。如果X的值变化了，Z的值也随之变动，此时你观测到的Y的变动，到底是X引起的，还是Z引起的？<br>如果其他因素Z不变，则其可以被看作是误差项，并认为这个误差项的方差应该是保持不变的，这样的就叫“同方差”。但是如果Z随X的变化而变化，那么Z的方差就不是不变的，也就是说误差项Z表现出“异方差”特性，也就是数据的”数据异质性“。</p>
-<h3 id="2-最小二乘估计-（Least-Squares-Estimator）"><a href="#2-最小二乘估计-（Least-Squares-Estimator）" class="headerlink" title="2. 最小二乘估计 （Least Squares Estimator）"></a>2. 最小二乘估计 （Least Squares Estimator）</h3><p>最小二乘估计在Machine learning领域被广泛使用，接下来就来简单的介绍一下这个方法，首先，看一个式子：</p>
+        <h3 id="1-基础知识"><a href="#1-基础知识" class="headerlink" title="1.基础知识"></a>1.基础知识</h3><h4 id="1-1-数据异质性"><a href="#1-1-数据异质性" class="headerlink" title="1.1 数据异质性"></a>1.1 数据异质性</h4><p>假设自变量是X，因变量是Y。那么如果要识别X是如何影响Y的，则要保证其他因素（非观测因素）不变。为了逻辑清晰可见，把非观测因素的作用归结为Z。如果X的值变化了，Z的值也随之变动，此时你观测到的Y的变动，到底是X引起的，还是Z引起的？<br>如果其他因素Z不变，则其可以被看作是误差项，并认为这个误差项的方差应该是保持不变的，这样的就叫“同方差”。但是如果Z随X的变化而变化，那么Z的方差就不是不变的，也就是说误差项Z表现出“异方差”特性，也就是数据的”数据异质性“。<br><a id="more"></a></p>
+<h4 id="1-2-最小二乘估计-（Least-Squares-Estimator）"><a href="#1-2-最小二乘估计-（Least-Squares-Estimator）" class="headerlink" title="1.2 最小二乘估计 （Least Squares Estimator）"></a>1.2 最小二乘估计 （Least Squares Estimator）</h4><p>最小二乘估计在Machine learning领域被广泛使用，接下来就来简单的介绍一下这个方法，首先，看一个式子：</p>
 <script type="math/tex; mode=display">y=ax+e</script><p>这是一个简单的直线方程，X是自变量，y是因变量，<script type="math/tex">e</script>是一个常量，此等式只能代表一个自变量对因变量的影响。<br>如果我们把一个自变量拓展到n个自变量，比如影响一个人的智商的可能是年龄，但也有可能是环境，基因，受教育程度等。则以上式子就变为：</p>
 <script type="math/tex; mode=display">y_i = a_1x_{i1} +...+ a_2x_{i2}+...+a_kx_{ik}+e_i, 1 \le i \le n, k\ge1</script><p>换做矩阵表示为：</p>
-<script type="math/tex; mode=display">\vec{y} = X \vec{a} + \vec{e}</script><script type="math/tex; mode=display">\left[
+<script type="math/tex; mode=display">\vec{\mkern1mu y} = X \vec{\mkern1mu a} + \vec{\mkern1mu e}</script><script type="math/tex; mode=display">\left[
       \begin{array}{c}
         y1\\
         y2\\
@@ -400,9 +400,13 @@
    \vdots\\
    e_n\\
  \end{array}
- \right]</script><p>为了让$\vec{a }$变得更有意义，那么就要使$\vec{e}$尽量的小。也就是让$\vec{e}$的长度尽量小。</p>
-<script type="math/tex; mode=display">|\vec{e}| = \sqrt{\sum_{i=1}^n e_i^2}</script><p>两边平方得：</p>
-<script type="math/tex; mode=display">|\vec{e}|^2 = \sum_{i=1}^n e_i^2 = \vec{e}\vec{e} = \vec{e}^{T}\vec{e}</script><p>也就是说，当$\vec{e}^{T}\vec{e}$取最小值时，$\vec{a}$能取得最优解。</p>
+ \right]</script><p>为了让$\vec{\mkern1mu a}$变得更有意义，那么就要使$\vec{\mkern1mu e}$尽量的小。也就是让$\vec{\mkern1mu e}$的长度尽量小。</p>
+<script type="math/tex; mode=display">|\vec{\mkern1mu e}| = \sqrt{\sum_{i=1}^n e_i^2}</script><p>两边平方得：</p>
+<script type="math/tex; mode=display">|\vec{\mkern1mu e}|^2 = \sum_{i=1}^n e_i^2 = \vec{\mkern1mu e}\vec{\mkern1mu e} = \vec{\mkern1mu e}^{T}\vec{\mkern1mu e}</script><p>也就是说，当$\vec{\mkern1mu e}^{T}\vec{\mkern1mu e}$取最小值时，$\vec{\mkern1mu a}$能取得最优解。继续推倒，可以得到下式（证明略，有兴趣的可以看reference的第二个链接）：</p>
+<script type="math/tex; mode=display">\vec{\mkern1mu e}^{T}\vec{\mkern1mu e} = \vec{\mkern1mu y}^{T}\vec{\mkern1mu y} - 2\vec{\mkern1mu y}^{T}X\vec{\mkern1mu a}+\vec{\mkern1mu a}^{T}X^{T}X\vec{\mkern1mu a}</script><p>然后利用矩阵微分，可得：</p>
+<script type="math/tex; mode=display">\vec{\mkern1mu a} = (X^TX)^{-1}X^T\vec{\mkern1mu y}</script><p>这个式子就是最小二乘估计。</p>
+<p>特殊情况下的最小二乘估计：如果X是一个方阵，则</p>
+<script type="math/tex; mode=display">\vec{\mkern1mu a} = X^{-1}\vec{\mkern1mu y}</script><p>可以发现，当为方阵时，最小二乘估计很简单。不是方阵时，由于$X^{-1}$和$（X^T）^{-1}$都不成立，导致最小二乘估计无法继续化简。</p>
 <h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><p><a href="https://www.zhihu.com/question/22246294" target="_blank" rel="noopener">https://www.zhihu.com/question/22246294</a><br><a href="http://www.qiujiawei.com/linear-algebra-15/" target="_blank" rel="noopener">http://www.qiujiawei.com/linear-algebra-15/</a></p>
 
       
@@ -696,7 +700,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-数据异质性"><span class="nav-text"><a href="#1-&#x6570;&#x636E;&#x5F02;&#x8D28;&#x6027;" class="headerlink" title="1. &#x6570;&#x636E;&#x5F02;&#x8D28;&#x6027;"></a>1. &#x6570;&#x636E;&#x5F02;&#x8D28;&#x6027;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-最小二乘估计-（Least-Squares-Estimator）"><span class="nav-text"><a href="#2-&#x6700;&#x5C0F;&#x4E8C;&#x4E58;&#x4F30;&#x8BA1;-&#xFF08;Least-Squares-Estimator&#xFF09;" class="headerlink" title="2. &#x6700;&#x5C0F;&#x4E8C;&#x4E58;&#x4F30;&#x8BA1; &#xFF08;Least Squares Estimator&#xFF09;"></a>2. &#x6700;&#x5C0F;&#x4E8C;&#x4E58;&#x4F30;&#x8BA1; &#xFF08;Least Squares Estimator&#xFF09;</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-text"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</span></a></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-基础知识"><span class="nav-text"><a href="#1-&#x57FA;&#x7840;&#x77E5;&#x8BC6;" class="headerlink" title="1.&#x57FA;&#x7840;&#x77E5;&#x8BC6;"></a>1.&#x57FA;&#x7840;&#x77E5;&#x8BC6;</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-数据异质性"><span class="nav-text"><a href="#1-1-&#x6570;&#x636E;&#x5F02;&#x8D28;&#x6027;" class="headerlink" title="1.1 &#x6570;&#x636E;&#x5F02;&#x8D28;&#x6027;"></a>1.1 &#x6570;&#x636E;&#x5F02;&#x8D28;&#x6027;</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-最小二乘估计-（Least-Squares-Estimator）"><span class="nav-text"><a href="#1-2-&#x6700;&#x5C0F;&#x4E8C;&#x4E58;&#x4F30;&#x8BA1;-&#xFF08;Least-Squares-Estimator&#xFF09;" class="headerlink" title="1.2 &#x6700;&#x5C0F;&#x4E8C;&#x4E58;&#x4F30;&#x8BA1; &#xFF08;Least Squares Estimator&#xFF09;"></a>1.2 &#x6700;&#x5C0F;&#x4E8C;&#x4E58;&#x4F30;&#x8BA1; &#xFF08;Least Squares Estimator&#xFF09;</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-text"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</span></a></div>
             
 
           </div>
