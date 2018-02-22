@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Big data,大数据,Least Squares Estimator,最小二乘估计," />
+  <meta name="keywords" content="Linear Mixed Models," />
 
 
 
@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="1.基础知识1.1 数据异质性假设自变量是X，因变量是Y。那么如果要识别X是如何影响Y的，则要保证其他因素（非观测因素）不变。为了逻辑清晰可见，把非观测因素的作用归结为Z。如果X的值变化了，Z的值也随之变动，此时你观测到的Y的变动，到底是X引起的，还是Z引起的？如果其他因素Z不变，则其可以被看作是误差项，并认为这个误差项的方差应该是保持不变的，这样的就叫“同方差”。但是如果Z随X的变化而变化，那么">
-<meta name="keywords" content="Big data,大数据,Least Squares Estimator,最小二乘估计">
+<meta name="description" content="Reference">
+<meta name="keywords" content="Linear Mixed Models">
 <meta property="og:type" content="article">
-<meta property="og:title" content="大数据分布式挖掘的在线学习算法">
-<meta property="og:url" content="http://memicat.com/2018/02/21/2018.02.21_大数据/index.html">
+<meta property="og:title" content="Example">
+<meta property="og:url" content="http://memicat.com/2020/02/14/Example/index.html">
 <meta property="og:site_name" content="Memicat&#39;s blog!">
-<meta property="og:description" content="1.基础知识1.1 数据异质性假设自变量是X，因变量是Y。那么如果要识别X是如何影响Y的，则要保证其他因素（非观测因素）不变。为了逻辑清晰可见，把非观测因素的作用归结为Z。如果X的值变化了，Z的值也随之变动，此时你观测到的Y的变动，到底是X引起的，还是Z引起的？如果其他因素Z不变，则其可以被看作是误差项，并认为这个误差项的方差应该是保持不变的，这样的就叫“同方差”。但是如果Z随X的变化而变化，那么">
+<meta property="og:description" content="Reference">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-02-22T10:45:04.041Z">
+<meta property="og:updated_time" content="2018-02-22T11:30:53.632Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="大数据分布式挖掘的在线学习算法">
-<meta name="twitter:description" content="1.基础知识1.1 数据异质性假设自变量是X，因变量是Y。那么如果要识别X是如何影响Y的，则要保证其他因素（非观测因素）不变。为了逻辑清晰可见，把非观测因素的作用归结为Z。如果X的值变化了，Z的值也随之变动，此时你观测到的Y的变动，到底是X引起的，还是Z引起的？如果其他因素Z不变，则其可以被看作是误差项，并认为这个误差项的方差应该是保持不变的，这样的就叫“同方差”。但是如果Z随X的变化而变化，那么">
+<meta name="twitter:title" content="Example">
+<meta name="twitter:description" content="Reference">
 
 
 
@@ -122,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://memicat.com/2018/02/21/2018.02.21_大数据/"/>
+  <link rel="canonical" href="http://memicat.com/2020/02/14/Example/"/>
 
 
 
 
 
-  <title>大数据分布式挖掘的在线学习算法 | Memicat's blog!</title>
+  <title>Example | Memicat's blog!</title>
   
 
 
@@ -265,7 +265,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://memicat.com/2018/02/21/2018.02.21_大数据/">
+    <link itemprop="mainEntityOfPage" href="http://memicat.com/2020/02/14/Example/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Memicat">
@@ -282,7 +282,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">大数据分布式挖掘的在线学习算法</h1>
+          <h1 class="post-title" itemprop="name headline">Example</h1>
         
 
         <div class="post-meta">
@@ -294,8 +294,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-21T00:00:00+01:00">
-                2018-02-21
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-02-14T00:00:00+01:00">
+                2020-02-14
               </time>
             
 
@@ -334,7 +334,7 @@
 
           
           
-             <span id="/2018/02/21/2018.02.21_大数据/" class="leancloud_visitors" data-flag-title="大数据分布式挖掘的在线学习算法">
+             <span id="/2020/02/14/Example/" class="leancloud_visitors" data-flag-title="Example">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -363,9 +363,7 @@
       
 
       
-        <h3 id="1-基础知识"><a href="#1-基础知识" class="headerlink" title="1.基础知识"></a>1.基础知识</h3><h4 id="1-1-数据异质性"><a href="#1-1-数据异质性" class="headerlink" title="1.1 数据异质性"></a>1.1 数据异质性</h4><p>假设自变量是X，因变量是Y。那么如果要识别X是如何影响Y的，则要保证其他因素（非观测因素）不变。为了逻辑清晰可见，把非观测因素的作用归结为Z。如果X的值变化了，Z的值也随之变动，此时你观测到的Y的变动，到底是X引起的，还是Z引起的？<br>如果其他因素Z不变，则其可以被看作是误差项，并认为这个误差项的方差应该是保持不变的，这样的就叫“同方差”。但是如果Z随X的变化而变化，那么Z的方差就不是不变的，也就是说误差项Z表现出“异方差”特性，也就是数据的”数据异质性“。<br><a id="more"></a></p>
-<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><p><a href="https://www.zhihu.com/question/22246294" target="_blank" rel="noopener">https://www.zhihu.com/question/22246294</a><br><a href="http://www.qiujiawei.com/linear-algebra-15/" target="_blank" rel="noopener">http://www.qiujiawei.com/linear-algebra-15/</a></p>
-
+        <h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3>
       
     </div>
     
@@ -411,13 +409,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Big-data/" rel="tag"># Big data</a>
-          
-            <a href="/tags/大数据/" rel="tag"># 大数据</a>
-          
-            <a href="/tags/Least-Squares-Estimator/" rel="tag"># Least Squares Estimator</a>
-          
-            <a href="/tags/最小二乘估计/" rel="tag"># 最小二乘估计</a>
+            <a href="/tags/Linear-Mixed-Models/" rel="tag"># Linear Mixed Models</a>
           
         </div>
       
@@ -567,7 +559,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -589,7 +581,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-count">21</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
@@ -657,7 +649,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-基础知识"><span class="nav-text"><a href="#1-&#x57FA;&#x7840;&#x77E5;&#x8BC6;" class="headerlink" title="1.&#x57FA;&#x7840;&#x77E5;&#x8BC6;"></a>1.&#x57FA;&#x7840;&#x77E5;&#x8BC6;</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-数据异质性"><span class="nav-text"><a href="#1-1-&#x6570;&#x636E;&#x5F02;&#x8D28;&#x6027;" class="headerlink" title="1.1 &#x6570;&#x636E;&#x5F02;&#x8D28;&#x6027;"></a>1.1 &#x6570;&#x636E;&#x5F02;&#x8D28;&#x6027;</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Reference"><span class="nav-text"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Reference"><span class="nav-text"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</span></a></li></ol></div>
             
 
           </div>
@@ -826,9 +818,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://memicat.com/2018/02/21/2018.02.21_大数据/';
-          this.page.identifier = '2018/02/21/2018.02.21_大数据/';
-          this.page.title = '大数据分布式挖掘的在线学习算法';
+          this.page.url = 'http://memicat.com/2020/02/14/Example/';
+          this.page.identifier = '2020/02/14/Example/';
+          this.page.title = 'Example';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://http-memicat-com.disqus.com/embed.js';

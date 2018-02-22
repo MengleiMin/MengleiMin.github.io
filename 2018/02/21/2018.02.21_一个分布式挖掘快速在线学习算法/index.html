@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Least Squares Estimator,最小二乘估计,Math learning,机器学习," />
+  <meta name="keywords" content="在线学习算法,Online learning algorithm," />
 
 
 
@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="最小二乘估计在Machine learning领域被广泛使用，接下来就来简单的介绍一下这个方法，首先，看一个式子： y=ax+e这是一个简单的直线方程，X是自变量，y是因变量，e是一个常量，此等式只能代表一个自变量对因变量的影响。">
-<meta name="keywords" content="Least Squares Estimator,最小二乘估计,Math learning,机器学习">
+<meta name="description" content="数据异质性假设自变量是X，因变量是Y。那么如果要识别X是如何影响Y的，则要保证其他因素（非观测因素）不变。为了逻辑清晰可见，把非观测因素的作用归结为Z。如果X的值变化了，Z的值也随之变动，此时你观测到的Y的变动，到底是X引起的，还是Z引起的？如果其他因素Z不变，则其可以被看作是误差项，并认为这个误差项的方差应该是保持不变的，这样的就叫“同方差”。但是如果Z随X的变化而变化，那么Z的方差就不是不变的">
+<meta name="keywords" content="在线学习算法,Online learning algorithm">
 <meta property="og:type" content="article">
-<meta property="og:title" content="最小二乘估计（Least Squares Estimator）">
-<meta property="og:url" content="http://memicat.com/2018/02/21/20180.02.21_最小二乘估计/index.html">
+<meta property="og:title" content="一个分布式挖掘快速在线学习算法 (Online learning algorithm)">
+<meta property="og:url" content="http://memicat.com/2018/02/21/2018.02.21_一个分布式挖掘快速在线学习算法/index.html">
 <meta property="og:site_name" content="Memicat&#39;s blog!">
-<meta property="og:description" content="最小二乘估计在Machine learning领域被广泛使用，接下来就来简单的介绍一下这个方法，首先，看一个式子： y=ax+e这是一个简单的直线方程，X是自变量，y是因变量，e是一个常量，此等式只能代表一个自变量对因变量的影响。">
+<meta property="og:description" content="数据异质性假设自变量是X，因变量是Y。那么如果要识别X是如何影响Y的，则要保证其他因素（非观测因素）不变。为了逻辑清晰可见，把非观测因素的作用归结为Z。如果X的值变化了，Z的值也随之变动，此时你观测到的Y的变动，到底是X引起的，还是Z引起的？如果其他因素Z不变，则其可以被看作是误差项，并认为这个误差项的方差应该是保持不变的，这样的就叫“同方差”。但是如果Z随X的变化而变化，那么Z的方差就不是不变的">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-02-22T11:29:48.042Z">
+<meta property="og:updated_time" content="2018-02-22T17:43:57.634Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="最小二乘估计（Least Squares Estimator）">
-<meta name="twitter:description" content="最小二乘估计在Machine learning领域被广泛使用，接下来就来简单的介绍一下这个方法，首先，看一个式子： y=ax+e这是一个简单的直线方程，X是自变量，y是因变量，e是一个常量，此等式只能代表一个自变量对因变量的影响。">
+<meta name="twitter:title" content="一个分布式挖掘快速在线学习算法 (Online learning algorithm)">
+<meta name="twitter:description" content="数据异质性假设自变量是X，因变量是Y。那么如果要识别X是如何影响Y的，则要保证其他因素（非观测因素）不变。为了逻辑清晰可见，把非观测因素的作用归结为Z。如果X的值变化了，Z的值也随之变动，此时你观测到的Y的变动，到底是X引起的，还是Z引起的？如果其他因素Z不变，则其可以被看作是误差项，并认为这个误差项的方差应该是保持不变的，这样的就叫“同方差”。但是如果Z随X的变化而变化，那么Z的方差就不是不变的">
 
 
 
@@ -122,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://memicat.com/2018/02/21/20180.02.21_最小二乘估计/"/>
+  <link rel="canonical" href="http://memicat.com/2018/02/21/2018.02.21_一个分布式挖掘快速在线学习算法/"/>
 
 
 
 
 
-  <title>最小二乘估计（Least Squares Estimator） | Memicat's blog!</title>
+  <title>一个分布式挖掘快速在线学习算法 (Online learning algorithm) | Memicat's blog!</title>
   
 
 
@@ -265,7 +265,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://memicat.com/2018/02/21/20180.02.21_最小二乘估计/">
+    <link itemprop="mainEntityOfPage" href="http://memicat.com/2018/02/21/2018.02.21_一个分布式挖掘快速在线学习算法/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Memicat">
@@ -282,7 +282,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">最小二乘估计（Least Squares Estimator）</h1>
+          <h1 class="post-title" itemprop="name headline">一个分布式挖掘快速在线学习算法 (Online learning algorithm)</h1>
         
 
         <div class="post-meta">
@@ -317,8 +317,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Math/" itemprop="url" rel="index">
-                    <span itemprop="name">Math</span>
+                  <a href="/categories/Data-Mining/" itemprop="url" rel="index">
+                    <span itemprop="name">Data Mining</span>
                   </a>
                 </span>
 
@@ -334,7 +334,7 @@
 
           
           
-             <span id="/2018/02/21/20180.02.21_最小二乘估计/" class="leancloud_visitors" data-flag-title="最小二乘估计（Least Squares Estimator）">
+             <span id="/2018/02/21/2018.02.21_一个分布式挖掘快速在线学习算法/" class="leancloud_visitors" data-flag-title="一个分布式挖掘快速在线学习算法 (Online learning algorithm)">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -363,50 +363,16 @@
       
 
       
-        <p>最小二乘估计在Machine learning领域被广泛使用，接下来就来简单的介绍一下这个方法，首先，看一个式子：</p>
-<script type="math/tex; mode=display">y=ax+e</script><p>这是一个简单的直线方程，X是自变量，y是因变量，<script type="math/tex">e</script>是一个常量，此等式只能代表一个自变量对因变量的影响。<br><a id="more"></a><br>如果我们把一个自变量拓展到n个自变量，比如影响一个人的智商的可能是年龄，但也有可能是环境，基因，受教育程度等。则以上式子就变为：</p>
-<script type="math/tex; mode=display">y_i = a_1x_{i1} +...+ a_2x_{i2}+...+a_kx_{ik}+e_i, 1 \le i \le n, k\ge1</script><p>换做矩阵表示为：</p>
-<script type="math/tex; mode=display">\vec{\mkern1mu y} = X \vec{\mkern1mu a} + \vec{\mkern1mu e}</script><script type="math/tex; mode=display">\left[
-      \begin{array}{c}
-        y1\\
-        y2\\
-        \vdots\\
-        y_n\\
-      \end{array}
-  \right]
-=  
-  \left[
-  \begin{array}{cccc}
-  x_{11} & x_{12} & \cdots x_{1k} \\
-  x_{21} & x_{22} & \cdots x_{2k} \\
-  \vdots & \vdots & \ddots \vdots \\
-  x_{n1} & x_{n2} & \cdots x_{nk} \\
-  \end{array}
-  \right]
-
-  \left[
-  \begin{array}{c}
-    a1\\
-    a2\\
-    \vdots\\
-    a_k\\
-  \end{array}
-  \right]
- +\left[
- \begin{array}{c}
-   e1\\
-   e2\\
-   \vdots\\
-   e_n\\
- \end{array}
- \right]</script><p>为了让$\vec{\mkern1mu a}$变得更有意义，那么就要使$\vec{\mkern1mu e}$尽量的小。也就是让$\vec{\mkern1mu e}$的长度尽量小。</p>
-<script type="math/tex; mode=display">|\vec{\mkern1mu e}| = \sqrt{\sum_{i=1}^n e_i^2}</script><p>两边平方得：</p>
-<script type="math/tex; mode=display">|\vec{\mkern1mu e}|^2 = \sum_{i=1}^n e_i^2 = \vec{\mkern1mu e}\vec{\mkern1mu e} = \vec{\mkern1mu e}^{T}\vec{\mkern1mu e}</script><p>也就是说，当$\vec{\mkern1mu e}^{T}\vec{\mkern1mu e}$取最小值时，$\vec{\mkern1mu a}$能取得最优解。继续推倒，可以得到下式（证明略，有兴趣的可以看reference的第二个链接）：</p>
-<script type="math/tex; mode=display">\vec{\mkern1mu e}^{T}\vec{\mkern1mu e} = \vec{\mkern1mu y}^{T}\vec{\mkern1mu y} - 2\vec{\mkern1mu y}^{T}X\vec{\mkern1mu a}+\vec{\mkern1mu a}^{T}X^{T}X\vec{\mkern1mu a}</script><p>然后利用矩阵微分，可得：</p>
-<script type="math/tex; mode=display">\vec{\mkern1mu a} = (X^TX)^{-1}X^T\vec{\mkern1mu y}</script><p>这个式子就是最小二乘估计。</p>
-<p>特殊情况下的最小二乘估计：如果X是一个方阵，则</p>
-<script type="math/tex; mode=display">\vec{\mkern1mu a} = X^{-1}\vec{\mkern1mu y}</script><p>可以发现，当为方阵时，最小二乘估计很简单。不是方阵时，由于$X^{-1}$和$（X^T）^{-1}$都不成立，导致最小二乘估计无法继续化简。</p>
-<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><p><a href="http://www.qiujiawei.com/linear-algebra-15/" target="_blank" rel="noopener">http://www.qiujiawei.com/linear-algebra-15/</a></p>
+        <h3 id="数据异质性"><a href="#数据异质性" class="headerlink" title="数据异质性"></a>数据异质性</h3><p>假设自变量是X，因变量是Y。那么如果要识别X是如何影响Y的，则要保证其他因素（非观测因素）不变。为了逻辑清晰可见，把非观测因素的作用归结为Z。如果X的值变化了，Z的值也随之变动，此时你观测到的Y的变动，到底是X引起的，还是Z引起的？<br>如果其他因素Z不变，则其可以被看作是误差项，并认为这个误差项的方差应该是保持不变的，这样的就叫“同方差”。但是如果Z随X的变化而变化，那么Z的方差就不是不变的，也就是说误差项Z表现出“异方差”特性，也就是数据的”数据异质性“。<br><a id="more"></a></p>
+<h3 id="欧几里得范数-（Euclidean-norm）"><a href="#欧几里得范数-（Euclidean-norm）" class="headerlink" title="欧几里得范数 （Euclidean norm）"></a>欧几里得范数 （Euclidean norm）</h3><p>也叫欧几里得长度，例如x是n维向量$(X_1,X_2,…,X_n)$</p>
+<script type="math/tex; mode=display">||x|| = {||x||}_2 = \sqrt{|X_1|^2+|X_2|^2+...+|X_n|^2}</script><script type="math/tex; mode=display">{||x||}_2^2 = |X_1|^2+|X_2|^2+...+|X_n|^2</script><script type="math/tex; mode=display">{||x||}_1 = |X_1|+|X_2|+...+|X_n|</script><h3 id="协方差矩阵-（covariance-matrix）"><a href="#协方差矩阵-（covariance-matrix）" class="headerlink" title="协方差矩阵 （covariance matrix）"></a>协方差矩阵 （covariance matrix）</h3><p>在统计学与概率论中，协方差矩阵的每个元素是各个向量元素之间的协方差，是从标量随机变量到高维度随机向量的自然推广。协方差（Covariance）在概率论和统计学中用于衡量两个变量的总体误差。而方差是协方差的一种特殊情况，即当两个变量是相同的情况。<br>协方差表示的是两个变量的总体的误差，这与只表示一个变量误差的方差不同。 如果两个变量的变化趋势一致，也就是说如果其中一个大于自身的期望值，另外一个也大于自身的期望值，那么两个变量之间的协方差就是正值。 如果两个变量的变化趋势相反，即其中一个大于自身的期望值，另外一个却小于自身的期望值，那么两个变量之间的协方差就是负值。<br>期望值分别为E[X]与E[Y]的两个实随机变量X与Y之间的协方差Cov(X,Y)定义为：</p>
+<script type="math/tex; mode=display">Cov(X,Y)    = E[(X-E[X])(Y-E[Y])]\\
+\qquad \qquad \qquad= E[XY] - 2E[Y]E[X]+E[X]E[Y]\\
+        \quad  = E[XY] - E[X]E[Y]</script><p>从直观上来看，协方差表示的是两个变量总体误差的期望。<br>如果X与Y是统计独立的，那么二者之间的协方差就是0，因为两个独立的随机变量满足<script type="math/tex">E[XY]=E[X]E[Y]</script>。<br>但是，反过来并不成立。即如果X与Y的协方差为0，二者并不一定是统计独立的。<br>协方差矩阵具有以下性质：<br>(1)  $cov(X,Y) = cov (Y,X)^T$<br>(2)  $cov(AX+b,Y) = Acov (X,Y)$<br>(3)  $cov(X+Y,Z) = cov (X,Z)+cov(Y,Z)$</p>
+<h3 id="在线学习算法"><a href="#在线学习算法" class="headerlink" title="在线学习算法"></a>在线学习算法</h3><p>假设一个分布式数据挖掘系统拥有1个整合学习机和$\kappa$个本地学习机，$\kappa \in \{1,…,K\}$,时间线被分成离散的周期。在每一段周期n内，有一个数据实体<script type="math/tex">x^n = ((x_i^n)_{i=1}^d, y^n)</script> 输入系统， <script type="math/tex">(x_i^n)_{i=1}^d</script> 表示数据的属性特征，$y \in {Y}$是对这个实体的标记。对每一个到来的数据实体，每个本地学习机$k \in \kappa$都会观察属性特征集的一个子集<script type="math/tex">{A}_k \subseteq \{1,...,d\}</script>。 假设 <script type="math/tex">\bigcup_{k \in \kappa} {A}_k = \{1,...,d\}</script>,也就是说虽然单个本地学习机无法观察到数据的所有属性特征，但是所有本地学习机的观察集合可以。<br>在每个周期 n 内，对于$x^n$，每一个本地学习机，$k \in \kappa$,在基于观测 <script type="math/tex">{(x_j^n)}_{j \in A_k}</script> 的情况下, 会作出一个对 $y^n$的预测 $\hat{\mkern1mu y}_k^n$. 对于整个系统而言，最需要做的就是最大化整合学习机的预测准确性。为了实现这个目标，我们假设每个本地学习机 $k$ 都维护着有限个预测函数，定义为：</p>
+<script type="math/tex; mode=display">\digamma_k = \{f : \prod_{j \in A_k} \chi_j \to R \}</script><p><script type="math/tex">\chi_j</script> 表示属性特征<script type="math/tex">x_j</script>的取值范围。每一个预测函数可以被理解为分类器（classifier）。在这，我们假设每个本地学习机用线性回归器（Linear regressor）将其所有可用的预测函数结合，然后去作预测。让<script type="math/tex">\vec{\mkern1mu f}_k = (f_{k1},...,f_{k|\digamma_k|})</script> 表示本地学习机 k 的所有预测函数。除此以外，本地学习机还维护着一个对每个预测函数的权重向量<script type="math/tex">\vec{\mkern1mu b}_k \in R^{|\digamma_k|}</script>, 所以在周期 n 内，本地学习机的预测通过 <script type="math/tex">\hat{\mkern1mu y}_k^n = \langle \vec{\mkern1mu b}_k, \vec{\mkern1mu f}_k({(x_j^n)}_{j \in A_k}) \rangle</script>得到.<br>Next整合学习机聚集所有本地学习机的预测，并用一个线性回归器作为整合学习机的预测函数去产生最后的输出：<script type="math/tex">\hat{\mkern1mu y}^n = \sum_{k \in \kappa}w_k \hat{\mkern1mu y}_k^n</script>. 向量<script type="math/tex">\vec{\mkern1mu w} = \{w_k\}_{k=1}^K</script> 是整合学习机赋值给本地学习机的权重向量。在这里，我们假设所有本地学习机的预测都是无偏向的(unbiased)。因此，所有权重之和标准化后为1:<script type="math/tex">\sum_{k=1}^K w_k =1</script>.<br>我们的目标是设计一个算法：对学习机权重进行设限，最小化实体预测值的平方差，也就是：</p>
+<p><script type="math/tex">{\min \limits_{b_k}}\quad{\min \limits_w} \sum_{m=1}^n (y^m-\sum_{k=1}^K w_k \langle \vec{\mkern1mu b}_k,\vec{\mkern1mu f}_k({(x_j^m)}_{j \in A_k})\rangle)^2,\quad s.t. {||W||}_1 = 1, {||b_k||}_2 \le \lambda_k,\forall k \in \kappa</script>.<br>为了解决上式的问题，我们提出了一个更新整合学习机权重<script type="math/tex">\vec{\mkern1mu w}</script>,以及对每个本地学习机向量<script type="math/tex">\vec {\mkern1mu b}_k</script>的方法。 当<script type="math/tex">{(b_k^n)}_{k=1}^K</script>固定不变时，我们可以更新整合学习机的<script type="math/tex">\vec{\mkern1mu w}</script>向量。更新此向量就要解决下面的问题：<br>\begin{equation}<br>\min \limits_w {||y^n - \vec{\mkern1mu G^n} \vec{\mkern1mu w}||}_2^2, \quad s.t.{||\vec{\mkern1mu w}||}_1 = 1<br>\end{equation}</p>
+<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><p>1.<a href="https://www.zhihu.com/question/22246294" target="_blank" rel="noopener">https://www.zhihu.com/question/22246294</a><br>2.Zhang Y, Sow D, Turaga D, et al. A fast online learning algorithm for distributed mining of bigdata[J]. ACM SIGMETRICS Performance Evaluation Review, 2014, 41(4): 90-93.</p>
 
       
     </div>
@@ -453,13 +419,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Least-Squares-Estimator/" rel="tag"># Least Squares Estimator</a>
+            <a href="/tags/在线学习算法/" rel="tag"># 在线学习算法</a>
           
-            <a href="/tags/最小二乘估计/" rel="tag"># 最小二乘估计</a>
-          
-            <a href="/tags/Math-learning/" rel="tag"># Math learning</a>
-          
-            <a href="/tags/机器学习/" rel="tag"># 机器学习</a>
+            <a href="/tags/Online-learning-algorithm/" rel="tag"># Online learning algorithm</a>
           
         </div>
       
@@ -472,8 +434,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/02/21/2018.02.21_一个分布式挖掘快速在线学习算法/" rel="next" title="一个分布式挖掘快速在线学习算法 (Online learning algorithm)">
-                <i class="fa fa-chevron-left"></i> 一个分布式挖掘快速在线学习算法 (Online learning algorithm)
+              <a href="/2018/02/20/2018.02.20_流数据的非监督实时异常监测/" rel="next" title="流数据的无监督实时异常检测">
+                <i class="fa fa-chevron-left"></i> 流数据的无监督实时异常检测
               </a>
             
           </div>
@@ -482,8 +444,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2020/02/14/Example/" rel="prev" title="Example">
-                Example <i class="fa fa-chevron-right"></i>
+              <a href="/2018/02/21/20180.02.21_最小二乘估计/" rel="prev" title="最小二乘估计（Least Squares Estimator）">
+                最小二乘估计（Least Squares Estimator） <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -703,7 +665,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Reference"><span class="nav-text"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#数据异质性"><span class="nav-text"><a href="#&#x6570;&#x636E;&#x5F02;&#x8D28;&#x6027;" class="headerlink" title="&#x6570;&#x636E;&#x5F02;&#x8D28;&#x6027;"></a>&#x6570;&#x636E;&#x5F02;&#x8D28;&#x6027;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#欧几里得范数-（Euclidean-norm）"><span class="nav-text"><a href="#&#x6B27;&#x51E0;&#x91CC;&#x5F97;&#x8303;&#x6570;-&#xFF08;Euclidean-norm&#xFF09;" class="headerlink" title="&#x6B27;&#x51E0;&#x91CC;&#x5F97;&#x8303;&#x6570; &#xFF08;Euclidean norm&#xFF09;"></a>&#x6B27;&#x51E0;&#x91CC;&#x5F97;&#x8303;&#x6570; &#xFF08;Euclidean norm&#xFF09;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#协方差矩阵-（covariance-matrix）"><span class="nav-text"><a href="#&#x534F;&#x65B9;&#x5DEE;&#x77E9;&#x9635;-&#xFF08;covariance-matrix&#xFF09;" class="headerlink" title="&#x534F;&#x65B9;&#x5DEE;&#x77E9;&#x9635; &#xFF08;covariance matrix&#xFF09;"></a>&#x534F;&#x65B9;&#x5DEE;&#x77E9;&#x9635; &#xFF08;covariance matrix&#xFF09;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在线学习算法"><span class="nav-text"><a href="#&#x5728;&#x7EBF;&#x5B66;&#x4E60;&#x7B97;&#x6CD5;" class="headerlink" title="&#x5728;&#x7EBF;&#x5B66;&#x4E60;&#x7B97;&#x6CD5;"></a>&#x5728;&#x7EBF;&#x5B66;&#x4E60;&#x7B97;&#x6CD5;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Reference"><span class="nav-text"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</span></a></li></ol></div>
             
 
           </div>
@@ -872,9 +834,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://memicat.com/2018/02/21/20180.02.21_最小二乘估计/';
-          this.page.identifier = '2018/02/21/20180.02.21_最小二乘估计/';
-          this.page.title = '最小二乘估计（Least Squares Estimator）';
+          this.page.url = 'http://memicat.com/2018/02/21/2018.02.21_一个分布式挖掘快速在线学习算法/';
+          this.page.identifier = '2018/02/21/2018.02.21_一个分布式挖掘快速在线学习算法/';
+          this.page.title = '一个分布式挖掘快速在线学习算法 (Online learning algorithm)';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://http-memicat-com.disqus.com/embed.js';
