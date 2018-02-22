@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Big data,大数据,Least Squares Estimator,最小二乘估计," />
 
 
 
@@ -81,13 +81,18 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="Memicat&#39;s blog!">
-<meta property="og:url" content="http://memicat.com/tags/博客/index.html">
+<meta name="description" content="1.基础知识1.1 数据异质性假设自变量是X，因变量是Y。那么如果要识别X是如何影响Y的，则要保证其他因素（非观测因素）不变。为了逻辑清晰可见，把非观测因素的作用归结为Z。如果X的值变化了，Z的值也随之变动，此时你观测到的Y的变动，到底是X引起的，还是Z引起的？如果其他因素Z不变，则其可以被看作是误差项，并认为这个误差项的方差应该是保持不变的，这样的就叫“同方差”。但是如果Z随X的变化而变化，那么">
+<meta name="keywords" content="Big data,大数据,Least Squares Estimator,最小二乘估计">
+<meta property="og:type" content="article">
+<meta property="og:title" content="大数据分布式挖掘的在线学习算法">
+<meta property="og:url" content="http://memicat.com/2018/02/21/2018.02.21_大数据/index.html">
 <meta property="og:site_name" content="Memicat&#39;s blog!">
+<meta property="og:description" content="1.基础知识1.1 数据异质性假设自变量是X，因变量是Y。那么如果要识别X是如何影响Y的，则要保证其他因素（非观测因素）不变。为了逻辑清晰可见，把非观测因素的作用归结为Z。如果X的值变化了，Z的值也随之变动，此时你观测到的Y的变动，到底是X引起的，还是Z引起的？如果其他因素Z不变，则其可以被看作是误差项，并认为这个误差项的方差应该是保持不变的，这样的就叫“同方差”。但是如果Z随X的变化而变化，那么">
 <meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2018-02-22T10:45:04.041Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Memicat&#39;s blog!">
+<meta name="twitter:title" content="大数据分布式挖掘的在线学习算法">
+<meta name="twitter:description" content="1.基础知识1.1 数据异质性假设自变量是X，因变量是Y。那么如果要识别X是如何影响Y的，则要保证其他因素（非观测因素）不变。为了逻辑清晰可见，把非观测因素的作用归结为Z。如果X的值变化了，Z的值也随之变动，此时你观测到的Y的变动，到底是X引起的，还是Z引起的？如果其他因素Z不变，则其可以被看作是误差项，并认为这个误差项的方差应该是保持不变的，这样的就叫“同方差”。但是如果Z随X的变化而变化，那么">
 
 
 
@@ -117,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://memicat.com/tags/博客/"/>
+  <link rel="canonical" href="http://memicat.com/2018/02/21/2018.02.21_大数据/"/>
 
 
 
 
 
-  <title>Tag: 博客 | Memicat's blog!</title>
+  <title>大数据分布式挖掘的在线学习算法 | Memicat's blog!</title>
   
 
 
@@ -142,7 +147,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -246,54 +251,252 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block tag">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>博客<small>Tag</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://memicat.com/2018/02/21/2018.02.21_大数据/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Memicat">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Memicat's blog!">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2018/01/30/2018.01.30_从这说起/" itemprop="url">
-              
-                <span itemprop="name">从这说起</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">大数据分布式挖掘的在线学习算法</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-01-30T00:00:00+01:00"
-              content="2018-01-30" >
-          01-30
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-21T00:00:00+01:00">
+                2018-02-21
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Data-Mining/" itemprop="url" rel="index">
+                    <span itemprop="name">Data Mining</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2018/02/21/2018.02.21_大数据/" class="leancloud_visitors" data-flag-title="大数据分布式挖掘的在线学习算法">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="1-基础知识"><a href="#1-基础知识" class="headerlink" title="1.基础知识"></a>1.基础知识</h3><h4 id="1-1-数据异质性"><a href="#1-1-数据异质性" class="headerlink" title="1.1 数据异质性"></a>1.1 数据异质性</h4><p>假设自变量是X，因变量是Y。那么如果要识别X是如何影响Y的，则要保证其他因素（非观测因素）不变。为了逻辑清晰可见，把非观测因素的作用归结为Z。如果X的值变化了，Z的值也随之变动，此时你观测到的Y的变动，到底是X引起的，还是Z引起的？<br>如果其他因素Z不变，则其可以被看作是误差项，并认为这个误差项的方差应该是保持不变的，这样的就叫“同方差”。但是如果Z随X的变化而变化，那么Z的方差就不是不变的，也就是说误差项Z表现出“异方差”特性，也就是数据的”数据异质性“。<br><a id="more"></a></p>
+<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><p><a href="https://www.zhihu.com/question/22246294" target="_blank" rel="noopener">https://www.zhihu.com/question/22246294</a><br><a href="http://www.qiujiawei.com/linear-algebra-15/" target="_blank" rel="noopener">http://www.qiujiawei.com/linear-algebra-15/</a></p>
 
       
     </div>
+    
+    
+    
 
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>Donate comment here</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>Donate</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechat.jpg" alt="Memicat WeChat Pay"/>
+        <p>WeChat Pay</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="Memicat Alipay"/>
+        <p>Alipay</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Big-data/" rel="tag"># Big data</a>
+          
+            <a href="/tags/大数据/" rel="tag"># 大数据</a>
+          
+            <a href="/tags/Least-Squares-Estimator/" rel="tag"># Least Squares Estimator</a>
+          
+            <a href="/tags/最小二乘估计/" rel="tag"># 最小二乘估计</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/02/21/20180.02.21_最小二乘估计/" rel="next" title="最小二乘估计（Least Squares Estimator）">
+                <i class="fa fa-chevron-left"></i> 最小二乘估计（Least Squares Estimator）
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
+
+
+    <div class="post-spread">
+      
+        
+  <div class="bdsharebuttonbox">
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
+    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a href="#" class="bds_tieba" data-cmd="tieba" title="分享到百度贴吧"></a>
+    <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+    <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a class="bds_count" data-cmd="count"></a>
+  </div>
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "2",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "share": {
+        "bdSize": "16",
+        "bdStyle": "0"
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
 
 
           </div>
@@ -301,6 +504,20 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
 
         </div>
         
@@ -321,8 +538,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -421,6 +647,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-基础知识"><span class="nav-text"><a href="#1-&#x57FA;&#x7840;&#x77E5;&#x8BC6;" class="headerlink" title="1.&#x57FA;&#x7840;&#x77E5;&#x8BC6;"></a>1.&#x57FA;&#x7840;&#x77E5;&#x8BC6;</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-数据异质性"><span class="nav-text"><a href="#1-1-&#x6570;&#x636E;&#x5F02;&#x8D28;&#x6027;" class="headerlink" title="1.1 &#x6570;&#x636E;&#x5F02;&#x8D28;&#x6027;"></a>1.1 &#x6570;&#x636E;&#x5F02;&#x8D28;&#x6027;</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Reference"><span class="nav-text"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -560,6 +802,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
@@ -577,6 +823,18 @@
       <script id="dsq-count-scr" src="https://http-memicat-com.disqus.com/count.js" async></script>
     
 
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://memicat.com/2018/02/21/2018.02.21_大数据/';
+          this.page.identifier = '2018/02/21/2018.02.21_大数据/';
+          this.page.title = '大数据分布式挖掘的在线学习算法';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://http-memicat-com.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
     
 
   
