@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Linear Mixed Models," />
+  <meta name="keywords" content="Machine learning," />
 
 
 
@@ -81,18 +81,20 @@
 
 
 
-<meta name="description" content="Reference">
-<meta name="keywords" content="Linear Mixed Models">
+<meta name="description" content="1. Basic knowledge1.1 What is an F Statistic?An F statistic is a value you get when you run an ANOVA test or a regression analysis to find out if the means between two populations are significantly di">
+<meta name="keywords" content="Machine learning">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Example">
-<meta property="og:url" content="http://memicat.com/2020/02/14/Example/index.html">
+<meta property="og:title" content="一些零散的Machine learning 知识">
+<meta property="og:url" content="http://memicat.com/2020/02/28/2018.02.28_一些零散的Machine learning 知识/index.html">
 <meta property="og:site_name" content="Memicat&#39;s blog!">
-<meta property="og:description" content="Reference">
+<meta property="og:description" content="1. Basic knowledge1.1 What is an F Statistic?An F statistic is a value you get when you run an ANOVA test or a regression analysis to find out if the means between two populations are significantly di">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-02-22T11:30:53.632Z">
+<meta property="og:image" content="http://memicat.com/images/2018.2.28_1.jpg">
+<meta property="og:updated_time" content="2018-02-28T17:04:45.362Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Example">
-<meta name="twitter:description" content="Reference">
+<meta name="twitter:title" content="一些零散的Machine learning 知识">
+<meta name="twitter:description" content="1. Basic knowledge1.1 What is an F Statistic?An F statistic is a value you get when you run an ANOVA test or a regression analysis to find out if the means between two populations are significantly di">
+<meta name="twitter:image" content="http://memicat.com/images/2018.2.28_1.jpg">
 
 
 
@@ -122,13 +124,13 @@
 
 
 
-  <link rel="canonical" href="http://memicat.com/2020/02/14/Example/"/>
+  <link rel="canonical" href="http://memicat.com/2020/02/28/2018.02.28_一些零散的Machine learning 知识/"/>
 
 
 
 
 
-  <title>Example | Memicat's blog!</title>
+  <title>一些零散的Machine learning 知识 | Memicat's blog!</title>
   
 
 
@@ -265,7 +267,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://memicat.com/2020/02/14/Example/">
+    <link itemprop="mainEntityOfPage" href="http://memicat.com/2020/02/28/2018.02.28_一些零散的Machine learning 知识/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Memicat">
@@ -282,7 +284,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Example</h1>
+          <h1 class="post-title" itemprop="name headline">一些零散的Machine learning 知识</h1>
         
 
         <div class="post-meta">
@@ -294,8 +296,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-02-14T00:00:00+01:00">
-                2020-02-14
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-02-28T00:00:00+01:00">
+                2020-02-28
               </time>
             
 
@@ -334,7 +336,7 @@
 
           
           
-             <span id="/2020/02/14/Example/" class="leancloud_visitors" data-flag-title="Example">
+             <span id="/2020/02/28/2018.02.28_一些零散的Machine learning 知识/" class="leancloud_visitors" data-flag-title="一些零散的Machine learning 知识">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -363,7 +365,16 @@
       
 
       
-        <h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3>
+        <h3 id="1-Basic-knowledge"><a href="#1-Basic-knowledge" class="headerlink" title="1. Basic knowledge"></a>1. Basic knowledge</h3><h4 id="1-1-What-is-an-F-Statistic"><a href="#1-1-What-is-an-F-Statistic" class="headerlink" title="1.1 What is an F Statistic?"></a>1.1 What is an F Statistic?</h4><p>An F statistic is a value you get when you run an ANOVA test or a regression analysis to find out if the means between two populations are significantly different. It’s similar to a T statistic from a T Test; A T test will tell you if a single variable is statistically significant and an F test will tell you if a group of variables are jointly significant.<br><a id="more"></a><br><img src="/images/2018.2.28_1.jpg" alt="" title="Fig. 1. F Statistic"><br>F value and an F critical value:<br>(1)The F critical value is also called the F statistic.<br>(2)The value you calculate from your data is called the F value (without the “critical” part).<br>In general, if your calculated F value in a test is larger than your F statistic, you can reject the null hypothesis.</p>
+<h4 id="1-2-样本方差为什么除以”n-1“"><a href="#1-2-样本方差为什么除以”n-1“" class="headerlink" title="1.2 样本方差为什么除以”n-1“?"></a>1.2 样本方差为什么除以”n-1“?</h4><p>一般遇到求样本方差时，会有下面两个式子：</p>
+<script type="math/tex; mode=display">\bar {\mkern1mu X} = \frac{1}{n} \sum_{i=1}^n X_i, \quad \sigma^2 = \frac{1}{n-1} \sum_{i=1}^n(X_i - \bar {\mkern1mu X})^2</script><p>很多人可能会疑惑，为什么方差的求解式里面是除以“n-1”而不是“n”。 事实上，这个“n-1”不是我们直观上的总样本个数，而是样本变量自由度。用自由度求出的方差称为无偏方差（无偏估计），可以用来估计样本的总体方差。<br>我们求样本方差时往往已经进行过对样本均值的求解，也就是说先计算样本均值，然后计算样本方差。在计算完样本均值以后，样本内就只有 n-1 个样本的值是可以变化的。<br>假设有3个样本，$X_1,X_2,X_3$.通常来说，这三个变量的取值都是不定的。但是假如我们已经知道这三个样本的平均值为5，那么具有“随机性”的样本就只有2个。因为只要随机取其两个样本的值，假设$X_1,X_2$，则第三个样本的值$X_3 = 15- X_1-X_2$, 所以自由度为2。而同样对于 n 个样本，留出一个自由度给固定的均值，剩下的自由度即为n-1.也可以理解为n个样本中的一个样本的值为 $\bar {\mkern1mu X} $，其他 n-1 个的样本均值也为 $\bar {\mkern1mu X} $，所以在求方差时，有一项 $(X_i - \bar {\mkern1mu X})^2$ 为0，所以忽略，故最终除以n-1.</p>
+<h4 id="1-3-如何区分“Factor”-“Covariates”"><a href="#1-3-如何区分“Factor”-“Covariates”" class="headerlink" title="1.3 如何区分“Factor”, “Covariates”?"></a>1.3 如何区分“Factor”, “Covariates”?</h4><p>首先来区分Factor（因子） &amp; Covariates （协变量）：<br>前者是名目变量，一般只含两至数个类别，每个类别至少有30个案例，后者是连续或定距变量（可以含成千上百个类别，每个类别中只含一至数个案例）。协变量一般用来指“控制变量”，可以说连续变量（如年龄）、也可以是名目变量（如性别）。<br>Fixed factor: qualitative covariate，固定因子 = 定性协变量， 例如gender, agegroup.<br>Fixed effect: quantitative covariate，定量协变量， 例如age.<br>Random factor: qualitative variable whose levels are randomly sampled from a population of levels being studied.<br>Random effect：quantitative variable whose levels are randomly sampled from a population of levels being studied.</p>
+<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ol>
+<li><a href="https://www.zhihu.com/question/20983193" target="_blank" rel="noopener">https://www.zhihu.com/question/20983193</a></li>
+<li>Cao S, Rhinehart R R. An efficient method for on-line identification of steady state[J]. Journal of Process Control, 1995, 5(6): 363-374.</li>
+<li><a href="http://zjz06.blogspot.se/2011/08/fixed-factorsrandom-factorscovariates.html" target="_blank" rel="noopener">http://zjz06.blogspot.se/2011/08/fixed-factorsrandom-factorscovariates.html</a></li>
+</ol>
+
       
     </div>
     
@@ -409,7 +420,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Linear-Mixed-Models/" rel="tag"># Linear Mixed Models</a>
+            <a href="/tags/Machine-learning/" rel="tag"># Machine learning</a>
           
         </div>
       
@@ -422,8 +433,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/02/21/20180.02.21_最小二乘估计/" rel="next" title="最小二乘估计（Least Squares Estimator）">
-                <i class="fa fa-chevron-left"></i> 最小二乘估计（Least Squares Estimator）
+              <a href="/2018/02/21/2018.02.21_一个分布式挖掘快速在线学习算法/" rel="next" title="一个分布式挖掘快速在线学习算法 (Online learning algorithm)">
+                <i class="fa fa-chevron-left"></i> 一个分布式挖掘快速在线学习算法 (Online learning algorithm)
               </a>
             
           </div>
@@ -559,7 +570,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -581,7 +592,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-count">24</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
@@ -649,7 +660,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Reference"><span class="nav-text"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-Basic-knowledge"><span class="nav-text"><a href="#1-Basic-knowledge" class="headerlink" title="1. Basic knowledge"></a>1. Basic knowledge</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-What-is-an-F-Statistic"><span class="nav-text"><a href="#1-1-What-is-an-F-Statistic" class="headerlink" title="1.1 What is an F Statistic?"></a>1.1 What is an F Statistic?</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-样本方差为什么除以”n-1“"><span class="nav-text"><a href="#1-2-&#x6837;&#x672C;&#x65B9;&#x5DEE;&#x4E3A;&#x4EC0;&#x4E48;&#x9664;&#x4EE5;&#x201D;n-1&#x201C;" class="headerlink" title="1.2 &#x6837;&#x672C;&#x65B9;&#x5DEE;&#x4E3A;&#x4EC0;&#x4E48;&#x9664;&#x4EE5;&#x201D;n-1&#x201C;?"></a>1.2 &#x6837;&#x672C;&#x65B9;&#x5DEE;&#x4E3A;&#x4EC0;&#x4E48;&#x9664;&#x4EE5;&#x201D;n-1&#x201C;?</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-3-如何区分“Factor”-“Covariates”"><span class="nav-text"><a href="#1-3-&#x5982;&#x4F55;&#x533A;&#x5206;&#x201C;Factor&#x201D;-&#x201C;Covariates&#x201D;" class="headerlink" title="1.3 &#x5982;&#x4F55;&#x533A;&#x5206;&#x201C;Factor&#x201D;, &#x201C;Covariates&#x201D;?"></a>1.3 &#x5982;&#x4F55;&#x533A;&#x5206;&#x201C;Factor&#x201D;, &#x201C;Covariates&#x201D;?</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Reference"><span class="nav-text"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</span></a></li></ol></div>
             
 
           </div>
@@ -818,9 +829,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://memicat.com/2020/02/14/Example/';
-          this.page.identifier = '2020/02/14/Example/';
-          this.page.title = 'Example';
+          this.page.url = 'http://memicat.com/2020/02/28/2018.02.28_一些零散的Machine learning 知识/';
+          this.page.identifier = '2020/02/28/2018.02.28_一些零散的Machine learning 知识/';
+          this.page.title = '一些零散的Machine learning 知识';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://http-memicat-com.disqus.com/embed.js';

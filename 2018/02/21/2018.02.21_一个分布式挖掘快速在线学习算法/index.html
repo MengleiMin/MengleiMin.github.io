@@ -89,7 +89,7 @@
 <meta property="og:site_name" content="Memicat&#39;s blog!">
 <meta property="og:description" content="数据异质性假设自变量是X，因变量是Y。那么如果要识别X是如何影响Y的，则要保证其他因素（非观测因素）不变。为了逻辑清晰可见，把非观测因素的作用归结为Z。如果X的值变化了，Z的值也随之变动，此时你观测到的Y的变动，到底是X引起的，还是Z引起的？如果其他因素Z不变，则其可以被看作是误差项，并认为这个误差项的方差应该是保持不变的，这样的就叫“同方差”。但是如果Z随X的变化而变化，那么Z的方差就不是不变的">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-02-22T17:43:57.634Z">
+<meta property="og:updated_time" content="2018-02-28T15:36:33.306Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="一个分布式挖掘快速在线学习算法 (Online learning algorithm)">
 <meta name="twitter:description" content="数据异质性假设自变量是X，因变量是Y。那么如果要识别X是如何影响Y的，则要保证其他因素（非观测因素）不变。为了逻辑清晰可见，把非观测因素的作用归结为Z。如果X的值变化了，Z的值也随之变动，此时你观测到的Y的变动，到底是X引起的，还是Z引起的？如果其他因素Z不变，则其可以被看作是误差项，并认为这个误差项的方差应该是保持不变的，这样的就叫“同方差”。但是如果Z随X的变化而变化，那么Z的方差就不是不变的">
@@ -365,7 +365,7 @@
       
         <h3 id="数据异质性"><a href="#数据异质性" class="headerlink" title="数据异质性"></a>数据异质性</h3><p>假设自变量是X，因变量是Y。那么如果要识别X是如何影响Y的，则要保证其他因素（非观测因素）不变。为了逻辑清晰可见，把非观测因素的作用归结为Z。如果X的值变化了，Z的值也随之变动，此时你观测到的Y的变动，到底是X引起的，还是Z引起的？<br>如果其他因素Z不变，则其可以被看作是误差项，并认为这个误差项的方差应该是保持不变的，这样的就叫“同方差”。但是如果Z随X的变化而变化，那么Z的方差就不是不变的，也就是说误差项Z表现出“异方差”特性，也就是数据的”数据异质性“。<br><a id="more"></a></p>
 <h3 id="欧几里得范数-（Euclidean-norm）"><a href="#欧几里得范数-（Euclidean-norm）" class="headerlink" title="欧几里得范数 （Euclidean norm）"></a>欧几里得范数 （Euclidean norm）</h3><p>也叫欧几里得长度，例如x是n维向量$(X_1,X_2,…,X_n)$</p>
-<script type="math/tex; mode=display">||x|| = {||x||}_2 = \sqrt{|X_1|^2+|X_2|^2+...+|X_n|^2}</script><script type="math/tex; mode=display">{||x||}_2^2 = |X_1|^2+|X_2|^2+...+|X_n|^2</script><script type="math/tex; mode=display">{||x||}_1 = |X_1|+|X_2|+...+|X_n|</script><h3 id="协方差矩阵-（covariance-matrix）"><a href="#协方差矩阵-（covariance-matrix）" class="headerlink" title="协方差矩阵 （covariance matrix）"></a>协方差矩阵 （covariance matrix）</h3><p>在统计学与概率论中，协方差矩阵的每个元素是各个向量元素之间的协方差，是从标量随机变量到高维度随机向量的自然推广。协方差（Covariance）在概率论和统计学中用于衡量两个变量的总体误差。而方差是协方差的一种特殊情况，即当两个变量是相同的情况。<br>协方差表示的是两个变量的总体的误差，这与只表示一个变量误差的方差不同。 如果两个变量的变化趋势一致，也就是说如果其中一个大于自身的期望值，另外一个也大于自身的期望值，那么两个变量之间的协方差就是正值。 如果两个变量的变化趋势相反，即其中一个大于自身的期望值，另外一个却小于自身的期望值，那么两个变量之间的协方差就是负值。<br>期望值分别为E[X]与E[Y]的两个实随机变量X与Y之间的协方差Cov(X,Y)定义为：</p>
+<script type="math/tex; mode=display">||x|| = {||x||}_2 = \sqrt{|X_1|^2+|X_2|^2+...+|X_n|^2}</script><script type="math/tex; mode=display">{||x||}_2^2 = |X_1|^2+|X_2|^2+...+|X_n|^2</script><script type="math/tex; mode=display">{||x||}_1 = |X_1|+|X_2|+...+|X_n|</script><h3 id="协方差矩阵-（covariance-matrix）"><a href="#协方差矩阵-（covariance-matrix）" class="headerlink" title="协方差矩阵 （covariance matrix）"></a>协方差矩阵 （covariance matrix）</h3><p>方差是一种特殊的期望，被定义为：$Var(x)=E((x−E(x))^2)=E(x^2)-(E(x))^2$<br>在统计学与概率论中，协方差矩阵的每个元素是各个向量元素之间的协方差，是从标量随机变量到高维度随机向量的自然推广。协方差（Covariance）在概率论和统计学中用于衡量两个变量的总体误差。而方差是协方差的一种特殊情况，即当两个变量是相同的情况。<br>协方差表示的是两个变量的总体的误差，这与只表示一个变量误差的方差不同。 如果两个变量的变化趋势一致，也就是说如果其中一个大于自身的期望值，另外一个也大于自身的期望值，那么两个变量之间的协方差就是正值。 如果两个变量的变化趋势相反，即其中一个大于自身的期望值，另外一个却小于自身的期望值，那么两个变量之间的协方差就是负值。<br>期望值分别为E[X]与E[Y]的两个实随机变量X与Y之间的协方差Cov(X,Y)定义为：</p>
 <script type="math/tex; mode=display">Cov(X,Y)    = E[(X-E[X])(Y-E[Y])]\\
 \qquad \qquad \qquad= E[XY] - 2E[Y]E[X]+E[X]E[Y]\\
         \quad  = E[XY] - E[X]E[Y]</script><p>从直观上来看，协方差表示的是两个变量总体误差的期望。<br>如果X与Y是统计独立的，那么二者之间的协方差就是0，因为两个独立的随机变量满足<script type="math/tex">E[XY]=E[X]E[Y]</script>。<br>但是，反过来并不成立。即如果X与Y的协方差为0，二者并不一定是统计独立的。<br>协方差矩阵具有以下性质：<br>(1)  $cov(X,Y) = cov (Y,X)^T$<br>(2)  $cov(AX+b,Y) = Acov (X,Y)$<br>(3)  $cov(X+Y,Z) = cov (X,Z)+cov(Y,Z)$</p>
@@ -434,8 +434,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/02/20/2018.02.20_流数据的非监督实时异常监测/" rel="next" title="流数据的无监督实时异常检测">
-                <i class="fa fa-chevron-left"></i> 流数据的无监督实时异常检测
+              <a href="/2018/02/21/2018.02.21_最小二乘估计/" rel="next" title="最小二乘估计（Least Squares Estimator）">
+                <i class="fa fa-chevron-left"></i> 最小二乘估计（Least Squares Estimator）
               </a>
             
           </div>
@@ -444,8 +444,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/02/21/20180.02.21_最小二乘估计/" rel="prev" title="最小二乘估计（Least Squares Estimator）">
-                最小二乘估计（Least Squares Estimator） <i class="fa fa-chevron-right"></i>
+              <a href="/2020/02/28/2018.02.28_一些零散的Machine learning 知识/" rel="prev" title="一些零散的Machine learning 知识">
+                一些零散的Machine learning 知识 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -575,7 +575,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -597,7 +597,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-count">24</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>

@@ -1,111 +1,275 @@
 <?xml version="1.0" encoding="utf-8"?>
-<search>
-  <entry>
-    <title><![CDATA[Example]]></title>
-    <url>%2F2020%2F02%2F14%2FExample%2F</url>
-    <content type="text"><![CDATA[Reference]]></content>
-      <categories>
-        <category>Data Mining</category>
-      </categories>
-      <tags>
-        <tag>Linear Mixed Models</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[最小二乘估计（Least Squares Estimator）]]></title>
-    <url>%2F2018%2F02%2F21%2F20180.02.21_%E6%9C%80%E5%B0%8F%E4%BA%8C%E4%B9%98%E4%BC%B0%E8%AE%A1%2F</url>
-    <content type="text"><![CDATA[最小二乘估计在Machine learning领域被广泛使用，接下来就来简单的介绍一下这个方法，首先，看一个式子： y=ax+e这是一个简单的直线方程，X是自变量，y是因变量，e是一个常量，此等式只能代表一个自变量对因变量的影响。如果我们把一个自变量拓展到n个自变量，比如影响一个人的智商的可能是年龄，但也有可能是环境，基因，受教育程度等。则以上式子就变为： y_i = a_1x_{i1} +...+ a_2x_{i2}+...+a_kx_{ik}+e_i, 1 \le i \le n, k\ge1换做矩阵表示为： \vec{\mkern1mu y} = X \vec{\mkern1mu a} + \vec{\mkern1mu e}\left[ \begin{array}{c} y1\\ y2\\ \vdots\\ y_n\\ \end{array} \right] = \left[ \begin{array}{cccc} x_{11} & x_{12} & \cdots x_{1k} \\ x_{21} & x_{22} & \cdots x_{2k} \\ \vdots & \vdots & \ddots \vdots \\ x_{n1} & x_{n2} & \cdots x_{nk} \\ \end{array} \right] \left[ \begin{array}{c} a1\\ a2\\ \vdots\\ a_k\\ \end{array} \right] +\left[ \begin{array}{c} e1\\ e2\\ \vdots\\ e_n\\ \end{array} \right]为了让$\vec{\mkern1mu a}$变得更有意义，那么就要使$\vec{\mkern1mu e}$尽量的小。也就是让$\vec{\mkern1mu e}$的长度尽量小。 |\vec{\mkern1mu e}| = \sqrt{\sum_{i=1}^n e_i^2}两边平方得： |\vec{\mkern1mu e}|^2 = \sum_{i=1}^n e_i^2 = \vec{\mkern1mu e}\vec{\mkern1mu e} = \vec{\mkern1mu e}^{T}\vec{\mkern1mu e}也就是说，当$\vec{\mkern1mu e}^{T}\vec{\mkern1mu e}$取最小值时，$\vec{\mkern1mu a}$能取得最优解。继续推倒，可以得到下式（证明略，有兴趣的可以看reference的第二个链接）： \vec{\mkern1mu e}^{T}\vec{\mkern1mu e} = \vec{\mkern1mu y}^{T}\vec{\mkern1mu y} - 2\vec{\mkern1mu y}^{T}X\vec{\mkern1mu a}+\vec{\mkern1mu a}^{T}X^{T}X\vec{\mkern1mu a}然后利用矩阵微分，可得： \vec{\mkern1mu a} = (X^TX)^{-1}X^T\vec{\mkern1mu y}这个式子就是最小二乘估计。 特殊情况下的最小二乘估计：如果X是一个方阵，则 \vec{\mkern1mu a} = X^{-1}\vec{\mkern1mu y}可以发现，当为方阵时，最小二乘估计很简单。不是方阵时，由于$X^{-1}$和$（X^T）^{-1}$都不成立，导致最小二乘估计无法继续化简。 Referencehttp://www.qiujiawei.com/linear-algebra-15/]]></content>
-      <categories>
-        <category>Math</category>
-      </categories>
-      <tags>
-        <tag>Least Squares Estimator</tag>
-        <tag>最小二乘估计</tag>
-        <tag>Math learning</tag>
-        <tag>机器学习</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[一个分布式挖掘快速在线学习算法 (Online learning algorithm)]]></title>
-    <url>%2F2018%2F02%2F21%2F2018.02.21_%E4%B8%80%E4%B8%AA%E5%88%86%E5%B8%83%E5%BC%8F%E6%8C%96%E6%8E%98%E5%BF%AB%E9%80%9F%E5%9C%A8%E7%BA%BF%E5%AD%A6%E4%B9%A0%E7%AE%97%E6%B3%95%2F</url>
-    <content type="text"><![CDATA[数据异质性假设自变量是X，因变量是Y。那么如果要识别X是如何影响Y的，则要保证其他因素（非观测因素）不变。为了逻辑清晰可见，把非观测因素的作用归结为Z。如果X的值变化了，Z的值也随之变动，此时你观测到的Y的变动，到底是X引起的，还是Z引起的？如果其他因素Z不变，则其可以被看作是误差项，并认为这个误差项的方差应该是保持不变的，这样的就叫“同方差”。但是如果Z随X的变化而变化，那么Z的方差就不是不变的，也就是说误差项Z表现出“异方差”特性，也就是数据的”数据异质性“。 欧几里得范数 （Euclidean norm）也叫欧几里得长度，例如x是n维向量$(X_1,X_2,…,X_n)$ ||x|| = {||x||}_2 = \sqrt{|X_1|^2+|X_2|^2+...+|X_n|^2}{||x||}_2^2 = |X_1|^2+|X_2|^2+...+|X_n|^2{||x||}_1 = |X_1|+|X_2|+...+|X_n|协方差矩阵 （covariance matrix）在统计学与概率论中，协方差矩阵的每个元素是各个向量元素之间的协方差，是从标量随机变量到高维度随机向量的自然推广。协方差（Covariance）在概率论和统计学中用于衡量两个变量的总体误差。而方差是协方差的一种特殊情况，即当两个变量是相同的情况。协方差表示的是两个变量的总体的误差，这与只表示一个变量误差的方差不同。 如果两个变量的变化趋势一致，也就是说如果其中一个大于自身的期望值，另外一个也大于自身的期望值，那么两个变量之间的协方差就是正值。 如果两个变量的变化趋势相反，即其中一个大于自身的期望值，另外一个却小于自身的期望值，那么两个变量之间的协方差就是负值。期望值分别为E[X]与E[Y]的两个实随机变量X与Y之间的协方差Cov(X,Y)定义为： Cov(X,Y) = E[(X-E[X])(Y-E[Y])]\\ \qquad \qquad \qquad= E[XY] - 2E[Y]E[X]+E[X]E[Y]\\ \quad = E[XY] - E[X]E[Y]从直观上来看，协方差表示的是两个变量总体误差的期望。如果X与Y是统计独立的，那么二者之间的协方差就是0，因为两个独立的随机变量满足E[XY]=E[X]E[Y]。但是，反过来并不成立。即如果X与Y的协方差为0，二者并不一定是统计独立的。协方差矩阵具有以下性质：(1) $cov(X,Y) = cov (Y,X)^T$(2) $cov(AX+b,Y) = Acov (X,Y)$(3) $cov(X+Y,Z) = cov (X,Z)+cov(Y,Z)$ 在线学习算法假设一个分布式数据挖掘系统拥有1个整合学习机和$\kappa$个本地学习机，$\kappa \in \{1,…,K\}$,时间线被分成离散的周期。在每一段周期n内，有一个数据实体x^n = ((x_i^n)_{i=1}^d, y^n) 输入系统， (x_i^n)_{i=1}^d 表示数据的属性特征，$y \in {Y}$是对这个实体的标记。对每一个到来的数据实体，每个本地学习机$k \in \kappa$都会观察属性特征集的一个子集{A}_k \subseteq \{1,...,d\}。 假设 \bigcup_{k \in \kappa} {A}_k = \{1,...,d\},也就是说虽然单个本地学习机无法观察到数据的所有属性特征，但是所有本地学习机的观察集合可以。在每个周期 n 内，对于$x^n$，每一个本地学习机，$k \in \kappa$,在基于观测 {(x_j^n)}_{j \in A_k} 的情况下, 会作出一个对 $y^n$的预测 $\hat{\mkern1mu y}_k^n$. 对于整个系统而言，最需要做的就是最大化整合学习机的预测准确性。为了实现这个目标，我们假设每个本地学习机 $k$ 都维护着有限个预测函数，定义为： \digamma_k = \{f : \prod_{j \in A_k} \chi_j \to R \}\chi_j 表示属性特征x_j的取值范围。每一个预测函数可以被理解为分类器（classifier）。在这，我们假设每个本地学习机用线性回归器（Linear regressor）将其所有可用的预测函数结合，然后去作预测。让\vec{\mkern1mu f}_k = (f_{k1},...,f_{k|\digamma_k|}) 表示本地学习机 k 的所有预测函数。除此以外，本地学习机还维护着一个对每个预测函数的权重向量\vec{\mkern1mu b}_k \in R^{|\digamma_k|}, 所以在周期 n 内，本地学习机的预测通过 \hat{\mkern1mu y}_k^n = \langle \vec{\mkern1mu b}_k, \vec{\mkern1mu f}_k({(x_j^n)}_{j \in A_k}) \rangle得到.Next整合学习机聚集所有本地学习机的预测，并用一个线性回归器作为整合学习机的预测函数去产生最后的输出：\hat{\mkern1mu y}^n = \sum_{k \in \kappa}w_k \hat{\mkern1mu y}_k^n. 向量\vec{\mkern1mu w} = \{w_k\}_{k=1}^K 是整合学习机赋值给本地学习机的权重向量。在这里，我们假设所有本地学习机的预测都是无偏向的(unbiased)。因此，所有权重之和标准化后为1:\sum_{k=1}^K w_k =1.我们的目标是设计一个算法：对学习机权重进行设限，最小化实体预测值的平方差，也就是： {\min \limits_{b_k}}\quad{\min \limits_w} \sum_{m=1}^n (y^m-\sum_{k=1}^K w_k \langle \vec{\mkern1mu b}_k,\vec{\mkern1mu f}_k({(x_j^m)}_{j \in A_k})\rangle)^2,\quad s.t. {||W||}_1 = 1, {||b_k||}_2 \le \lambda_k,\forall k \in \kappa.为了解决上式的问题，我们提出了一个更新整合学习机权重\vec{\mkern1mu w},以及对每个本地学习机向量\vec {\mkern1mu b}_k的方法。 当{(b_k^n)}_{k=1}^K固定不变时，我们可以更新整合学习机的\vec{\mkern1mu w}向量。更新此向量就要解决下面的问题：\begin{equation}\min \limits_w {||y^n - \vec{\mkern1mu G^n} \vec{\mkern1mu w}||}_2^2, \quad s.t.{||\vec{\mkern1mu w}||}_1 = 1\end{equation} Reference1.https://www.zhihu.com/question/222462942.Zhang Y, Sow D, Turaga D, et al. A fast online learning algorithm for distributed mining of bigdata[J]. ACM SIGMETRICS Performance Evaluation Review, 2014, 41(4): 90-93.]]></content>
-      <categories>
-        <category>Data Mining</category>
-      </categories>
-      <tags>
-        <tag>在线学习算法</tag>
-        <tag>Online learning algorithm</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[流数据的无监督实时异常检测]]></title>
-    <url>%2F2018%2F02%2F20%2F2018.02.20_%E6%B5%81%E6%95%B0%E6%8D%AE%E7%9A%84%E9%9D%9E%E7%9B%91%E7%9D%A3%E5%AE%9E%E6%97%B6%E5%BC%82%E5%B8%B8%E7%9B%91%E6%B5%8B%2F</url>
-    <content type="text"><![CDATA[1. Introduction异常检测在工业实时流数据中非常重要，例如预防性维护，防欺诈，故障检测和监控（Preventative maintenance, fraud prevention, fault de- tection, and monitoring）等。异常可能是暂时性的（Temporal anomaly），暂时性异常可以预先发现潜在的问题，但是这种异常往往很难在实时数据流中被检测到，所以检测暂时性异常非常重要.Batch processing, data is split into train/test sets, and algorithms cannot look ahead, but data streaming is not. 流数据处理（Data streaming）和批处理(Batch processing)不同，流数据处理是处理源源不断的数据流，而批处理是处理整个数据集 (full dataset)。 1.1 Streaming applicationsStreaming applications impose unique constraints and challenges for machine learning models.The concept drift means that the statistical properties of the target variable, change over time in unforeseen ways. This causes problems because the predictions become less accurate as time passes.Let the vector $\chi_t$ represent the state of a real-time system at time $t$. ...,\chi_{t-2},\chi_{t-1},\chi_{t},\chi_{t+1},\chi_{t+2},...There is a tradeoff between early detections and false positives, as an algorithm that makes frequent inaccurate detections is likely to be ignored.We define the ideal characteristics of the real-world anomaly detection algorithm as follows:1.Predictions must be made online; i.e., the algorithm must identify state \chi_t as normal or anomalous before receiving the subsequent \chi_{t+1}.2.The algorithm must learn continuously without a requirement to store the entire stream.3.The algorithm must run in an unsupervised, automated fashion,i.e., without data labels or manual parameter tweaking.4.Algorithms must adapt to dynamic environments and concept drift, as the underlying statistics of the data stream is often non-stationary.5.Algorithms should make anomaly detections as early as possible.6.Algorithms should minimize false positives and false negatives (this is true for batch scenarios as well). 1.2 Related workMany anomaly detection approaches exist: Both supervised (e.g. support vector machines and decision trees) and unsupervised (e.g. clustering), yet many anomaly detection methods are for processing data in batches, and unsuitable for real-time streaming applications.Some anomaly detection algorithms are partially online. They either have an initial phase of offline learning, or rely on look-ahead to flag previously-seen anomalous data. 2. Anomaly detection using HTM2.1 Overview of HTMSparse encoding 稀疏编码 Disambiguate sequences 消歧序列Tail probability：It is the probability that a variable will be larger than x standard deviations above the mean. 换句话说，尾部概率主要关注的是那些偏离平均值的事件发生的概率，一般来说，尾部概率通常特别关注那些远离好几倍误差的事件发生可能性。The current input \chi_t, is fed to an encoder and then a sparse spatial pooling process. The resulting vector,a(\chi_t), is a sparse binary vector representing the current input. The heart of the system is the sequence memory component. This component models temporal patterns in a(\chi_t) and outputs a prediction in the form of another sparse vector π(\chi_{t}). π(\chi_{t}) is thus a prediction for a(\chi_{t+1}).The figure shows how the sparse representations are used to rep- resent temporal patterns and disambiguate sequences with long term dependencies. When receiving the next input, the network uses the difference between predicted input and the actual input to update its synaptic connections. Learning happens at every time step but since the representations are highly sparse only a tiny percentage of the synapses are updated. 2.2 Computing the prediction errorWe first compute a measure of prediction error, st. Then, using a probabilistic model of st, we compute Lt, a likelihood that the system is in an anomalous state.Given the current input \chi_t , a(\chi_t) is a sparse encoding of the current input, and $π(\chi_{t-1})$ is the sparse vector representing the HTM network’s internal prediction of a(\chi_t). The dimensionality of both vectors is equal to the number of columns in the HTM network (use a standard value of 2048 for the number of columns in our experiments). Let the prediction error, st, be a scalar value inversely proportional to the number of bits common between the actual and predicted binary vectors: s_t = 1- \frac{\pi(\chi_{t-1})\centerdot a(\chi_t)}{|a(\chi_t)|}$|a(\chi_t)|$是标量，表示数据流|a(\chi_t)|中所有比特位为“1”的总个数.如果预测和当前状态的a(\chi_t)相匹配，那么s_t就是0。否则如果预测向量和当前状态向量是正交向量（也就是两个向量没有共同的比特位),那么s_t就为1. 2.3 Computing anomaly likelihoodModel the distribution as a rolling normal distribution where the sample mean $\mu_t$ and $\sigma_t^2$, are continuously updated from previous error values as follows: \mu_t = \frac{\sum_{i=0}^{i=W-1}s_{t-i}}{W}\sigma_t^2 = \frac{\sum_{i=0}^{i=W-1}(s_{t-i}-\mu_t)^2}{W-1}We then compute a recent short term average of prediction errors, and apply a threshold to the Gaussian tail probability (Q-function) to decide whether or not to declare an anomaly. We define the anomaly likelihood as the complement of the tail probability: L_t = 1 - Q(\frac{\mu_t^{\sim}-\mu_t}{\sigma_t})where \mu_t^{\sim} = \frac{\sum_{i=0}^{W^\prime-1}s_{t-i}}{W^\prime}Q-function：Pr\{X > x\} = Q(\frac{x-\mu}{\sigma})$W^\prime$ here is a window for a short term moving average, where $W^\prime \lll W$, the duration for computing the distribution of prediction errors. We threshold $L_t$ based on a user-defined parameter \epsilon to report an anomaly: ≡ L_t \ge 1 − \epsilonIn practice we use a generous value of $W=8000,W^\prime=10,\epsilon = 10^{-5}.$ 3.Evaluation of streaming anomaly detection algorithmsThe Numenta Anomaly Benchmark (NAB) is a novel benchmark for evaluating algorithms for anomaly detection in streaming, online applications.1.Provide a dataset of labeled data streams from real-world streaming applications.2.Provide a scoring methodology and set of constraints designed for streaming applications.3.Provide a controlled open repository for researchers to evaluate and compare anomaly detection algorithms for streaming applications. ReferenceAhmad S, Lavin A, Purdy S, et al. Unsupervised real-time anomaly detection for streaming data[J]. Neurocomputing, 2017, 262: 134-147.]]></content>
-      <categories>
-        <category>Data Mining</category>
-      </categories>
-      <tags>
-        <tag>Data streaming</tag>
-        <tag>流数据</tag>
-        <tag>Abnormal detection</tag>
-        <tag>异常检测</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[Linear Mixed Models]]></title>
-    <url>%2F2018%2F02%2F14%2FLinear%20mixed%20model%2F</url>
-    <content type="text"><![CDATA[首先来区分Factor（因子） &amp; Covariates （协变量）：前者是名目变量，一般只含两至数个类别，每个类别至少有30个案例，后者是连续或定距变量（可以含成千上百个类别，每个类别中只含一至数个案例）。协变量一般用来指“控制变量”，可以说连续变量（如年龄）、也可以是名目变量（如性别）。Fixed factor: qualitative covariate，固定因子 = 定性协变量， 例如gender, agegroup.Fixed effect: quantitative covariate，定量协变量， 例如age.Random factor: qualitative variable whose levels are randomly sampled from a population of levels being studied.Random effect：quantitative variable whose levels are randomly sampled from a population of levels being studied. Referencehttp://zjz06.blogspot.se/2011/08/fixed-factorsrandom-factorscovariates.html]]></content>
-      <categories>
-        <category>Data Mining</category>
-      </categories>
-      <tags>
-        <tag>Linear Mixed Models</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[Hexo常用排版格式]]></title>
-    <url>%2F2018%2F02%2F14%2F2018.02.14_Hexo%20%E6%8E%92%E7%89%88%E6%A0%BC%E5%BC%8F%2F</url>
-    <content type="text"><![CDATA[本文主要记录我在写博客期间遇到的一些排版格式，怕自己忘了，所以记录下来怕自己忘记。 基本语法字体加粗: **斜体: *]]></content>
-      <categories>
-        <category>Hexo</category>
-      </categories>
-      <tags>
-        <tag>Latex排版</tag>
-        <tag>Hexo排版</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[Hexo常用数学公式]]></title>
-    <url>%2F2018%2F02%2F14%2F2018.02.14_Hexo%20%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F%2F</url>
-    <content type="text"><![CDATA[本文主要记录我在写博客期间遇到的一些常用的及特殊的数学公式，怕自己忘了，所以记录下来怕自己忘记。 常见数学符号$\theta$: \theta$\times$: \times$\prod$: \prod$\pm$: \pm$\mp$: \mp$\ell$: \ell$\digamma:$ \digamma$\hat{\mkern1mu a}:$ \hat{\mkern1mu a}$\to:$ \to$\langle:$ \langle$\rangle:$ \rangle$\min \limits_w:$\min \limits_w$\lambda:$ \lambda$\forall:$ \forall$\exists:$ \exists Referencehttp://mohu.org/info/symbols/symbols.htm]]></content>
-      <categories>
-        <category>Hexo</category>
-      </categories>
-      <tags>
-        <tag>Math formul</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[最大似然估计(Maximum likelihood estimation)]]></title>
-    <url>%2F2018%2F02%2F14%2F2018.02.14_%E6%9C%80%E5%A4%A7%E4%BC%BC%E7%84%B6%E4%BC%B0%E8%AE%A1%2F</url>
-    <content type="text"><![CDATA[最大似然估计提供了一种给定观察数据来评估模型参数的方法，即：“模型已定，参数未知”。最大似然估计中的采样需要满足假设：所有的采样都是独立分布的。首先，假设$x_1,x_2,……x_n$为独立同分布的采样，$\theta$为模型参数，$f$为我们所使用的模型，遵循独立同步假设。那么参数为$\theta$的模型f可表示为： f(x_1,x_2,...,x_n|\theta) = f(x_1|\theta) \times f(x_2|\theta),...,f(x_n|\theta)模型已定，参数未知：已知的为$x_1,x_2,……x_n$，未知的为$\theta$, 故似然定义为： L(\theta|x_1,x_2,...,x_n) = f(x_1,...,x_n|\theta) = \prod_{i=1}^nf(x_i|\theta)两边取对数，得到： InL(\theta|x_1,...x_n) = \sum_{i=1}^nInf(x_i|\theta),假设 \ell_{avg} = \frac{1}{n}InL其中的InL(\theta|x_1,...x_n)称为对数似然，而 $\ell_{avg}$为平均对数似然。平时接触最多的最大似然其实是最大的对数平均似然，即： \theta^{max}= max\ell_{avg}(\theta|x_1,...,x_n)例如，一个袋子里装有黑白两种球，球的数量不知道，做100次放回性取球抽样实验，记录下每次取球的颜色。假设100次实验中，取得白球的概率是70%，黑球30%，则一般认为白球占总数的70%。虽然可以这么说，但这是一个直接的带有感官的答案，缺乏理论证明。接下来对其进行证明：假设白球的所占比是p,那么黑球就是1-p. M是所给的模型，Data = \{x_1,x_2,...,x_{100}\} 是这一百次抽样结果的数据，则： P(Data|M) = P(x_1,x_2,...,x_{100}|M) = P(x_1|M) P(x_2|M)...P(x_{100}|M)=p^{70}(1-p)^{30}那么，从基本的数学知识可知，要想找到这个结果的最大值，应对其进行求导，并使其导数等于0. 即：70p^{69}\times(1-p)^{30}-p^{70}\times(1-p)^{29}=0, 解得p=0.7. 也就是说白球所占比为0.7的可能性最大。 Referencehttps://www.cnblogs.com/liliu/archive/2010/11/22/1883702.html]]></content>
-      <categories>
-        <category>Math</category>
-      </categories>
-      <tags>
-        <tag>最大似然估计</tag>
-        <tag>Maximum likelihood estimation</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[从这说起]]></title>
-    <url>%2F2018%2F01%2F30%2F2018.01.30_%E4%BB%8E%E8%BF%99%E8%AF%B4%E8%B5%B7%2F</url>
-    <content type="text"><![CDATA[第一次有想写博客的想法其实是在2017年12月份，然后去英国过了个圣诞，回来后学习热情消失殆尽，故一直拖到如今，有几个原因促成这个博客的诞生：1.自己虽大学毕业了， 但是让自己总结大学四年学到了什么专业知识，我竟一时语塞；甚至让我回想一些对自己影响颇深的人和事，记住的也是寥寥无几。古人说，“好记性不如烂笔头”，用在这再贴合不过了。人的记忆有限，况且时代变化还这么快，想要通过文字来记录自己的所学，所想，所感！2.身边有不少朋友经营着自己的微信公众号，有分享自己摄影作品的，有分享自己所感所想的，甚至还有和商业合作专门写软文的，发展兴趣的同时赚点外快，有点心生羡慕，公众号的发展也让有好文采的人能够大展身手.3.关于我为什么不选择开通一个微信公众号，那当然是觉得自己的文字能力有限TT,同时我想要的是一个远离社交圈的灵魂栖息地，一个真正属于自己的小小空间，可以在这肆意发疯，记下自己的碎碎念，见证自己的成长。 博客涵盖内容：计算机相关 投资理财 鸡汤]]></content>
-      <categories>
-        <category>My life</category>
-      </categories>
-      <tags>
-        <tag>博客</tag>
-      </tags>
-  </entry>
+<search> 
+  
+    
+    <entry>
+      <title><![CDATA[一些零散的Machine learning 知识]]></title>
+      <url>/2020/02/28/2018.02.28_%E4%B8%80%E4%BA%9B%E9%9B%B6%E6%95%A3%E7%9A%84Machine%20learning%20%E7%9F%A5%E8%AF%86/</url>
+      <content type="html"><![CDATA[<h3 id="1-Basic-knowledge"><a href="#1-Basic-knowledge" class="headerlink" title="1. Basic knowledge"></a>1. Basic knowledge</h3><h4 id="1-1-What-is-an-F-Statistic"><a href="#1-1-What-is-an-F-Statistic" class="headerlink" title="1.1 What is an F Statistic?"></a>1.1 What is an F Statistic?</h4><p>An F statistic is a value you get when you run an ANOVA test or a regression analysis to find out if the means between two populations are significantly different. It’s similar to a T statistic from a T Test; A T test will tell you if a single variable is statistically significant and an F test will tell you if a group of variables are jointly significant.<br><a id="more"></a><br><img src="/images/2018.2.28_1.jpg" alt="" title="Fig. 1. F Statistic"><br>F value and an F critical value:<br>(1)The F critical value is also called the F statistic.<br>(2)The value you calculate from your data is called the F value (without the “critical” part).<br>In general, if your calculated F value in a test is larger than your F statistic, you can reject the null hypothesis.</p>
+<h4 id="1-2-样本方差为什么除以”n-1“"><a href="#1-2-样本方差为什么除以”n-1“" class="headerlink" title="1.2 样本方差为什么除以”n-1“?"></a>1.2 样本方差为什么除以”n-1“?</h4><p>一般遇到求样本方差时，会有下面两个式子：</p>
+<script type="math/tex; mode=display">\bar {\mkern1mu X} = \frac{1}{n} \sum_{i=1}^n X_i, \quad \sigma^2 = \frac{1}{n-1} \sum_{i=1}^n(X_i - \bar {\mkern1mu X})^2</script><p>很多人可能会疑惑，为什么方差的求解式里面是除以“n-1”而不是“n”。 事实上，这个“n-1”不是我们直观上的总样本个数，而是样本变量自由度。用自由度求出的方差称为无偏方差（无偏估计），可以用来估计样本的总体方差。<br>我们求样本方差时往往已经进行过对样本均值的求解，也就是说先计算样本均值，然后计算样本方差。在计算完样本均值以后，样本内就只有 n-1 个样本的值是可以变化的。<br>假设有3个样本，$X_1,X_2,X_3$.通常来说，这三个变量的取值都是不定的。但是假如我们已经知道这三个样本的平均值为5，那么具有“随机性”的样本就只有2个。因为只要随机取其两个样本的值，假设$X_1,X_2$，则第三个样本的值$X_3 = 15- X_1-X_2$, 所以自由度为2。而同样对于 n 个样本，留出一个自由度给固定的均值，剩下的自由度即为n-1.也可以理解为n个样本中的一个样本的值为 $\bar {\mkern1mu X} $，其他 n-1 个的样本均值也为 $\bar {\mkern1mu X} $，所以在求方差时，有一项 $(X_i - \bar {\mkern1mu X})^2$ 为0，所以忽略，故最终除以n-1.</p>
+<h4 id="1-3-如何区分“Factor”-“Covariates”"><a href="#1-3-如何区分“Factor”-“Covariates”" class="headerlink" title="1.3 如何区分“Factor”, “Covariates”?"></a>1.3 如何区分“Factor”, “Covariates”?</h4><p>首先来区分Factor（因子） &amp; Covariates （协变量）：<br>前者是名目变量，一般只含两至数个类别，每个类别至少有30个案例，后者是连续或定距变量（可以含成千上百个类别，每个类别中只含一至数个案例）。协变量一般用来指“控制变量”，可以说连续变量（如年龄）、也可以是名目变量（如性别）。<br>Fixed factor: qualitative covariate，固定因子 = 定性协变量， 例如gender, agegroup.<br>Fixed effect: quantitative covariate，定量协变量， 例如age.<br>Random factor: qualitative variable whose levels are randomly sampled from a population of levels being studied.<br>Random effect：quantitative variable whose levels are randomly sampled from a population of levels being studied.</p>
+<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ol>
+<li><a href="https://www.zhihu.com/question/20983193" target="_blank" rel="noopener">https://www.zhihu.com/question/20983193</a></li>
+<li>Cao S, Rhinehart R R. An efficient method for on-line identification of steady state[J]. Journal of Process Control, 1995, 5(6): 363-374.</li>
+<li><a href="http://zjz06.blogspot.se/2011/08/fixed-factorsrandom-factorscovariates.html" target="_blank" rel="noopener">http://zjz06.blogspot.se/2011/08/fixed-factorsrandom-factorscovariates.html</a></li>
+</ol>
+]]></content>
+      
+        <categories>
+            
+            <category> Data Mining </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> Machine learning </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[一个分布式挖掘快速在线学习算法 (Online learning algorithm)]]></title>
+      <url>/2018/02/21/2018.02.21_%E4%B8%80%E4%B8%AA%E5%88%86%E5%B8%83%E5%BC%8F%E6%8C%96%E6%8E%98%E5%BF%AB%E9%80%9F%E5%9C%A8%E7%BA%BF%E5%AD%A6%E4%B9%A0%E7%AE%97%E6%B3%95/</url>
+      <content type="html"><![CDATA[<h3 id="数据异质性"><a href="#数据异质性" class="headerlink" title="数据异质性"></a>数据异质性</h3><p>假设自变量是X，因变量是Y。那么如果要识别X是如何影响Y的，则要保证其他因素（非观测因素）不变。为了逻辑清晰可见，把非观测因素的作用归结为Z。如果X的值变化了，Z的值也随之变动，此时你观测到的Y的变动，到底是X引起的，还是Z引起的？<br>如果其他因素Z不变，则其可以被看作是误差项，并认为这个误差项的方差应该是保持不变的，这样的就叫“同方差”。但是如果Z随X的变化而变化，那么Z的方差就不是不变的，也就是说误差项Z表现出“异方差”特性，也就是数据的”数据异质性“。<br><a id="more"></a></p>
+<h3 id="欧几里得范数-（Euclidean-norm）"><a href="#欧几里得范数-（Euclidean-norm）" class="headerlink" title="欧几里得范数 （Euclidean norm）"></a>欧几里得范数 （Euclidean norm）</h3><p>也叫欧几里得长度，例如x是n维向量$(X_1,X_2,…,X_n)$</p>
+<script type="math/tex; mode=display">||x|| = {||x||}_2 = \sqrt{|X_1|^2+|X_2|^2+...+|X_n|^2}</script><script type="math/tex; mode=display">{||x||}_2^2 = |X_1|^2+|X_2|^2+...+|X_n|^2</script><script type="math/tex; mode=display">{||x||}_1 = |X_1|+|X_2|+...+|X_n|</script><h3 id="协方差矩阵-（covariance-matrix）"><a href="#协方差矩阵-（covariance-matrix）" class="headerlink" title="协方差矩阵 （covariance matrix）"></a>协方差矩阵 （covariance matrix）</h3><p>方差是一种特殊的期望，被定义为：$Var(x)=E((x−E(x))^2)=E(x^2)-(E(x))^2$<br>在统计学与概率论中，协方差矩阵的每个元素是各个向量元素之间的协方差，是从标量随机变量到高维度随机向量的自然推广。协方差（Covariance）在概率论和统计学中用于衡量两个变量的总体误差。而方差是协方差的一种特殊情况，即当两个变量是相同的情况。<br>协方差表示的是两个变量的总体的误差，这与只表示一个变量误差的方差不同。 如果两个变量的变化趋势一致，也就是说如果其中一个大于自身的期望值，另外一个也大于自身的期望值，那么两个变量之间的协方差就是正值。 如果两个变量的变化趋势相反，即其中一个大于自身的期望值，另外一个却小于自身的期望值，那么两个变量之间的协方差就是负值。<br>期望值分别为E[X]与E[Y]的两个实随机变量X与Y之间的协方差Cov(X,Y)定义为：</p>
+<script type="math/tex; mode=display">Cov(X,Y)    = E[(X-E[X])(Y-E[Y])]\\
+\qquad \qquad \qquad= E[XY] - 2E[Y]E[X]+E[X]E[Y]\\
+        \quad  = E[XY] - E[X]E[Y]</script><p>从直观上来看，协方差表示的是两个变量总体误差的期望。<br>如果X与Y是统计独立的，那么二者之间的协方差就是0，因为两个独立的随机变量满足<script type="math/tex">E[XY]=E[X]E[Y]</script>。<br>但是，反过来并不成立。即如果X与Y的协方差为0，二者并不一定是统计独立的。<br>协方差矩阵具有以下性质：<br>(1)  $cov(X,Y) = cov (Y,X)^T$<br>(2)  $cov(AX+b,Y) = Acov (X,Y)$<br>(3)  $cov(X+Y,Z) = cov (X,Z)+cov(Y,Z)$</p>
+<h3 id="在线学习算法"><a href="#在线学习算法" class="headerlink" title="在线学习算法"></a>在线学习算法</h3><p>假设一个分布式数据挖掘系统拥有1个整合学习机和$\kappa$个本地学习机，$\kappa \in \{1,…,K\}$,时间线被分成离散的周期。在每一段周期n内，有一个数据实体<script type="math/tex">x^n = ((x_i^n)_{i=1}^d, y^n)</script> 输入系统， <script type="math/tex">(x_i^n)_{i=1}^d</script> 表示数据的属性特征，$y \in {Y}$是对这个实体的标记。对每一个到来的数据实体，每个本地学习机$k \in \kappa$都会观察属性特征集的一个子集<script type="math/tex">{A}_k \subseteq \{1,...,d\}</script>。 假设 <script type="math/tex">\bigcup_{k \in \kappa} {A}_k = \{1,...,d\}</script>,也就是说虽然单个本地学习机无法观察到数据的所有属性特征，但是所有本地学习机的观察集合可以。<br>在每个周期 n 内，对于$x^n$，每一个本地学习机，$k \in \kappa$,在基于观测 <script type="math/tex">{(x_j^n)}_{j \in A_k}</script> 的情况下, 会作出一个对 $y^n$的预测 $\hat{\mkern1mu y}_k^n$. 对于整个系统而言，最需要做的就是最大化整合学习机的预测准确性。为了实现这个目标，我们假设每个本地学习机 $k$ 都维护着有限个预测函数，定义为：</p>
+<script type="math/tex; mode=display">\digamma_k = \{f : \prod_{j \in A_k} \chi_j \to R \}</script><p><script type="math/tex">\chi_j</script> 表示属性特征<script type="math/tex">x_j</script>的取值范围。每一个预测函数可以被理解为分类器（classifier）。在这，我们假设每个本地学习机用线性回归器（Linear regressor）将其所有可用的预测函数结合，然后去作预测。让<script type="math/tex">\vec{\mkern1mu f}_k = (f_{k1},...,f_{k|\digamma_k|})</script> 表示本地学习机 k 的所有预测函数。除此以外，本地学习机还维护着一个对每个预测函数的权重向量<script type="math/tex">\vec{\mkern1mu b}_k \in R^{|\digamma_k|}</script>, 所以在周期 n 内，本地学习机的预测通过 <script type="math/tex">\hat{\mkern1mu y}_k^n = \langle \vec{\mkern1mu b}_k, \vec{\mkern1mu f}_k({(x_j^n)}_{j \in A_k}) \rangle</script>得到.<br>Next整合学习机聚集所有本地学习机的预测，并用一个线性回归器作为整合学习机的预测函数去产生最后的输出：<script type="math/tex">\hat{\mkern1mu y}^n = \sum_{k \in \kappa}w_k \hat{\mkern1mu y}_k^n</script>. 向量<script type="math/tex">\vec{\mkern1mu w} = \{w_k\}_{k=1}^K</script> 是整合学习机赋值给本地学习机的权重向量。在这里，我们假设所有本地学习机的预测都是无偏向的(unbiased)。因此，所有权重之和标准化后为1:<script type="math/tex">\sum_{k=1}^K w_k =1</script>.<br>我们的目标是设计一个算法：对学习机权重进行设限，最小化实体预测值的平方差，也就是：</p>
+<p><script type="math/tex">{\min \limits_{b_k}}\quad{\min \limits_w} \sum_{m=1}^n (y^m-\sum_{k=1}^K w_k \langle \vec{\mkern1mu b}_k,\vec{\mkern1mu f}_k({(x_j^m)}_{j \in A_k})\rangle)^2,\quad s.t. {||W||}_1 = 1, {||b_k||}_2 \le \lambda_k,\forall k \in \kappa</script>.<br>为了解决上式的问题，我们提出了一个更新整合学习机权重<script type="math/tex">\vec{\mkern1mu w}</script>,以及对每个本地学习机向量<script type="math/tex">\vec {\mkern1mu b}_k</script>的方法。 当<script type="math/tex">{(b_k^n)}_{k=1}^K</script>固定不变时，我们可以更新整合学习机的<script type="math/tex">\vec{\mkern1mu w}</script>向量。更新此向量就要解决下面的问题：<br>\begin{equation}<br>\min \limits_w {||y^n - \vec{\mkern1mu G^n} \vec{\mkern1mu w}||}_2^2, \quad s.t.{||\vec{\mkern1mu w}||}_1 = 1<br>\end{equation}</p>
+<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><p>1.<a href="https://www.zhihu.com/question/22246294" target="_blank" rel="noopener">https://www.zhihu.com/question/22246294</a><br>2.Zhang Y, Sow D, Turaga D, et al. A fast online learning algorithm for distributed mining of bigdata[J]. ACM SIGMETRICS Performance Evaluation Review, 2014, 41(4): 90-93.</p>
+]]></content>
+      
+        <categories>
+            
+            <category> Data Mining </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 在线学习算法 </tag>
+            
+            <tag> Online learning algorithm </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[最小二乘估计（Least Squares Estimator）]]></title>
+      <url>/2018/02/21/2018.02.21_%E6%9C%80%E5%B0%8F%E4%BA%8C%E4%B9%98%E4%BC%B0%E8%AE%A1/</url>
+      <content type="html"><![CDATA[<p>最小二乘估计在Machine learning领域被广泛使用，接下来就来简单的介绍一下这个方法，首先，看一个式子：</p>
+<script type="math/tex; mode=display">y=ax+e</script><p>这是一个简单的直线方程，X是自变量，y是因变量，<script type="math/tex">e</script>是一个常量，此等式只能代表一个自变量对因变量的影响。<br><a id="more"></a><br>如果我们把一个自变量拓展到n个自变量，比如影响一个人的智商的可能是年龄，但也有可能是环境，基因，受教育程度等。则以上式子就变为：</p>
+<script type="math/tex; mode=display">y_i = a_1x_{i1} +...+ a_2x_{i2}+...+a_kx_{ik}+e_i, 1 \le i \le n, k\ge1</script><p>换做矩阵表示为：</p>
+<script type="math/tex; mode=display">\vec{\mkern1mu y} = X \vec{\mkern1mu a} + \vec{\mkern1mu e}</script><script type="math/tex; mode=display">\left[
+      \begin{array}{c}
+        y1\\
+        y2\\
+        \vdots\\
+        y_n\\
+      \end{array}
+  \right]
+=  
+  \left[
+  \begin{array}{cccc}
+  x_{11} & x_{12} & \cdots x_{1k} \\
+  x_{21} & x_{22} & \cdots x_{2k} \\
+  \vdots & \vdots & \ddots \vdots \\
+  x_{n1} & x_{n2} & \cdots x_{nk} \\
+  \end{array}
+  \right]
+
+  \left[
+  \begin{array}{c}
+    a1\\
+    a2\\
+    \vdots\\
+    a_k\\
+  \end{array}
+  \right]
+ +\left[
+ \begin{array}{c}
+   e1\\
+   e2\\
+   \vdots\\
+   e_n\\
+ \end{array}
+ \right]</script><p>为了让$\vec{\mkern1mu a}$变得更有意义，那么就要使$\vec{\mkern1mu e}$尽量的小。也就是让$\vec{\mkern1mu e}$的长度尽量小。</p>
+<script type="math/tex; mode=display">|\vec{\mkern1mu e}| = \sqrt{\sum_{i=1}^n e_i^2}</script><p>两边平方得：</p>
+<script type="math/tex; mode=display">|\vec{\mkern1mu e}|^2 = \sum_{i=1}^n e_i^2 = \vec{\mkern1mu e}\vec{\mkern1mu e} = \vec{\mkern1mu e}^{T}\vec{\mkern1mu e}</script><p>也就是说，当$\vec{\mkern1mu e}^{T}\vec{\mkern1mu e}$取最小值时，$\vec{\mkern1mu a}$能取得最优解。继续推倒，可以得到下式（证明略，有兴趣的可以看reference的第二个链接）：</p>
+<script type="math/tex; mode=display">\vec{\mkern1mu e}^{T}\vec{\mkern1mu e} = \vec{\mkern1mu y}^{T}\vec{\mkern1mu y} - 2\vec{\mkern1mu y}^{T}X\vec{\mkern1mu a}+\vec{\mkern1mu a}^{T}X^{T}X\vec{\mkern1mu a}</script><p>然后利用矩阵微分，可得：</p>
+<script type="math/tex; mode=display">\vec{\mkern1mu a} = (X^TX)^{-1}X^T\vec{\mkern1mu y}</script><p>这个式子就是最小二乘估计。</p>
+<p>特殊情况下的最小二乘估计：如果X是一个方阵，则</p>
+<script type="math/tex; mode=display">\vec{\mkern1mu a} = X^{-1}\vec{\mkern1mu y}</script><p>可以发现，当为方阵时，最小二乘估计很简单。不是方阵时，由于$X^{-1}$和$（X^T）^{-1}$都不成立，导致最小二乘估计无法继续化简。</p>
+<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><p><a href="http://www.qiujiawei.com/linear-algebra-15/" target="_blank" rel="noopener">http://www.qiujiawei.com/linear-algebra-15/</a></p>
+]]></content>
+      
+        <categories>
+            
+            <category> Math </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> Least Squares Estimator </tag>
+            
+            <tag> 最小二乘估计 </tag>
+            
+            <tag> Math learning </tag>
+            
+            <tag> 机器学习 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[流数据的无监督实时异常检测]]></title>
+      <url>/2018/02/20/2018.02.20_%E6%B5%81%E6%95%B0%E6%8D%AE%E7%9A%84%E9%9D%9E%E7%9B%91%E7%9D%A3%E5%AE%9E%E6%97%B6%E5%BC%82%E5%B8%B8%E7%9B%91%E6%B5%8B/</url>
+      <content type="html"><![CDATA[<h3 id="1-Introduction"><a href="#1-Introduction" class="headerlink" title="1. Introduction"></a>1. Introduction</h3><p>异常检测在工业实时流数据中非常重要，例如预防性维护，防欺诈，故障检测和监控（Preventative maintenance, fraud prevention, fault detection, and monitoring）等。异常可能是暂时性的（Temporal anomaly），暂时性异常可以预先发现潜在的问题，但是这种异常往往很难在实时数据流中被检测到，所以检测暂时性异常非常重要.<br><a id="more"></a><br>Batch processing, data is split into train/test sets, and algorithms cannot look ahead, but data streaming is not. 流数据处理（Data streaming）和批处理(Batch processing)不同，流数据处理是处理源源不断的数据流，而批处理是处理整个数据集 (full dataset)。  </p>
+<h4 id="1-1-Streaming-applications"><a href="#1-1-Streaming-applications" class="headerlink" title="1.1 Streaming applications"></a>1.1 Streaming applications</h4><p>Streaming applications impose unique constraints and challenges for machine learning models.<br>The concept drift means that the statistical properties of the target variable, change over time in unforeseen ways. This causes problems because the predictions become less accurate as time passes.<br>Let the vector $\chi_t$ represent the state of a real-time system at time $t$.</p>
+<script type="math/tex; mode=display">...,\chi_{t-2},\chi_{t-1},\chi_{t},\chi_{t+1},\chi_{t+2},...</script><p>There is a tradeoff between early detections and false positives, as an algorithm that makes frequent inaccurate detections is likely to be ignored.<br>We define the ideal characteristics of the real-world anomaly detection algorithm as follows:<br>1.Predictions must be made online; i.e., the algorithm must identify state <script type="math/tex">\chi_t</script> as normal or anomalous before receiving the subsequent <script type="math/tex">\chi_{t+1}</script>.<br>2.The algorithm must learn continuously without a requirement to store the entire stream.<br>3.The algorithm must run in an unsupervised, automated fashion,i.e., without data labels or manual parameter tweaking.<br>4.Algorithms must adapt to dynamic environments and concept drift, as the underlying statistics of the data stream is often non-stationary.<br>5.Algorithms should make anomaly detections as early as possible.<br>6.Algorithms should minimize false positives and false negatives (this is true for batch scenarios as well).</p>
+<h4 id="1-2-Related-work"><a href="#1-2-Related-work" class="headerlink" title="1.2 Related work"></a>1.2 Related work</h4><p>Many anomaly detection approaches exist: Both supervised (e.g. support vector machines and decision trees) and unsupervised (e.g. clustering), yet many anomaly detection methods are for processing data in batches, and unsuitable for real-time streaming applications.<br>Some anomaly detection algorithms are partially online. They either have an initial phase of offline learning, or rely on look-ahead to flag previously-seen anomalous data.</p>
+<h3 id="2-Anomaly-detection-using-HTM"><a href="#2-Anomaly-detection-using-HTM" class="headerlink" title="2. Anomaly detection using HTM"></a>2. Anomaly detection using HTM</h3><h4 id="2-1-Overview-of-HTM"><a href="#2-1-Overview-of-HTM" class="headerlink" title="2.1 Overview of HTM"></a>2.1 Overview of HTM</h4><p>Sparse encoding 稀疏编码  Disambiguate sequences 消歧序列<br>Tail probability：It is the probability that a variable will be larger than x standard deviations above the mean. 换句话说，尾部概率主要关注的是那些偏离平均值的事件发生的概率，一般来说，尾部概率通常特别关注那些远离好几倍误差的事件发生可能性。<br><img src="/images/2018.2.19_1.png" alt="" title="Fig. 1. (a) A block diagram outlining the primary functional steps used to create a complete anomaly detection system based on HTM. Our process takes the output of an HTM system and then performs two additional post-processing steps: computing the prediction error followed by computing an anomaly likelihood measure. (b) Breakdown of the core algorithm components within an HTM system."><br>The current input <script type="math/tex">\chi_t</script>, is fed to an encoder and then a sparse spatial pooling process. The resulting vector,<script type="math/tex">a(\chi_t)</script>, is a sparse binary vector representing the current input. The heart of the system is the sequence memory component. This component models temporal patterns in <script type="math/tex">a(\chi_t)</script> and outputs a prediction in the form of another sparse vector <script type="math/tex">π(\chi_{t})</script>. <script type="math/tex">π(\chi_{t})</script> is thus a prediction for <script type="math/tex">a(\chi_{t+1})</script>.<br><img src="/images/2018.2.19_2.png" alt="" title="Fig. 2. The HTM sequence memory. (a) HTM sequence memory models one layer of cortex. The layer consists of a set of mini-columns, with each mini-column containing multiple neurons. (b) An HTM neuron (left) models the dendritic structure of pyramidal neurons in cortex (right). An HTM neuron models dendrites as an array of coincident detectors, each with a set of synapses. Context dendrites receive lateral input from other neurons within the layer. Each dendrite represents one transition in a sequence. Sufficient lateral activity on a context dendrite will cause the cell to enter a predicted state. (c) Representing high-order Markov sequences with shared subsequences (ABCD vs. XBCY). Each sequence element invokes a sparse set of cells within mini-columns. Cells that are predicted through lateral connections prevent other cells in the same column from firing through intra-column inhibition resulting in a highly sparse representation. As shown in the figure, such a representation can maintain past context. Because different cells respond to “C” in the two sequences (C’ and C’’), they can then invoke the correct prediction of either D or Y depending on the input from two time steps ago."><br>The figure shows how the sparse representations are used to rep- resent temporal patterns and disambiguate sequences with long term dependencies. When receiving the next input, the network uses the difference between predicted input and the actual input to update its synaptic connections. Learning happens at every time step but since the representations are highly sparse only a tiny percentage of the synapses are updated.</p>
+<h4 id="2-2-Computing-the-prediction-error"><a href="#2-2-Computing-the-prediction-error" class="headerlink" title="2.2 Computing the prediction error"></a>2.2 Computing the prediction error</h4><p>We first compute a measure of prediction error, st. Then, using a probabilistic model of st, we compute Lt, a likelihood that the system is in an anomalous state.<br>Given the current input <script type="math/tex">\chi_t</script> , <script type="math/tex">a(\chi_t)</script> is a sparse encoding of the current input, and $π(\chi_{t-1})$ is the sparse vector representing the HTM network’s internal prediction of <script type="math/tex">a(\chi_t)</script>. The dimensionality of both vectors is equal to the number of columns in the HTM network (use a standard value of 2048 for the number of columns in our experiments). Let the prediction error, st, be a scalar value inversely proportional to the number of bits common between the actual and predicted binary vectors:</p>
+<script type="math/tex; mode=display">s_t = 1- \frac{\pi(\chi_{t-1})\centerdot a(\chi_t)}{|a(\chi_t)|}</script><p>$|a(\chi_t)|$是标量，表示数据流<script type="math/tex">|a(\chi_t)|</script>中所有比特位为“1”的总个数.如果预测和当前状态的<script type="math/tex">a(\chi_t)</script>相匹配，那么<script type="math/tex">s_t</script>就是0。否则如果预测向量和当前状态向量是正交向量（也就是两个向量没有共同的比特位),那么<script type="math/tex">s_t</script>就为1.</p>
+<h4 id="2-3-Computing-anomaly-likelihood"><a href="#2-3-Computing-anomaly-likelihood" class="headerlink" title="2.3 Computing anomaly likelihood"></a>2.3 Computing anomaly likelihood</h4><p>Model the distribution as a rolling normal distribution where the sample mean $\mu_t$ and $\sigma_t^2$, are continuously updated from previous error values as follows:</p>
+<script type="math/tex; mode=display">\mu_t = \frac{\sum_{i=0}^{i=W-1}s_{t-i}}{W}</script><script type="math/tex; mode=display">\sigma_t^2 = \frac{\sum_{i=0}^{i=W-1}(s_{t-i}-\mu_t)^2}{W-1}</script><p>We then compute a recent short term average of prediction errors, and apply a threshold to the Gaussian tail probability (Q-function) to decide whether or not to declare an anomaly. We define the anomaly likelihood as the complement of the tail probability:</p>
+<script type="math/tex; mode=display">L_t = 1 - Q(\frac{\mu_t^{\sim}-\mu_t}{\sigma_t})</script><p>where <script type="math/tex">\mu_t^{\sim} = \frac{\sum_{i=0}^{W^\prime-1}s_{t-i}}{W^\prime}</script><br>Q-function：<script type="math/tex">Pr\{X > x\} = Q(\frac{x-\mu}{\sigma})</script><br>$W^\prime$ here is a window for a short term moving average, where $W^\prime \lll W$, the duration for computing the distribution of prediction errors. We threshold $L_t$ based on a user-defined parameter <script type="math/tex">\epsilon</script> to report an anomaly:</p>
+<script type="math/tex; mode=display">≡ L_t \ge 1 − \epsilon</script><p>In practice we use a generous value of $W=8000,W^\prime=10,\epsilon = 10^{-5}.$</p>
+<h3 id="3-Evaluation-of-streaming-anomaly-detection-algorithms"><a href="#3-Evaluation-of-streaming-anomaly-detection-algorithms" class="headerlink" title="3.Evaluation of streaming anomaly detection algorithms"></a>3.Evaluation of streaming anomaly detection algorithms</h3><p>The Numenta Anomaly Benchmark (NAB) is a novel benchmark for evaluating algorithms for anomaly detection in streaming, online applications.<br>1.Provide a dataset of labeled data streams from real-world streaming applications.<br>2.Provide a scoring methodology and set of constraints designed for streaming applications.<br>3.Provide a controlled open repository for researchers to evaluate and compare anomaly detection algorithms for streaming applications.  </p>
+<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><p>Ahmad S, Lavin A, Purdy S, et al. Unsupervised real-time anomaly detection for streaming data[J]. Neurocomputing, 2017, 262: 134-147.</p>
+]]></content>
+      
+        <categories>
+            
+            <category> Data Mining </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> Data streaming </tag>
+            
+            <tag> 流数据 </tag>
+            
+            <tag> Abnormal detection </tag>
+            
+            <tag> 异常检测 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Hexo常用排版格式]]></title>
+      <url>/2018/02/14/2018.02.14_Hexo%20%E6%8E%92%E7%89%88%E6%A0%BC%E5%BC%8F/</url>
+      <content type="html"><![CDATA[<p>本文主要记录我在写博客期间遇到的一些排版格式，怕自己忘了，所以记录下来怕自己忘记。<br><a id="more"></a></p>
+<h3 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h3><h4 id="字体"><a href="#字体" class="headerlink" title="字体"></a>字体</h4><p>加粗: **<br>斜体: *</p>
+]]></content>
+      
+        <categories>
+            
+            <category> Hexo </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> Latex排版 </tag>
+            
+            <tag> Hexo排版 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Hexo常用数学公式]]></title>
+      <url>/2018/02/14/2018.02.14_Hexo%20%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F/</url>
+      <content type="html"><![CDATA[<p>本文主要记录我在写博客期间遇到的一些常用的及特殊的数学公式，怕自己忘了，所以记录下来怕自己忘记。<br><a id="more"></a></p>
+<h3 id="常见数学符号"><a href="#常见数学符号" class="headerlink" title="常见数学符号"></a>常见数学符号</h3><p>$\theta$: \theta<br>$\times$: \times<br>$\prod$: \prod<br>$\pm$: \pm<br>$\mp$: \mp<br>$\ell$: \ell<br>$\digamma:$ \digamma<br>$\hat{\mkern1mu a}:$ \hat{\mkern1mu a}<br>$\to:$ \to<br>$\langle:$ \langle<br>$\rangle:$ \rangle<br>$\min \limits_w:$\min \limits_w<br>$\lambda:$ \lambda<br>$\forall:$ \forall<br>$\exists:$ \exists</p>
+<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><p><a href="http://mohu.org/info/symbols/symbols.htm" target="_blank" rel="noopener">http://mohu.org/info/symbols/symbols.htm</a></p>
+]]></content>
+      
+        <categories>
+            
+            <category> Hexo </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> Math formul </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[最大似然估计(Maximum likelihood estimation)]]></title>
+      <url>/2018/02/14/2018.02.14_%E6%9C%80%E5%A4%A7%E4%BC%BC%E7%84%B6%E4%BC%B0%E8%AE%A1/</url>
+      <content type="html"><![CDATA[<p>最大似然估计提供了一种给定观察数据来评估模型参数的方法，即：“模型已定，参数未知”。最大似然估计中的采样需要满足假设：所有的采样都是独立分布的。<br><a id="more"></a><br>首先，假设$x_1,x_2,……x_n$为独立同分布的采样，$\theta$为模型参数，$f$为我们所使用的模型，遵循独立同步假设。那么参数为$\theta$的模型f可表示为：</p>
+<script type="math/tex; mode=display">f(x_1,x_2,...,x_n|\theta) = f(x_1|\theta) \times f(x_2|\theta),...,f(x_n|\theta)</script><p>模型已定，参数未知：已知的为$x_1,x_2,……x_n$，未知的为$\theta$, 故似然定义为：</p>
+<script type="math/tex; mode=display">L(\theta|x_1,x_2,...,x_n) = f(x_1,...,x_n|\theta) = \prod_{i=1}^nf(x_i|\theta)</script><p>两边取对数，得到：</p>
+<script type="math/tex; mode=display">InL(\theta|x_1,...x_n) = \sum_{i=1}^nInf(x_i|\theta),假设 \ell_{avg} = \frac{1}{n}InL</script><p>其中的<script type="math/tex">InL(\theta|x_1,...x_n)</script>称为对数似然，而 $\ell_{avg}$为平均对数似然。平时接触最多的最大似然其实是最大的对数平均似然，即：</p>
+<script type="math/tex; mode=display">\theta^{max}= max\ell_{avg}(\theta|x_1,...,x_n)</script><p>例如，一个袋子里装有黑白两种球，球的数量不知道，做100次放回性取球抽样实验，记录下每次取球的颜色。假设100次实验中，取得白球的概率是70%，黑球30%，则一般认为白球占总数的70%。虽然可以这么说，但这是一个直接的带有感官的答案，缺乏理论证明。接下来对其进行证明：<br>假设白球的所占比是p,那么黑球就是1-p. M是所给的模型，<script type="math/tex">Data = \{x_1,x_2,...,x_{100}\}</script> 是这一百次抽样结果的数据，则：</p>
+<script type="math/tex; mode=display">P(Data|M) = P(x_1,x_2,...,x_{100}|M) = P(x_1|M) P(x_2|M)...P(x_{100}|M)=p^{70}(1-p)^{30}</script><p>那么，从基本的数学知识可知，要想找到这个结果的最大值，应对其进行求导，并使其导数等于0. 即：<script type="math/tex">70p^{69}\times(1-p)^{30}-p^{70}\times(1-p)^{29}=0</script>, 解得p=0.7. 也就是说白球所占比为0.7的可能性最大。</p>
+<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><p><a href="https://www.cnblogs.com/liliu/archive/2010/11/22/1883702.html" target="_blank" rel="noopener">https://www.cnblogs.com/liliu/archive/2010/11/22/1883702.html</a></p>
+]]></content>
+      
+        <categories>
+            
+            <category> Math </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 最大似然估计 </tag>
+            
+            <tag> Maximum likelihood estimation </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[从这说起]]></title>
+      <url>/2018/01/30/2018.01.30_%E4%BB%8E%E8%BF%99%E8%AF%B4%E8%B5%B7/</url>
+      <content type="html"><![CDATA[<p>第一次有想写博客的想法其实是在2017年12月份，然后去英国过了个圣诞，回来后学习热情消失殆尽，故一直拖到如今，有几个原因促成这个博客的诞生：<br><a id="more"></a><br>1.自己虽大学毕业了， 但是让自己总结大学四年学到了什么专业知识，我竟一时语塞；甚至让我回想一些对自己影响颇深的人和事，记住的也是寥寥无几。古人说，“好记性不如烂笔头”，用在这再贴合不过了。人的记忆有限，况且时代变化还这么快，想要通过文字来记录自己的所学，所想，所感！<br>2.身边有不少朋友经营着自己的微信公众号，有分享自己摄影作品的，有分享自己所感所想的，甚至还有和商业合作专门写软文的，发展兴趣的同时赚点外快，有点心生羡慕，公众号的发展也让有好文采的人能够大展身手.<br>3.关于我为什么不选择开通一个微信公众号，那当然是觉得自己的文字能力有限TT,同时我想要的是一个远离社交圈的灵魂栖息地，一个真正属于自己的小小空间，可以在这肆意发疯，记下自己的碎碎念，见证自己的成长。</p>
+<p>博客涵盖内容：计算机相关 投资理财 鸡汤</p>
+]]></content>
+      
+        <categories>
+            
+            <category> My life </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 博客 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+  
+  
 </search>

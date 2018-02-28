@@ -416,7 +416,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://memicat.com/2020/02/14/Example/">
+    <link itemprop="mainEntityOfPage" href="http://memicat.com/2020/02/28/2018.02.28_一些零散的Machine learning 知识/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Memicat">
@@ -435,7 +435,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2020/02/14/Example/" itemprop="url">Example</a></h1>
+                <a class="post-title-link" href="/2020/02/28/2018.02.28_一些零散的Machine learning 知识/" itemprop="url">一些零散的Machine learning 知识</a></h1>
         
 
         <div class="post-meta">
@@ -447,8 +447,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-02-14T00:00:00+01:00">
-                2020-02-14
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-02-28T00:00:00+01:00">
+                2020-02-28
               </time>
             
 
@@ -487,7 +487,7 @@
 
           
           
-             <span id="/2020/02/14/Example/" class="leancloud_visitors" data-flag-title="Example">
+             <span id="/2020/02/28/2018.02.28_一些零散的Machine learning 知识/" class="leancloud_visitors" data-flag-title="一些零散的Machine learning 知识">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -517,161 +517,10 @@
 
       
         
-          
-            <h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://memicat.com/2018/02/21/20180.02.21_最小二乘估计/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Memicat">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Memicat's blog!">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/02/21/20180.02.21_最小二乘估计/" itemprop="url">最小二乘估计（Least Squares Estimator）</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-21T00:00:00+01:00">
-                2018-02-21
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Math/" itemprop="url" rel="index">
-                    <span itemprop="name">Math</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2018/02/21/20180.02.21_最小二乘估计/" class="leancloud_visitors" data-flag-title="最小二乘估计（Least Squares Estimator）">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>最小二乘估计在Machine learning领域被广泛使用，接下来就来简单的介绍一下这个方法，首先，看一个式子：</p>
-<script type="math/tex; mode=display">y=ax+e</script><p>这是一个简单的直线方程，X是自变量，y是因变量，<script type="math/tex">e</script>是一个常量，此等式只能代表一个自变量对因变量的影响。<br>
+          <h3 id="1-Basic-knowledge"><a href="#1-Basic-knowledge" class="headerlink" title="1. Basic knowledge"></a>1. Basic knowledge</h3><h4 id="1-1-What-is-an-F-Statistic"><a href="#1-1-What-is-an-F-Statistic" class="headerlink" title="1.1 What is an F Statistic?"></a>1.1 What is an F Statistic?</h4><p>An F statistic is a value you get when you run an ANOVA test or a regression analysis to find out if the means between two populations are significantly different. It’s similar to a T statistic from a T Test; A T test will tell you if a single variable is statistically significant and an F test will tell you if a group of variables are jointly significant.<br>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/02/21/20180.02.21_最小二乘估计/#more" rel="contents">
+            <a class="btn" href="/2020/02/28/2018.02.28_一些零散的Machine learning 知识/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -877,6 +726,162 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://memicat.com/2018/02/21/2018.02.21_最小二乘估计/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Memicat">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Memicat's blog!">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/02/21/2018.02.21_最小二乘估计/" itemprop="url">最小二乘估计（Least Squares Estimator）</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-21T00:00:00+01:00">
+                2018-02-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Math/" itemprop="url" rel="index">
+                    <span itemprop="name">Math</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2018/02/21/2018.02.21_最小二乘估计/" class="leancloud_visitors" data-flag-title="最小二乘估计（Least Squares Estimator）">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>最小二乘估计在Machine learning领域被广泛使用，接下来就来简单的介绍一下这个方法，首先，看一个式子：</p>
+<script type="math/tex; mode=display">y=ax+e</script><p>这是一个简单的直线方程，X是自变量，y是因变量，<script type="math/tex">e</script>是一个常量，此等式只能代表一个自变量对因变量的影响。<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/02/21/2018.02.21_最小二乘估计/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://memicat.com/2018/02/20/2018.02.20_流数据的非监督实时异常监测/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -978,165 +983,10 @@
 
       
         
-          <h3 id="1-Introduction"><a href="#1-Introduction" class="headerlink" title="1. Introduction"></a>1. Introduction</h3><p>异常检测在工业实时流数据中非常重要，例如预防性维护，防欺诈，故障检测和监控（Preventative maintenance, fraud prevention, fault de- tection, and monitoring）等。异常可能是暂时性的（Temporal anomaly），暂时性异常可以预先发现潜在的问题，但是这种异常往往很难在实时数据流中被检测到，所以检测暂时性异常非常重要.<br>
+          <h3 id="1-Introduction"><a href="#1-Introduction" class="headerlink" title="1. Introduction"></a>1. Introduction</h3><p>异常检测在工业实时流数据中非常重要，例如预防性维护，防欺诈，故障检测和监控（Preventative maintenance, fraud prevention, fault detection, and monitoring）等。异常可能是暂时性的（Temporal anomaly），暂时性异常可以预先发现潜在的问题，但是这种异常往往很难在实时数据流中被检测到，所以检测暂时性异常非常重要.<br>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/02/20/2018.02.20_流数据的非监督实时异常监测/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://memicat.com/2018/02/14/Linear mixed model/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Memicat">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Memicat's blog!">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/02/14/Linear mixed model/" itemprop="url">Linear Mixed Models</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-14T00:00:00+01:00">
-                2018-02-14
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Data-Mining/" itemprop="url" rel="index">
-                    <span itemprop="name">Data Mining</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2018/02/14/Linear mixed model/" class="leancloud_visitors" data-flag-title="Linear Mixed Models">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>首先来区分Factor（因子） &amp; Covariates （协变量）：<br>前者是名目变量，一般只含两至数个类别，每个类别至少有30个案例，后者是连续或定距变量（可以含成千上百个类别，每个类别中只含一至数个案例）。协变量一般用来指“控制变量”，可以说连续变量（如年龄）、也可以是名目变量（如性别）。<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/02/14/Linear mixed model/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -1689,7 +1539,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -1711,7 +1561,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-count">24</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>

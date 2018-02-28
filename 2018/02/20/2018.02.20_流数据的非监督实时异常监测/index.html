@@ -81,20 +81,20 @@
 
 
 
-<meta name="description" content="1. Introduction异常检测在工业实时流数据中非常重要，例如预防性维护，防欺诈，故障检测和监控（Preventative maintenance, fraud prevention, fault de- tection, and monitoring）等。异常可能是暂时性的（Temporal anomaly），暂时性异常可以预先发现潜在的问题，但是这种异常往往很难在实时数据流中被检测到，">
+<meta name="description" content="1. Introduction异常检测在工业实时流数据中非常重要，例如预防性维护，防欺诈，故障检测和监控（Preventative maintenance, fraud prevention, fault detection, and monitoring）等。异常可能是暂时性的（Temporal anomaly），暂时性异常可以预先发现潜在的问题，但是这种异常往往很难在实时数据流中被检测到，所以">
 <meta name="keywords" content="Data streaming,流数据,Abnormal detection,异常检测">
 <meta property="og:type" content="article">
 <meta property="og:title" content="流数据的无监督实时异常检测">
 <meta property="og:url" content="http://memicat.com/2018/02/20/2018.02.20_流数据的非监督实时异常监测/index.html">
 <meta property="og:site_name" content="Memicat&#39;s blog!">
-<meta property="og:description" content="1. Introduction异常检测在工业实时流数据中非常重要，例如预防性维护，防欺诈，故障检测和监控（Preventative maintenance, fraud prevention, fault de- tection, and monitoring）等。异常可能是暂时性的（Temporal anomaly），暂时性异常可以预先发现潜在的问题，但是这种异常往往很难在实时数据流中被检测到，">
+<meta property="og:description" content="1. Introduction异常检测在工业实时流数据中非常重要，例如预防性维护，防欺诈，故障检测和监控（Preventative maintenance, fraud prevention, fault detection, and monitoring）等。异常可能是暂时性的（Temporal anomaly），暂时性异常可以预先发现潜在的问题，但是这种异常往往很难在实时数据流中被检测到，所以">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http://memicat.com/images/2018.2.19_1.png">
 <meta property="og:image" content="http://memicat.com/images/2018.2.19_2.png">
-<meta property="og:updated_time" content="2018-02-22T10:44:57.662Z">
+<meta property="og:updated_time" content="2018-02-22T19:01:51.556Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="流数据的无监督实时异常检测">
-<meta name="twitter:description" content="1. Introduction异常检测在工业实时流数据中非常重要，例如预防性维护，防欺诈，故障检测和监控（Preventative maintenance, fraud prevention, fault de- tection, and monitoring）等。异常可能是暂时性的（Temporal anomaly），暂时性异常可以预先发现潜在的问题，但是这种异常往往很难在实时数据流中被检测到，">
+<meta name="twitter:description" content="1. Introduction异常检测在工业实时流数据中非常重要，例如预防性维护，防欺诈，故障检测和监控（Preventative maintenance, fraud prevention, fault detection, and monitoring）等。异常可能是暂时性的（Temporal anomaly），暂时性异常可以预先发现潜在的问题，但是这种异常往往很难在实时数据流中被检测到，所以">
 <meta name="twitter:image" content="http://memicat.com/images/2018.2.19_1.png">
 
 
@@ -366,7 +366,7 @@
       
 
       
-        <h3 id="1-Introduction"><a href="#1-Introduction" class="headerlink" title="1. Introduction"></a>1. Introduction</h3><p>异常检测在工业实时流数据中非常重要，例如预防性维护，防欺诈，故障检测和监控（Preventative maintenance, fraud prevention, fault de- tection, and monitoring）等。异常可能是暂时性的（Temporal anomaly），暂时性异常可以预先发现潜在的问题，但是这种异常往往很难在实时数据流中被检测到，所以检测暂时性异常非常重要.<br><a id="more"></a><br>Batch processing, data is split into train/test sets, and algorithms cannot look ahead, but data streaming is not. 流数据处理（Data streaming）和批处理(Batch processing)不同，流数据处理是处理源源不断的数据流，而批处理是处理整个数据集 (full dataset)。  </p>
+        <h3 id="1-Introduction"><a href="#1-Introduction" class="headerlink" title="1. Introduction"></a>1. Introduction</h3><p>异常检测在工业实时流数据中非常重要，例如预防性维护，防欺诈，故障检测和监控（Preventative maintenance, fraud prevention, fault detection, and monitoring）等。异常可能是暂时性的（Temporal anomaly），暂时性异常可以预先发现潜在的问题，但是这种异常往往很难在实时数据流中被检测到，所以检测暂时性异常非常重要.<br><a id="more"></a><br>Batch processing, data is split into train/test sets, and algorithms cannot look ahead, but data streaming is not. 流数据处理（Data streaming）和批处理(Batch processing)不同，流数据处理是处理源源不断的数据流，而批处理是处理整个数据集 (full dataset)。  </p>
 <h4 id="1-1-Streaming-applications"><a href="#1-1-Streaming-applications" class="headerlink" title="1.1 Streaming applications"></a>1.1 Streaming applications</h4><p>Streaming applications impose unique constraints and challenges for machine learning models.<br>The concept drift means that the statistical properties of the target variable, change over time in unforeseen ways. This causes problems because the predictions become less accurate as time passes.<br>Let the vector $\chi_t$ represent the state of a real-time system at time $t$.</p>
 <script type="math/tex; mode=display">...,\chi_{t-2},\chi_{t-1},\chi_{t},\chi_{t+1},\chi_{t+2},...</script><p>There is a tradeoff between early detections and false positives, as an algorithm that makes frequent inaccurate detections is likely to be ignored.<br>We define the ideal characteristics of the real-world anomaly detection algorithm as follows:<br>1.Predictions must be made online; i.e., the algorithm must identify state <script type="math/tex">\chi_t</script> as normal or anomalous before receiving the subsequent <script type="math/tex">\chi_{t+1}</script>.<br>2.The algorithm must learn continuously without a requirement to store the entire stream.<br>3.The algorithm must run in an unsupervised, automated fashion,i.e., without data labels or manual parameter tweaking.<br>4.Algorithms must adapt to dynamic environments and concept drift, as the underlying statistics of the data stream is often non-stationary.<br>5.Algorithms should make anomaly detections as early as possible.<br>6.Algorithms should minimize false positives and false negatives (this is true for batch scenarios as well).</p>
 <h4 id="1-2-Related-work"><a href="#1-2-Related-work" class="headerlink" title="1.2 Related work"></a>1.2 Related work</h4><p>Many anomaly detection approaches exist: Both supervised (e.g. support vector machines and decision trees) and unsupervised (e.g. clustering), yet many anomaly detection methods are for processing data in batches, and unsuitable for real-time streaming applications.<br>Some anomaly detection algorithms are partially online. They either have an initial phase of offline learning, or rely on look-ahead to flag previously-seen anomalous data.</p>
@@ -444,8 +444,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/02/14/Linear mixed model/" rel="next" title="Linear Mixed Models">
-                <i class="fa fa-chevron-left"></i> Linear Mixed Models
+              <a href="/2018/02/14/2018.02.14_Hexo 排版格式/" rel="next" title="Hexo常用排版格式">
+                <i class="fa fa-chevron-left"></i> Hexo常用排版格式
               </a>
             
           </div>
@@ -454,8 +454,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/02/21/2018.02.21_一个分布式挖掘快速在线学习算法/" rel="prev" title="一个分布式挖掘快速在线学习算法 (Online learning algorithm)">
-                一个分布式挖掘快速在线学习算法 (Online learning algorithm) <i class="fa fa-chevron-right"></i>
+              <a href="/2018/02/21/2018.02.21_最小二乘估计/" rel="prev" title="最小二乘估计（Least Squares Estimator）">
+                最小二乘估计（Least Squares Estimator） <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -585,7 +585,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -607,7 +607,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-count">24</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
