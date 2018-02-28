@@ -81,13 +81,13 @@
       <category term="Math" scheme="http://memicat.com/categories/Math/"/>
     
     
-      <category term="Least Squares Estimator" scheme="http://memicat.com/tags/Least-Squares-Estimator/"/>
-    
-      <category term="最小二乘估计" scheme="http://memicat.com/tags/%E6%9C%80%E5%B0%8F%E4%BA%8C%E4%B9%98%E4%BC%B0%E8%AE%A1/"/>
-    
       <category term="Math learning" scheme="http://memicat.com/tags/Math-learning/"/>
     
       <category term="机器学习" scheme="http://memicat.com/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="Least Squares Estimator" scheme="http://memicat.com/tags/Least-Squares-Estimator/"/>
+    
+      <category term="最小二乘估计" scheme="http://memicat.com/tags/%E6%9C%80%E5%B0%8F%E4%BA%8C%E4%B9%98%E4%BC%B0%E8%AE%A1/"/>
     
   </entry>
   
@@ -116,30 +116,6 @@
       <category term="Abnormal detection" scheme="http://memicat.com/tags/Abnormal-detection/"/>
     
       <category term="异常检测" scheme="http://memicat.com/tags/%E5%BC%82%E5%B8%B8%E6%A3%80%E6%B5%8B/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hexo常用排版格式</title>
-    <link href="http://memicat.com/2018/02/14/2018.02.14_Hexo%20%E6%8E%92%E7%89%88%E6%A0%BC%E5%BC%8F/"/>
-    <id>http://memicat.com/2018/02/14/2018.02.14_Hexo 排版格式/</id>
-    <published>2018-02-13T23:00:00.000Z</published>
-    <updated>2018-02-18T10:41:33.231Z</updated>
-    
-    <content type="html"><![CDATA[<p>本文主要记录我在写博客期间遇到的一些排版格式，怕自己忘了，所以记录下来怕自己忘记。<br><a id="more"></a></p><h3 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h3><h4 id="字体"><a href="#字体" class="headerlink" title="字体"></a>字体</h4><p>加粗: **<br>斜体: *</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;本文主要记录我在写博客期间遇到的一些排版格式，怕自己忘了，所以记录下来怕自己忘记。&lt;br&gt;
-    
-    </summary>
-    
-      <category term="Hexo" scheme="http://memicat.com/categories/Hexo/"/>
-    
-    
-      <category term="Latex排版" scheme="http://memicat.com/tags/Latex%E6%8E%92%E7%89%88/"/>
-    
-      <category term="Hexo排版" scheme="http://memicat.com/tags/Hexo%E6%8E%92%E7%89%88/"/>
     
   </entry>
   
@@ -186,6 +162,30 @@
       <category term="最大似然估计" scheme="http://memicat.com/tags/%E6%9C%80%E5%A4%A7%E4%BC%BC%E7%84%B6%E4%BC%B0%E8%AE%A1/"/>
     
       <category term="Maximum likelihood estimation" scheme="http://memicat.com/tags/Maximum-likelihood-estimation/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hexo常用排版格式</title>
+    <link href="http://memicat.com/2018/02/14/2018.02.14_Hexo%20%E6%8E%92%E7%89%88%E6%A0%BC%E5%BC%8F/"/>
+    <id>http://memicat.com/2018/02/14/2018.02.14_Hexo 排版格式/</id>
+    <published>2018-02-13T23:00:00.000Z</published>
+    <updated>2018-02-18T10:41:33.231Z</updated>
+    
+    <content type="html"><![CDATA[<p>本文主要记录我在写博客期间遇到的一些排版格式，怕自己忘了，所以记录下来怕自己忘记。<br><a id="more"></a></p><h3 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h3><h4 id="字体"><a href="#字体" class="headerlink" title="字体"></a>字体</h4><p>加粗: **<br>斜体: *</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;本文主要记录我在写博客期间遇到的一些排版格式，怕自己忘了，所以记录下来怕自己忘记。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Hexo" scheme="http://memicat.com/categories/Hexo/"/>
+    
+    
+      <category term="Latex排版" scheme="http://memicat.com/tags/Latex%E6%8E%92%E7%89%88/"/>
+    
+      <category term="Hexo排版" scheme="http://memicat.com/tags/Hexo%E6%8E%92%E7%89%88/"/>
     
   </entry>
   
