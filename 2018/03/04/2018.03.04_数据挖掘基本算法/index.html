@@ -1,0 +1,1104 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="K-means,KNN,Naıve Bayes）,Decision tree,SVM,Apriori,chi-square distribution,Hidden Markov model,10-fold cross-validation,HMM," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Memicat's blog!" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="此篇主要记录自己在学习数据挖掘过程中遇到的一些基本算法，目的是做一个整理，方便自己随时查阅。由于这些算法已经比较普及了，所以为了节省时间，大多参考网上前人的解释。">
+<meta name="keywords" content="K-means,KNN,Naıve Bayes）,Decision tree,SVM,Apriori,chi-square distribution,Hidden Markov model,10-fold cross-validation,HMM">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据挖掘基本算法">
+<meta property="og:url" content="http://memicat.com/2018/03/04/2018.03.04_数据挖掘基本算法/index.html">
+<meta property="og:site_name" content="Memicat&#39;s blog!">
+<meta property="og:description" content="此篇主要记录自己在学习数据挖掘过程中遇到的一些基本算法，目的是做一个整理，方便自己随时查阅。由于这些算法已经比较普及了，所以为了节省时间，大多参考网上前人的解释。">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="http://memicat.com/images/2018.3.04_1.jpg">
+<meta property="og:image" content="http://memicat.com/images/2018.3.04_2.jpg">
+<meta property="og:updated_time" content="2018-03-04T22:40:18.950Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="数据挖掘基本算法">
+<meta name="twitter:description" content="此篇主要记录自己在学习数据挖掘过程中遇到的一些基本算法，目的是做一个整理，方便自己随时查阅。由于这些算法已经比较普及了，所以为了节省时间，大多参考网上前人的解释。">
+<meta name="twitter:image" content="http://memicat.com/images/2018.3.04_1.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://memicat.com/2018/03/04/2018.03.04_数据挖掘基本算法/"/>
+
+
+
+
+
+  <title>数据挖掘基本算法 | Memicat's blog!</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Memicat's blog!</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Work rationally, life emotionally!</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://memicat.com/2018/03/04/2018.03.04_数据挖掘基本算法/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Memicat">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Memicat's blog!">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">数据挖掘基本算法</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-04T00:00:00+01:00">
+                2018-03-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Data-Mining/" itemprop="url" rel="index">
+                    <span itemprop="name">Data Mining</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2018/03/04/2018.03.04_数据挖掘基本算法/" class="leancloud_visitors" data-flag-title="数据挖掘基本算法">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>此篇主要记录自己在学习数据挖掘过程中遇到的一些基本算法，目的是做一个整理，方便自己随时查阅。由于这些算法已经比较普及了，所以为了节省时间，大多参考网上前人的解释。<br><a id="more"></a></p>
+<h3 id="1-K-means-【1】"><a href="#1-K-means-【1】" class="headerlink" title="1. K-means 【1】"></a>1. K-means 【1】</h3><h4 id="1-1-算法原理"><a href="#1-1-算法原理" class="headerlink" title="1.1 算法原理"></a>1.1 算法原理</h4><ol>
+<li>随机选择k个中心点（无监督学习）</li>
+<li>遍历所有的数据，将每个数据划分到离它最近的中心点中（根据Euclidean distance（欧几里得距离）进行划分，也就是计算遍历的数据点离所有中心点的距离，然后选择最小的那一个）</li>
+<li>计算每个聚类的平均值，作为聚类的新中心点。</li>
+<li>重复2-3步骤，直到这k个中心点不再变化，即收敛了，或者迭代重复的次数达到了用户的规定值<br>Matlab code：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[IDX,C,sumd,D] = kmeans(X,k,&apos;distance&apos;,&apos;sqEuclidean&apos;,&apos;start&apos;,&apos;sample&apos;)</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h4 id="1-2-算法优化"><a href="#1-2-算法优化" class="headerlink" title="1.2 算法优化"></a>1.2 算法优化</h4><p>由于中心点的随机选择，导致聚类的不确定性，故需要方法来优化。<br>Way one：重复执行几次此算法，选择sum-distance最小的一次作为聚类结果。<br>Way two：重复执行几次此算法，选取轮廓系数最小的一次作为聚类结果。<br>轮廓系数：结合了聚类的凝聚度（Cohesion）和分离度（Separation），用于评估聚类的效果。该值处于-1~1之间，值越大，表示聚类效果越好。</p>
+<h4 id="1-3-k的选取"><a href="#1-3-k的选取" class="headerlink" title="1.3 k的选取"></a>1.3 k的选取</h4><p>k一般不会设置很大。可以通过枚举，令k从2到一个固定值如10，在每个k值上重复运行数次kmeans(避免局部最优解)，并计算当前k的平均轮廓系数，最后选取轮廓系数最大的值对应的k作为最终的集群数目。</p>
+<h3 id="2-KNN-K-nearest-neighbour-【2】"><a href="#2-KNN-K-nearest-neighbour-【2】" class="headerlink" title="2. KNN (K nearest neighbour)【2】"></a>2. KNN (K nearest neighbour)【2】</h3><h4 id="算法原理"><a href="#算法原理" class="headerlink" title="算法原理"></a>算法原理</h4><p>训练集数据和标签（label）已知的情况下，输入测试数据，将测试数据的特征与训练集中对应的特征进行相互比较，找到训练集中与之最为相似的前K个数据，则该测试数据对应的类别就是K个数据中出现次数最多的那个分类:</p>
+<ol>
+<li>计算测试数据与各个训练数据之间的距离，距离有两种方式：<br>欧式距离: <script type="math/tex">d(x,y)=\sqrt{\sum_{k=1}^{n}(x_k-y_k)^2}</script><br>曼哈顿距离：<script type="math/tex">d(x,y)=\sqrt{\sum_{k=1}^n|x_k-y_k|}</script></li>
+<li>按照距离的递增关系进行排序.</li>
+<li>选取距离最小的K个点.</li>
+<li>确定前K个点所在类别的出现频率.</li>
+<li>返回前K个点中出现频率最高的类别作为测试数据的预测分类。</li>
+</ol>
+<p>KNN算法不仅可以用于分类，还可以用于回归。通过找出一个样本的k个最近邻居，将这些邻居的属性的平均值赋给该样本，就可以得到该样本的属性。更有用的方法是将不同距离的邻居对该样本产生的影响给予不同的权值(weight)，如权值与距离成反比。</p>
+<h3 id="3-贝叶斯（Naive-Bayes）【3】"><a href="#3-贝叶斯（Naive-Bayes）【3】" class="headerlink" title="3.贝叶斯（Naıve Bayes）【3】"></a>3.贝叶斯（Naıve Bayes）【3】</h3><h4 id="3-1-贝叶斯定理"><a href="#3-1-贝叶斯定理" class="headerlink" title="3.1 贝叶斯定理"></a>3.1 贝叶斯定理</h4><p>P(A|B)表示事件B已经发生的前提下，事件A发生的概率，叫做事件B发生下事件A的条件概率。其基本求解公式为：<script type="math/tex">P(A|B)=\frac{P(AB)}{P(B)}</script><br>我们在生活中经常遇到这种情况：我们可以很容易直接得出P(A|B)，P(B|A)则很难直接得出，但我们更关心P(B|A)，贝叶斯定理就为我们打通从P(A|B)获得P(B|A)的道路。</p>
+<script type="math/tex; mode=display">P(B|A)=\frac{P(A|B)P(B)}{P(A)}</script><h4 id="3-2-朴素贝叶斯分类"><a href="#3-2-朴素贝叶斯分类" class="headerlink" title="3.2 朴素贝叶斯分类"></a>3.2 朴素贝叶斯分类</h4><ol>
+<li>设<script type="math/tex">x = {a_1,a_2,...,a_m}</script>为一个待分类项，而每个a为x的一个特征属性。</li>
+<li>有类别集合<script type="math/tex">C = {y_1,y_2,...,y_n}</script>。</li>
+<li>计算<script type="math/tex">P(y_1|x),P(y_2|x),...,P(y_n|x)</script>。</li>
+<li>如果<script type="math/tex">P(y_k|x)=max\{P(y_1|x),P(y_2|x),...,P(y_n|x)\}</script>，则<script type="math/tex">x \in y_k</script>。<br>那么现在的关键就是如何计算第3步中的各个条件概率。我们可以这么做：<br>（1）找到一个已知分类的待分类项集合，这个集合叫做训练样本集。<br>（2）统计得到在各类别下各个特征属性的条件概率估计。即<script type="math/tex; mode=display">P(a_1|y_1）,P(a_2|y_1),...,P(a_m|y_1);P(a_1|y_2）,P(a_2|y_2),...,P(a_m|y_2);...;P(a_1|y_n）,P(a_2|y_n),...,P(a_m|y_n);</script>（3）如果各个特征属性是条件独立的，则根据贝叶斯定理有如下推导：<script type="math/tex; mode=display">P(y_i|x)=\frac{P(x|y_i)P(y_i)}{P(x)}</script>因为分母对于所有类别为常数，因为我们只要将分子最大化皆可。又因为各特征属性是条件独立的，所以有：<script type="math/tex; mode=display">P(x|y_i)P(y_i)=P(a_1|y_i）P(a_2|y_i)...P(a_m|y_i)P(y_i)=P(y_i)\prod_{j=1}^m P(a_j|y_i)</script></li>
+</ol>
+<h3 id="4-决策树（Decision-tree）【4】"><a href="#4-决策树（Decision-tree）【4】" class="headerlink" title="4.决策树（Decision tree）【4】"></a>4.决策树（Decision tree）【4】</h3><p>相比贝叶斯算法，决策树的优势在于构造过程不需要任何领域知识或参数设置，因此在实际应用中，对于探测式的知识发现，决策树更加适用。</p>
+<h4 id="4-1-基本定义"><a href="#4-1-基本定义" class="headerlink" title="4.1 基本定义"></a>4.1 基本定义</h4><p>决策树（decision tree）是一个树结构（可以是二叉树或非二叉树）。其每个非叶节点表示一个特征属性上的测试，每个分支代表这个特征属性在某个值域上的输出，而每个叶节点存放一个类别。使用决策树进行决策的过程就是从根节点开始，测试待分类项中相应的特征属性，并按照其值选择输出分支，直到到达叶子节点，将叶子节点存放的类别作为决策结果。</p>
+<h4 id="4-2-决策树的构造"><a href="#4-2-决策树的构造" class="headerlink" title="4.2 决策树的构造"></a>4.2 决策树的构造</h4><p>构造决策树的关键步骤是分裂属性。所谓分裂属性就是在某个节点处按照某一特征属性的不同划分构造不同的分支，其目标是让各个分裂子集尽可能地“纯”。尽可能“纯”就是尽量让一个分裂子集中待分类项属于同一类别。分裂属性分为三种不同的情况：</p>
+<ol>
+<li>属性是离散值且不要求生成二叉决策树。此时用属性的每一个划分作为一个分支。</li>
+<li>属性是离散值且要求生成二叉决策树。此时使用属性划分的一个子集进行测试，按照“属于此子集”和“不属于此子集”分成两个分支。</li>
+<li>属性是连续值。此时确定一个值作为分裂点split_point，按照&gt;split_point和&lt;=split_point生成两个分支。</li>
+</ol>
+<p>构造决策树的关键性内容是进行属性选择度量，属性选择度量是一种选择分裂准则，是将给定的类标记的训练集合的数据“最好”地分成个体类的启发式方法，它决定了拓扑结构及分裂点split_point的选择。属性选择度量算法有很多，一般使用自顶向下递归分治法，并采用不回溯的贪心策略。贪心算法（又称贪婪算法）是指，在对问题求解时，总是做出在当前看来是最好的选择。也就是说，不从整体最优上加以考虑，他所做出的是在某种意义上的局部最优解。贪心算法对每个子问题的解决方案都做出选择，不能回退；动态规划则会根据以前的选择结果对当前进行选择，有回退功能。这里介绍ID3和C4.5两种常用算法。</p>
+<h4 id="4-3-ID3算法"><a href="#4-3-ID3算法" class="headerlink" title="4.3 ID3算法"></a>4.3 ID3算法</h4><p>从信息论知识中我们直到，期望信息越小，信息增益越大，从而纯度越高。所以ID3算法的核心思想就是以信息增益度量属性选择，选择分裂后信息增益最大的属性进行分裂。下面先定义几个要用到的概念。<br>设D为用类别对训练元组进行的划分，则D的熵（entropy）表示为：</p>
+<script type="math/tex; mode=display">info(D) = -\sum_{i=1}^{m}p_ilog_2(p_i)</script><p>其中$p_i$表示第i个类别在整个训练元组中出现的概率，可以用属于此类别元素的数量除以训练元组元素总数量作为估计。熵的实际意义表示是D中元组的类标号所需要的平均信息量。<br>现在我们假设将训练元组D按属性A进行划分，则A对D划分的期望信息为：</p>
+<script type="math/tex; mode=display">info_A(D)=\sum_{j=1}^v \frac{|D_j|}{|D|}info(D_j)</script><p> 而信息增益即为两者的差值：</p>
+<script type="math/tex; mode=display">gain(A) = info(D)-info_A(D)</script><p>ID3算法就是在每次需要分裂时，计算每个属性的增益率，然后选择增益率最大的属性进行分裂。</p>
+<h4 id="4-4-C4-5算法"><a href="#4-4-C4-5算法" class="headerlink" title="4.4 C4.5算法"></a>4.4 C4.5算法</h4><p> ID3算法存在一个问题，就是偏向于多值属性，例如，如果存在唯一标识属性ID，则ID3会选择它作为分裂属性，这样虽然使得划分充分纯净，但这种划分对分类几乎毫无用处。ID3的后继算法C4.5使用增益率（gain ratio）的信息增益扩充，试图克服这个偏倚（bias）.<br>C4.5算法首先定义了“分裂信息”，其定义可以表示成：</p>
+<script type="math/tex; mode=display">split\_info_A(D) = -\sum_{j=1}^{v}\frac{|D_j|}{|D|}log_2(\frac{|D_j|}{D})</script><p>其中各符号意义与ID3算法相同，然后，增益率被定义为：</p>
+<script type="math/tex; mode=display">gain\_radio(A)=\frac{gain(A)}{split\_info_A}</script><p>C4.5选择具有最大增益率的属性作为分裂属性.</p>
+<h4 id="4-5-补充说明"><a href="#4-5-补充说明" class="headerlink" title="4.5 补充说明"></a>4.5 补充说明</h4><ol>
+<li><p>如果属性用完了怎么办<br>在决策树构造过程中可能会出现这种情况：所有属性都作为分裂属性用光了，但有的子集还不是纯净集，即集合内的元素不属于同一类别。在这种情况下，由于没有更多信息可以使用了，一般对这些子集进行“多数表决”，即使用此子集中出现次数最多的类别作为此节点类别，然后将此节点作为叶子节点。</p>
+</li>
+<li><p>关于剪枝<br>在实际构造决策树时，通常要进行剪枝，这时为了处理由于数据中的噪声和离群点导致的过分拟合问题。剪枝有两种：<br>先剪枝——在构造过程中，当某个节点满足剪枝条件，则直接停止此分支的构造。<br>后剪枝——先构造完成完整的决策树，再通过某些条件遍历树进行剪枝。</p>
+</li>
+<li><p>过拟合(Overfitting) 【5】<br>所谓Overfitting就是指过度训练，是说机器/Model学习到的Hypothesis过度接近Training Data，而导致Testing Date的时候，Error变得更大。例如，想用高次多项式的Hypothesis，h(w)作Linear Regression</p>
+<script type="math/tex; mode=display">h(w)=w_0x^0+w_1x^1+w_2x^2+...+w_nx^n</script><p>其中，w是weight，n表示多项式的次数(Order).<br>（1）如果多项式的Order不够大，则无法使得Hypothesis贴近Training Data。<br>（2）如果多项式的Order大小适中，则可以使得Hypothesis贴近Training Data以及Testing Date，此时<script type="math/tex">E_{in}</script>和<script type="math/tex">E_{out}</script>都会降低。<br>（3）如果多项式的Order太大，则可以使得Hypothesis过度贴近Training Data,远离Testing Date，造成<script type="math/tex">E_{out}</script>变大。</p>
+</li>
+</ol>
+<h3 id="5-SVM支持向量机-Support-vector-machines-【6】"><a href="#5-SVM支持向量机-Support-vector-machines-【6】" class="headerlink" title="5. SVM支持向量机(Support vector machines) 【6】"></a>5. SVM支持向量机(Support vector machines) 【6】</h3><h4 id="5-1-基本介绍"><a href="#5-1-基本介绍" class="headerlink" title="5.1 基本介绍"></a>5.1 基本介绍</h4><p>(1)SVM是一种监督式学习的方法，可广泛地应用于统计分类以及回归分析。支持向量机属于一般化线性分类器，这族分类器的特点是他们能够同时最小化经验误差与最大化几何边缘区，因此支持向量机也被称为最大边缘区分类器。<br>(2）支持向量机将向量映射到一个更高维的空间里，在这个空间里建立有一个最大间隔超平面。在分开数据的超平面的两边建有两个互相平行的超平面，分隔超平面使两个平行超平面的距离最大化。假定平行超平面间的距离或差距越大，分类器的总误差越小。</p>
+<h4 id="5-1-算法描述"><a href="#5-1-算法描述" class="headerlink" title="5.1 算法描述"></a>5.1 算法描述</h4><p>1.假设我们要通过三八线把实心圈和空心圈分成两类。那么有无数多条线可以完成这个任务。<br>2.在SVM中，我们寻找一条最优的分界线使得它到两边的margin都最大。<br>3.在这种情况下边缘加粗的几个数据点就叫做support vector，这也是这个分类算法名字的来源。<br><img src="/images/2018.3.04_1.jpg" alt=""><br>拓展至任意n维乃至无限维空间:<br><img src="/images/2018.3.04_2.jpg" alt=""></p>
+<h3 id="6-Apriori（先验算法）【7】"><a href="#6-Apriori（先验算法）【7】" class="headerlink" title="6. Apriori（先验算法）【7】"></a>6. Apriori（先验算法）【7】</h3><p>在计算机科学以及数据挖掘领域中， 先验算法（Apriori Algorithm 是关联规则学习的经典算法之一。先验算法的设计目的是为了处理包含交易信息内容的数据库（例如,顾客购买的商品清单，或者网页常访清单。）而其他的算法则是设计用来寻找无交易信息（如Winepi算法和Minepi算法）或无时间标记（如DNA测序）的数据之间的联系规则。<br>Apriori算法过程分为两个步骤：<br>第一步通过迭代，检索出事务数据库中的所有频繁项集，即支持度不低于用户设定的阈值的项集；<br>第二步利用频繁项集构造出满足用户最小信任度的规则。<br>具体做法就是：<br>首先找出频繁1-项集，记为L1；然后利用L1来产生候选项集C2，对C2中的项进行判定挖掘出L2，即频繁2-项集；不断如此循环下去直到无法发现更多的频繁k-项集为止。每挖掘一层<script type="math/tex">L_k</script>就需要扫描整个数据库一遍。算法利用了一个性质：<br>Apriori 性质：任一频繁项集的所有非空子集也必须是频繁的。意思就是说，生成一个k-itemset的候选项时，如果这个候选项有子集不在(k-1)-itemset(已经确定是frequent的)中时，那么这个候选项就不用拿去和支持度判断了，直接删除。<br>虽然先验算法具有显著的历史地位，但是其中的一些低效与权衡弊端也进而引致了许多其他的算法的产生。候选集产生过程生成了大量的子集（先验算法在每次对数据库进行扫描之前总是尝试加载尽可能多的候选集）。并且自底而上的子集浏览过程（本质上为宽度优先的子集格遍历）也直到遍历完所有$2^{|S|}-1$个可能的子集之后才寻找任意最大子集S。</p>
+<h3 id="7-卡方分布和卡方检验（chi-square-distribution）"><a href="#7-卡方分布和卡方检验（chi-square-distribution）" class="headerlink" title="7.卡方分布和卡方检验（chi-square distribution）"></a>7.卡方分布和卡方检验（chi-square distribution）</h3><p><a href="http://blog.csdn.net/bitcarmanlee/article/details/52279907" target="_blank" rel="noopener">http://blog.csdn.net/bitcarmanlee/article/details/52279907</a></p>
+<h3 id="8-Hidden-Markov-model"><a href="#8-Hidden-Markov-model" class="headerlink" title="8.Hidden Markov model"></a>8.Hidden Markov model</h3><h3 id="9-10-fold-cross-validation"><a href="#9-10-fold-cross-validation" class="headerlink" title="9.10-fold cross-validation"></a>9.10-fold cross-validation</h3><h3 id="10-HMM-Algorithm"><a href="#10-HMM-Algorithm" class="headerlink" title="10.HMM Algorithm"></a>10.HMM Algorithm</h3><h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><p>1.<a href="http://blog.csdn.net/adminabcd/article/details/51429561" target="_blank" rel="noopener">http://blog.csdn.net/adminabcd/article/details/51429561</a><br>2.<a href="http://www.cnblogs.com/sxron/p/5451923.html" target="_blank" rel="noopener">http://www.cnblogs.com/sxron/p/5451923.html</a><br>3.<a href="http://www.cnblogs.com/leoo2sk/archive/2010/09/17/naive-bayesian-classifier.html" target="_blank" rel="noopener">http://www.cnblogs.com/leoo2sk/archive/2010/09/17/naive-bayesian-classifier.html</a><br>4.<a href="http://www.cnblogs.com/leoo2sk/archive/2010/09/19/decision-tree.html" target="_blank" rel="noopener">http://www.cnblogs.com/leoo2sk/archive/2010/09/19/decision-tree.html</a><br>5.<a href="http://cpmarkchang.logdown.com/posts/193261-machine-learning-overfitting-and-regularization" target="_blank" rel="noopener">http://cpmarkchang.logdown.com/posts/193261-machine-learning-overfitting-and-regularization</a><br>6.<a href="https://www.zhihu.com/question/21094489" target="_blank" rel="noopener">https://www.zhihu.com/question/21094489</a><br>7.<a href="https://wizardforcel.gitbooks.io/dm-algo-top10/content/apriori.html" target="_blank" rel="noopener">https://wizardforcel.gitbooks.io/dm-algo-top10/content/apriori.html</a></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>Donate comment here</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>Donate</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechat.jpg" alt="Memicat WeChat Pay"/>
+        <p>WeChat Pay</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="Memicat Alipay"/>
+        <p>Alipay</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/K-means/" rel="tag"># K-means</a>
+          
+            <a href="/tags/KNN/" rel="tag"># KNN</a>
+          
+            <a href="/tags/Naive-Bayes）/" rel="tag"># Naıve Bayes）</a>
+          
+            <a href="/tags/Decision-tree/" rel="tag"># Decision tree</a>
+          
+            <a href="/tags/SVM/" rel="tag"># SVM</a>
+          
+            <a href="/tags/Apriori/" rel="tag"># Apriori</a>
+          
+            <a href="/tags/chi-square-distribution/" rel="tag"># chi-square distribution</a>
+          
+            <a href="/tags/Hidden-Markov-model/" rel="tag"># Hidden Markov model</a>
+          
+            <a href="/tags/10-fold-cross-validation/" rel="tag"># 10-fold cross-validation</a>
+          
+            <a href="/tags/HMM/" rel="tag"># HMM</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/03/01/2018.03.01_基于模式的序列分类/" rel="next" title="基于模式的序列分类算法">
+                <i class="fa fa-chevron-left"></i> 基于模式的序列分类算法
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+  <div class="bdsharebuttonbox">
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
+    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a href="#" class="bds_tieba" data-cmd="tieba" title="分享到百度贴吧"></a>
+    <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+    <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a class="bds_count" data-cmd="count"></a>
+  </div>
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "2",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "share": {
+        "bdSize": "16",
+        "bdStyle": "0"
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.png"
+                alt="Memicat" />
+            
+              <p class="site-author-name" itemprop="name">Memicat</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">32</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/MengleiMin" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://instagram.com/mengleimin" target="_blank" title="Instagram">
+                      
+                        <i class="fa fa-fw fa-instagram"></i>Instagram</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:mengleimin@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.douban.com/people/139512560" target="_blank" title="Douban">
+                      
+                        <i class="fa fa-fw fa-globe"></i>Douban</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-K-means-【1】"><span class="nav-text"><a href="#1-K-means-&#x3010;1&#x3011;" class="headerlink" title="1. K-means &#x3010;1&#x3011;"></a>1. K-means &#x3010;1&#x3011;</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-算法原理"><span class="nav-text"><a href="#1-1-&#x7B97;&#x6CD5;&#x539F;&#x7406;" class="headerlink" title="1.1 &#x7B97;&#x6CD5;&#x539F;&#x7406;"></a>1.1 &#x7B97;&#x6CD5;&#x539F;&#x7406;</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-算法优化"><span class="nav-text"><a href="#1-2-&#x7B97;&#x6CD5;&#x4F18;&#x5316;" class="headerlink" title="1.2 &#x7B97;&#x6CD5;&#x4F18;&#x5316;"></a>1.2 &#x7B97;&#x6CD5;&#x4F18;&#x5316;</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-3-k的选取"><span class="nav-text"><a href="#1-3-k&#x7684;&#x9009;&#x53D6;" class="headerlink" title="1.3 k&#x7684;&#x9009;&#x53D6;"></a>1.3 k&#x7684;&#x9009;&#x53D6;</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-KNN-K-nearest-neighbour-【2】"><span class="nav-text"><a href="#2-KNN-K-nearest-neighbour-&#x3010;2&#x3011;" class="headerlink" title="2. KNN (K nearest neighbour)&#x3010;2&#x3011;"></a>2. KNN (K nearest neighbour)&#x3010;2&#x3011;</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#算法原理"><span class="nav-text"><a href="#&#x7B97;&#x6CD5;&#x539F;&#x7406;" class="headerlink" title="&#x7B97;&#x6CD5;&#x539F;&#x7406;"></a>&#x7B97;&#x6CD5;&#x539F;&#x7406;</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-贝叶斯（Naive-Bayes）【3】"><span class="nav-text"><a href="#3-&#x8D1D;&#x53F6;&#x65AF;&#xFF08;Naive-Bayes&#xFF09;&#x3010;3&#x3011;" class="headerlink" title="3.&#x8D1D;&#x53F6;&#x65AF;&#xFF08;Na&#x131;ve Bayes&#xFF09;&#x3010;3&#x3011;"></a>3.&#x8D1D;&#x53F6;&#x65AF;&#xFF08;Na&#x131;ve Bayes&#xFF09;&#x3010;3&#x3011;</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-1-贝叶斯定理"><span class="nav-text"><a href="#3-1-&#x8D1D;&#x53F6;&#x65AF;&#x5B9A;&#x7406;" class="headerlink" title="3.1 &#x8D1D;&#x53F6;&#x65AF;&#x5B9A;&#x7406;"></a>3.1 &#x8D1D;&#x53F6;&#x65AF;&#x5B9A;&#x7406;</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2-朴素贝叶斯分类"><span class="nav-text"><a href="#3-2-&#x6734;&#x7D20;&#x8D1D;&#x53F6;&#x65AF;&#x5206;&#x7C7B;" class="headerlink" title="3.2 &#x6734;&#x7D20;&#x8D1D;&#x53F6;&#x65AF;&#x5206;&#x7C7B;"></a>3.2 &#x6734;&#x7D20;&#x8D1D;&#x53F6;&#x65AF;&#x5206;&#x7C7B;</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-决策树（Decision-tree）【4】"><span class="nav-text"><a href="#4-&#x51B3;&#x7B56;&#x6811;&#xFF08;Decision-tree&#xFF09;&#x3010;4&#x3011;" class="headerlink" title="4.&#x51B3;&#x7B56;&#x6811;&#xFF08;Decision tree&#xFF09;&#x3010;4&#x3011;"></a>4.&#x51B3;&#x7B56;&#x6811;&#xFF08;Decision tree&#xFF09;&#x3010;4&#x3011;</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#4-1-基本定义"><span class="nav-text"><a href="#4-1-&#x57FA;&#x672C;&#x5B9A;&#x4E49;" class="headerlink" title="4.1 &#x57FA;&#x672C;&#x5B9A;&#x4E49;"></a>4.1 &#x57FA;&#x672C;&#x5B9A;&#x4E49;</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-2-决策树的构造"><span class="nav-text"><a href="#4-2-&#x51B3;&#x7B56;&#x6811;&#x7684;&#x6784;&#x9020;" class="headerlink" title="4.2 &#x51B3;&#x7B56;&#x6811;&#x7684;&#x6784;&#x9020;"></a>4.2 &#x51B3;&#x7B56;&#x6811;&#x7684;&#x6784;&#x9020;</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-3-ID3算法"><span class="nav-text"><a href="#4-3-ID3&#x7B97;&#x6CD5;" class="headerlink" title="4.3 ID3&#x7B97;&#x6CD5;"></a>4.3 ID3&#x7B97;&#x6CD5;</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-4-C4-5算法"><span class="nav-text"><a href="#4-4-C4-5&#x7B97;&#x6CD5;" class="headerlink" title="4.4 C4.5&#x7B97;&#x6CD5;"></a>4.4 C4.5&#x7B97;&#x6CD5;</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-5-补充说明"><span class="nav-text"><a href="#4-5-&#x8865;&#x5145;&#x8BF4;&#x660E;" class="headerlink" title="4.5 &#x8865;&#x5145;&#x8BF4;&#x660E;"></a>4.5 &#x8865;&#x5145;&#x8BF4;&#x660E;</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-SVM支持向量机-Support-vector-machines-【6】"><span class="nav-text"><a href="#5-SVM&#x652F;&#x6301;&#x5411;&#x91CF;&#x673A;-Support-vector-machines-&#x3010;6&#x3011;" class="headerlink" title="5. SVM&#x652F;&#x6301;&#x5411;&#x91CF;&#x673A;(Support vector machines) &#x3010;6&#x3011;"></a>5. SVM&#x652F;&#x6301;&#x5411;&#x91CF;&#x673A;(Support vector machines) &#x3010;6&#x3011;</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#5-1-基本介绍"><span class="nav-text"><a href="#5-1-&#x57FA;&#x672C;&#x4ECB;&#x7ECD;" class="headerlink" title="5.1 &#x57FA;&#x672C;&#x4ECB;&#x7ECD;"></a>5.1 &#x57FA;&#x672C;&#x4ECB;&#x7ECD;</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-1-算法描述"><span class="nav-text"><a href="#5-1-&#x7B97;&#x6CD5;&#x63CF;&#x8FF0;" class="headerlink" title="5.1 &#x7B97;&#x6CD5;&#x63CF;&#x8FF0;"></a>5.1 &#x7B97;&#x6CD5;&#x63CF;&#x8FF0;</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-Apriori（先验算法）【7】"><span class="nav-text"><a href="#6-Apriori&#xFF08;&#x5148;&#x9A8C;&#x7B97;&#x6CD5;&#xFF09;&#x3010;7&#x3011;" class="headerlink" title="6. Apriori&#xFF08;&#x5148;&#x9A8C;&#x7B97;&#x6CD5;&#xFF09;&#x3010;7&#x3011;"></a>6. Apriori&#xFF08;&#x5148;&#x9A8C;&#x7B97;&#x6CD5;&#xFF09;&#x3010;7&#x3011;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-卡方分布和卡方检验（chi-square-distribution）"><span class="nav-text"><a href="#7-&#x5361;&#x65B9;&#x5206;&#x5E03;&#x548C;&#x5361;&#x65B9;&#x68C0;&#x9A8C;&#xFF08;chi-square-distribution&#xFF09;" class="headerlink" title="7.&#x5361;&#x65B9;&#x5206;&#x5E03;&#x548C;&#x5361;&#x65B9;&#x68C0;&#x9A8C;&#xFF08;chi-square distribution&#xFF09;"></a>7.&#x5361;&#x65B9;&#x5206;&#x5E03;&#x548C;&#x5361;&#x65B9;&#x68C0;&#x9A8C;&#xFF08;chi-square distribution&#xFF09;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-Hidden-Markov-model"><span class="nav-text"><a href="#8-Hidden-Markov-model" class="headerlink" title="8.Hidden Markov model"></a>8.Hidden Markov model</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-10-fold-cross-validation"><span class="nav-text"><a href="#9-10-fold-cross-validation" class="headerlink" title="9.10-fold cross-validation"></a>9.10-fold cross-validation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-HMM-Algorithm"><span class="nav-text"><a href="#10-HMM-Algorithm" class="headerlink" title="10.HMM Algorithm"></a>10.HMM Algorithm</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Reference"><span class="nav-text"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Memicat</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT </a></div>
+
+
+
+
+<span id="busuanzi_container_site_uv">
+  &nbsp | &nbspTotal   &nbsp<span id="busuanzi_value_site_uv"></span> views
+</span>
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://http-memicat-com.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://memicat.com/2018/03/04/2018.03.04_数据挖掘基本算法/';
+          this.page.identifier = '2018/03/04/2018.03.04_数据挖掘基本算法/';
+          this.page.title = '数据挖掘基本算法';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://http-memicat-com.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("AvMGnHBDWLRA1xeIA7dpuXat-gzGzoHsz", "TIHdJMbDyqmdFonp6xQR61el");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+
+  <script type="text/javascript"
+  color="0,0,0" opacity='0.5' zIndex="-2" count="10" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+</body>
+</html>
