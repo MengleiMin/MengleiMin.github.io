@@ -99,7 +99,7 @@
 <meta property="og:image" content="http://memicat.com/images/2018.3.01_8.png">
 <meta property="og:image" content="http://memicat.com/images/2018.3.01_9.png">
 <meta property="og:image" content="http://memicat.com/images/2018.3.01_10.png">
-<meta property="og:updated_time" content="2018-03-05T16:30:54.343Z">
+<meta property="og:updated_time" content="2018-03-05T16:35:08.679Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="基于模式的序列分类算法">
 <meta name="twitter:description" content="Sequence classification is an important task in data mining. We address the problem of sequence classification using rules composed of interesting patterns found in a dataset of labelled sequences and">
@@ -374,7 +374,7 @@
       
 
       
-        <p>Sequence classification is an important task in data mining. We address the problem of sequence classification using rules composed of interesting patterns found in a dataset of labelled sequences and accompanying class labels. We use the discovered patterns to generate confident classification rules, and present two different ways of building a classifier. The patterns considered in this paper could be both itemsets or subsequences (sequential patterns).</p>
+        <p>Sequence classification is an important task in data mining. We address the problem of sequence classification using rules composed of interesting patterns found in a dataset of labelled sequences and accompanying class labels. We use the discovered patterns to generate confident classification rules, and present two different ways of building a classifier. The patterns considered in this paper could be both itemsets or subsequences (sequential patterns).<br><a id="more"></a></p>
 <h3 id="1-Problem-Statement"><a href="#1-Problem-Statement" class="headerlink" title="1. Problem Statement"></a>1. Problem Statement</h3><p>Define an event e as a $pair(i,t)$, consisting of an item $i \in I$ and a time stamp $t \in N$, where $I$ is the set of all possible items and N is the set of natural numbers. Denote a sequence of such events by $s=\langle e_1,e_2,…,e_l\rangle$, $l$ is the length of sequence. A set $X = \{ i_1,i_2,…,i_n\} $is called an itemset.<br>Let $L$ be a finite set of class labels and $|L|$ the number of classes.<br>Example 1: Given a training dataset of two classes as shown in Table 1. Then, $S = \{s_1,s_2,…,s_8\} $and $S_1=\{s_1,s_2,s_3,s_4\}$.<br><img src="/images/2018.3.01_1.png" alt=""></p>
 <h4 id="1-1-Definition-of-an-Interesting-pattern"><a href="#1-1-Definition-of-an-Interesting-pattern" class="headerlink" title="1.1 Definition of an Interesting pattern"></a>1.1 Definition of an Interesting pattern</h4><p>The interestingness of a pattern depends on two factors: its support and its cohesion.  </p>
 <h5 id="1-1-1-Support"><a href="#1-1-1-Support" class="headerlink" title="1.1.1 Support"></a>1.1.1 Support</h5><p>The support of a pattern $P$ in a given class of sequences $S_k$ can now be defined as $F_k(P)=\frac{|N_k(P)|}{|S_k|}$, where P could be $X$ or $s^\prime$.<br>Example 2. Consider the dataset shown in Table 1. Given $X=\{a,b\}$, we see that $F_1(X)=4/4=1$. If$s^\prime= \langle a,b\rangle$,then $F_1(s^\prime) = 3/4 =0.75$</p>
