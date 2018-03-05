@@ -96,18 +96,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[最大似然估计(Maximum likelihood estimation)]]></title>
-    <url>%2F2018%2F02%2F14%2F2018.02.14_%E6%9C%80%E5%A4%A7%E4%BC%BC%E7%84%B6%E4%BC%B0%E8%AE%A1%2F</url>
-    <content type="text"><![CDATA[最大似然估计提供了一种给定观察数据来评估模型参数的方法，即：“模型已定，参数未知”。最大似然估计中的采样需要满足假设：所有的采样都是独立分布的。首先，假设$x_1,x_2,……x_n$为独立同分布的采样，$\theta$为模型参数，$f$为我们所使用的模型，遵循独立同步假设。那么参数为$\theta$的模型f可表示为： f(x_1,x_2,...,x_n|\theta) = f(x_1|\theta) \times f(x_2|\theta),...,f(x_n|\theta)模型已定，参数未知：已知的为$x_1,x_2,……x_n$，未知的为$\theta$, 故似然定义为： L(\theta|x_1,x_2,...,x_n) = f(x_1,...,x_n|\theta) = \prod_{i=1}^nf(x_i|\theta)两边取对数，得到： InL(\theta|x_1,...x_n) = \sum_{i=1}^nInf(x_i|\theta),假设 \ell_{avg} = \frac{1}{n}InL其中的InL(\theta|x_1,...x_n)称为对数似然，而 $\ell_{avg}$为平均对数似然。平时接触最多的最大似然其实是最大的对数平均似然，即： \theta^{max}= max\ell_{avg}(\theta|x_1,...,x_n)例如，一个袋子里装有黑白两种球，球的数量不知道，做100次放回性取球抽样实验，记录下每次取球的颜色。假设100次实验中，取得白球的概率是70%，黑球30%，则一般认为白球占总数的70%。虽然可以这么说，但这是一个直接的带有感官的答案，缺乏理论证明。接下来对其进行证明：假设白球的所占比是p,那么黑球就是1-p. M是所给的模型，Data = \{x_1,x_2,...,x_{100}\} 是这一百次抽样结果的数据，则： P(Data|M) = P(x_1,x_2,...,x_{100}|M) = P(x_1|M) P(x_2|M)...P(x_{100}|M)=p^{70}(1-p)^{30}那么，从基本的数学知识可知，要想找到这个结果的最大值，应对其进行求导，并使其导数等于0. 即：70p^{69}\times(1-p)^{30}-p^{70}\times(1-p)^{29}=0, 解得p=0.7. 也就是说白球所占比为0.7的可能性最大。 Referencehttps://www.cnblogs.com/liliu/archive/2010/11/22/1883702.html]]></content>
-      <categories>
-        <category>Math</category>
-      </categories>
-      <tags>
-        <tag>最大似然估计</tag>
-        <tag>Maximum likelihood estimation</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[Hexo常用排版格式]]></title>
     <url>%2F2018%2F02%2F14%2F2018.02.14_Hexo%20%E6%8E%92%E7%89%88%E6%A0%BC%E5%BC%8F%2F</url>
     <content type="text"><![CDATA[本文主要记录我在写博客期间遇到的一些排版格式，怕自己忘了，所以记录下来怕自己忘记。 基本语法字体加粗: **斜体: * 组别 属于娱乐 不属于娱乐 合计 不包含吴亦凡 19 24 43 包含吴亦凡 34 10 44 合计 53 34 87]]></content>
@@ -117,6 +105,18 @@
       <tags>
         <tag>Latex排版</tag>
         <tag>Hexo排版</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[最大似然估计(Maximum likelihood estimation)]]></title>
+    <url>%2F2018%2F02%2F14%2F2018.02.14_%E6%9C%80%E5%A4%A7%E4%BC%BC%E7%84%B6%E4%BC%B0%E8%AE%A1%2F</url>
+    <content type="text"><![CDATA[最大似然估计提供了一种给定观察数据来评估模型参数的方法，即：“模型已定，参数未知”。最大似然估计中的采样需要满足假设：所有的采样都是独立分布的。首先，假设$x_1,x_2,……x_n$为独立同分布的采样，$\theta$为模型参数，$f$为我们所使用的模型，遵循独立同步假设。那么参数为$\theta$的模型f可表示为： f(x_1,x_2,...,x_n|\theta) = f(x_1|\theta) \times f(x_2|\theta),...,f(x_n|\theta)模型已定，参数未知：已知的为$x_1,x_2,……x_n$，未知的为$\theta$, 故似然定义为： L(\theta|x_1,x_2,...,x_n) = f(x_1,...,x_n|\theta) = \prod_{i=1}^nf(x_i|\theta)两边取对数，得到： InL(\theta|x_1,...x_n) = \sum_{i=1}^nInf(x_i|\theta),假设 \ell_{avg} = \frac{1}{n}InL其中的InL(\theta|x_1,...x_n)称为对数似然，而 $\ell_{avg}$为平均对数似然。平时接触最多的最大似然其实是最大的对数平均似然，即： \theta^{max}= max\ell_{avg}(\theta|x_1,...,x_n)例如，一个袋子里装有黑白两种球，球的数量不知道，做100次放回性取球抽样实验，记录下每次取球的颜色。假设100次实验中，取得白球的概率是70%，黑球30%，则一般认为白球占总数的70%。虽然可以这么说，但这是一个直接的带有感官的答案，缺乏理论证明。接下来对其进行证明：假设白球的所占比是p,那么黑球就是1-p. M是所给的模型，Data = \{x_1,x_2,...,x_{100}\} 是这一百次抽样结果的数据，则： P(Data|M) = P(x_1,x_2,...,x_{100}|M) = P(x_1|M) P(x_2|M)...P(x_{100}|M)=p^{70}(1-p)^{30}那么，从基本的数学知识可知，要想找到这个结果的最大值，应对其进行求导，并使其导数等于0. 即：70p^{69}\times(1-p)^{30}-p^{70}\times(1-p)^{29}=0, 解得p=0.7. 也就是说白球所占比为0.7的可能性最大。 Referencehttps://www.cnblogs.com/liliu/archive/2010/11/22/1883702.html]]></content>
+      <categories>
+        <category>Math</category>
+      </categories>
+      <tags>
+        <tag>最大似然估计</tag>
+        <tag>Maximum likelihood estimation</tag>
       </tags>
   </entry>
   <entry>
