@@ -89,7 +89,7 @@
 <meta property="og:site_name" content="Memicat&#39;s blog!">
 <meta property="og:description" content="本文主要记录我在写博客期间遇到的一些排版格式，怕自己忘了，所以记录下来怕自己忘记。">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-03-05T13:57:59.320Z">
+<meta property="og:updated_time" content="2018-03-06T21:09:47.913Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo常用排版格式">
 <meta name="twitter:description" content="本文主要记录我在写博客期间遇到的一些排版格式，怕自己忘了，所以记录下来怕自己忘记。">
@@ -364,8 +364,19 @@
 
       
         <p>本文主要记录我在写博客期间遇到的一些排版格式，怕自己忘了，所以记录下来怕自己忘记。<br><a id="more"></a></p>
-<h3 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h3><h4 id="字体"><a href="#字体" class="headerlink" title="字体"></a>字体</h4><p>加粗: **<br>斜体: *</p>
-<div class="table-container">
+<h3 id="1-基本语法"><a href="#1-基本语法" class="headerlink" title="1. 基本语法"></a>1. 基本语法</h3><h4 id="1-1-字体"><a href="#1-1-字体" class="headerlink" title="1.1 字体"></a>1.1 字体</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">这是正常</span><br><span class="line">**这是粗体**</span><br><span class="line">***这是加粗斜体***</span><br><span class="line">*这是斜体* 或 _这也是斜体_</span><br><span class="line">~~这是删除线~~</span><br></pre></td></tr></table></figure>
+<p>这是正常<br><strong>这是粗体</strong><br><strong><em>这是加粗斜体</em></strong><br><em>这是斜体</em> 或 <em>这也是斜体</em><br><del>这是删除线</del></p>
+<h4 id="1-2-列表"><a href="#1-2-列表" class="headerlink" title="1.2 列表"></a>1.2 列表</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">* 无序列表项1</span><br><span class="line">+ 无序列表项2</span><br><span class="line">- 无序列表项3</span><br></pre></td></tr></table></figure>
+<ul>
+<li>无序列表项1</li>
+</ul>
+<ul>
+<li>无序列表项2</li>
+</ul>
+<ul>
+<li>无序列表项3</li>
+</ul>
+<h4 id="1-3-表格"><a href="#1-3-表格" class="headerlink" title="1.3 表格"></a>1.3 表格</h4><div class="table-container">
 <table>
 <thead>
 <tr>
@@ -397,6 +408,49 @@
 </tbody>
 </table>
 </div>
+<h4 id="矩阵"><a href="#矩阵" class="headerlink" title="矩阵"></a>矩阵</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$$  </span><br><span class="line">F_\theta=</span><br><span class="line">\left(</span><br><span class="line">  \begin&#123;array&#125;&#123;ccc&#125;</span><br><span class="line">  1 &amp; x_&#123;n1&#125;&amp; \cdots x_&#123;1k&#125; \\</span><br><span class="line">  \vdots &amp; \vdots &amp; \ddots \vdots \\</span><br><span class="line">  1 &amp; x_&#123;n2&#125; &amp; \cdots x_&#123;nk&#125; \\</span><br><span class="line">  \end&#123;array&#125;</span><br><span class="line">\right)</span><br><span class="line">$$</span><br></pre></td></tr></table></figure>
+<script type="math/tex; mode=display">
+F_\theta=
+\left(
+  \begin{array}{ccc}
+  1 & x_{n1}& \cdots x_{1k} \\
+  \vdots & \vdots & \ddots \vdots \\
+  1 & x_{n2} & \cdots x_{nk} \\
+  \end{array}
+\right)</script><h3 id="2-公式插入"><a href="#2-公式插入" class="headerlink" title="2. 公式插入"></a>2. 公式插入</h3><p>公式加粗：</p>
+<script type="math/tex; mode=display">a+b = \boldsymbol{a+b}</script><h4 id="2-1-多行赋值"><a href="#2-1-多行赋值" class="headerlink" title="2.1 多行赋值"></a>2.1 多行赋值</h4><p>双\\ 公式内换行，cases实现大括号右多行赋值，&amp;用来对齐。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$$</span><br><span class="line">f(n) =</span><br><span class="line">\begin&#123;cases&#125;</span><br><span class="line">n/2,  &amp; \text&#123;if $n$ is even&#125; \\</span><br><span class="line">3n+1, &amp; \text&#123;if $n$ is odd&#125;</span><br><span class="line">\end&#123;cases&#125;</span><br><span class="line">$$</span><br></pre></td></tr></table></figure></p>
+<script type="math/tex; mode=display">
+f(n) =
+\begin{cases}
+n/2,  & \text{if $n$ is even} \\
+3n+1, & \text{if $n$ is odd}
+\end{cases}</script><h4 id="2-2-多行公式对齐"><a href="#2-2-多行公式对齐" class="headerlink" title="2.2 多行公式对齐"></a>2.2 多行公式对齐</h4><p>begin{split} 表示开始多行公式，end{split}表示结束；公式中用\\表示回车到下一行，&amp;表示对齐的位置。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$$</span><br><span class="line">\begin&#123;equation&#125;</span><br><span class="line">\begin&#123;split&#125;</span><br><span class="line">\frac&#123;\partial^2 f&#125;&#123;\partial&#123;x^2&#125;&#125; &amp;= \frac&#123;\partial(\Delta_x f(i,j))&#125;&#123;\partial x&#125; = \frac&#123;\partial(f(i+1,j)-f(i,j))&#125;&#123;\partial x&#125; \\</span><br><span class="line">&amp;= \frac&#123;\partial f(i+1,j)&#125;&#123;\partial x&#125; - \frac&#123;\partial f(i,j)&#125;&#123;\partial x&#125; \\</span><br><span class="line">&amp;= f(i+2,j) -2f(f+1,j) + f(i,j)</span><br><span class="line">\end&#123;split&#125;</span><br><span class="line">\nonumber</span><br><span class="line">\end&#123;equation&#125;</span><br><span class="line">$$</span><br></pre></td></tr></table></figure></p>
+<script type="math/tex; mode=display">
+\begin{equation}
+\begin{split}
+\frac{\partial^2 f}{\partial{x^2}} &= \frac{\partial(\Delta_x f(i,j))}{\partial x} = \frac{\partial(f(i+1,j)-f(i,j))}{\partial x} \\
+&= \frac{\partial f(i+1,j)}{\partial x} - \frac{\partial f(i,j)}{\partial x} \\
+&= f(i+2,j) -2f(f+1,j) + f(i,j)
+\end{split}
+\nonumber
+\end{equation}</script><h4 id="2-3-自动编号"><a href="#2-3-自动编号" class="headerlink" title="2.3 自动编号"></a>2.3 自动编号</h4><p>使用begin{equation} and end{equation}环境就会自动编号:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$$</span><br><span class="line">\begin&#123;equation&#125;</span><br><span class="line">\sum_&#123;i=0&#125;^n F_i \cdot \phi (H, p_i) - \sum_&#123;i=1&#125;^n a_i \cdot ( \tilde&#123;x_i&#125;, \tilde&#123;y_i&#125;) + b_i \cdot ( \tilde&#123;x_i&#125;^2 , \tilde&#123;y_i&#125;^2 )</span><br><span class="line">\end&#123;equation&#125;</span><br><span class="line">$$</span><br></pre></td></tr></table></figure></p>
+<script type="math/tex; mode=display">
+\begin{equation}
+\sum_{i=0}^n F_i \cdot \phi (H, p_i) - \sum_{i=1}^n a_i \cdot ( \tilde{x_i}, \tilde{y_i}) + b_i \cdot ( \tilde{x_i}^2 , \tilde{y_i}^2 )
+\end{equation}</script><h4 id="2-4-禁止自动编号"><a href="#2-4-禁止自动编号" class="headerlink" title="2.4 禁止自动编号"></a>2.4 禁止自动编号</h4><p>在end{equation}前加\nonumber可禁止对此公式自动编号，例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">$$</span><br><span class="line">\begin&#123;equation&#125;</span><br><span class="line">\sum_&#123;i=0&#125;^n F_i \cdot \phi (H, p_i) - \sum_&#123;i=1&#125;^n a_i \cdot ( \tilde&#123;x_i&#125;, \tilde&#123;y_i&#125;) + b_i \cdot ( \tilde&#123;x_i&#125;^2 , \tilde&#123;y_i&#125;^2 )</span><br><span class="line">\nonumber</span><br><span class="line">\end&#123;equation&#125;</span><br><span class="line">$$</span><br><span class="line">$$</span><br><span class="line">\begin&#123;equation&#125;</span><br><span class="line">\beta^*(D) = \mathop&#123;argmin&#125; \limits_&#123;\beta&#125; \lambda &#123;||\beta||&#125;^2 + \sum_&#123;i=1&#125;^n max(0, 1 - y_i f_&#123;\beta&#125;(x_i))</span><br><span class="line">\end&#123;equation&#125;</span><br><span class="line">$$</span><br></pre></td></tr></table></figure></p>
+<script type="math/tex; mode=display">
+\begin{equation}
+\sum_{i=0}^n F_i \cdot \phi (H, p_i) - \sum_{i=1}^n a_i \cdot ( \tilde{x_i}, \tilde{y_i}) + b_i \cdot ( \tilde{x_i}^2 , \tilde{y_i}^2 )
+\nonumber
+\end{equation}</script><script type="math/tex; mode=display">
+\begin{equation}
+\beta(D) = \mathop{argmin} \limits_{\beta} \lambda {||\beta||}^2 + \sum_{i=1}^n max(0, 1 - y_i f_{\beta}(x_i))
+\end{equation}</script><h4 id="2-5-公式手动编号："><a href="#2-5-公式手动编号：" class="headerlink" title="2.5 公式手动编号："></a>2.5 公式手动编号：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$$</span><br><span class="line">\begin&#123;equation&#125;</span><br><span class="line">\sum_&#123;i=0&#125;^n F_i \cdot \phi (H, p_i) - \sum_&#123;i=1&#125;^n a_i \cdot ( \tilde&#123;x_i&#125;, \tilde&#123;y_i&#125;) + b_i \cdot ( \tilde&#123;x_i&#125;^2 , \tilde&#123;y_i&#125;^2 ) \tag&#123;1.2.3&#125;</span><br><span class="line">\end&#123;equation&#125;</span><br><span class="line">$$</span><br></pre></td></tr></table></figure>
+<script type="math/tex; mode=display">
+\begin{equation}
+\sum_{i=0}^n F_i \cdot \phi (H, p_i) - \sum_{i=1}^n a_i \cdot ( \tilde{x_i}, \tilde{y_i}) + b_i \cdot ( \tilde{x_i}^2 , \tilde{y_i}^2 ) \tag{1.2.3}
+\end{equation}</script><h4 id="2-6-行间公式编号"><a href="#2-6-行间公式编号" class="headerlink" title="2.6  行间公式编号"></a>2.6  行间公式编号</h4><p>行内公式加\tag{}后会自动成为行间公式，例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ s = r cos(a+b) = r cos(a) cos(b) - r sin(a) sin(b) \tag&#123;1.1&#125; $</span><br><span class="line">$ t = r sin(a+b) = r sin(a) cos(b) - r cos(a) sin(b) \tag&#123;1.2&#125; $</span><br></pre></td></tr></table></figure></p>
+<p>$ s = r cos(a+b) = r cos(a) cos(b) - r sin(a) sin(b) \tag{1.1} $<br>$ t = r sin(a+b) = r sin(a) cos(b) - r cos(a) sin(b) \tag{1.2} $</p>
 
       
     </div>
@@ -468,8 +522,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/02/14/2018.02.14_最大似然估计/" rel="prev" title="最大似然估计(Maximum likelihood estimation)">
-                最大似然估计(Maximum likelihood estimation) <i class="fa fa-chevron-right"></i>
+              <a href="/2018/02/14/2018.02.14_Hexo 数学公式/" rel="prev" title="Hexo常用数学公式">
+                Hexo常用数学公式 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -599,7 +653,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -621,7 +675,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">34</span>
+                  <span class="site-state-item-count">32</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
@@ -689,7 +743,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本语法"><span class="nav-text"><a href="#&#x57FA;&#x672C;&#x8BED;&#x6CD5;" class="headerlink" title="&#x57FA;&#x672C;&#x8BED;&#x6CD5;"></a>&#x57FA;&#x672C;&#x8BED;&#x6CD5;</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#字体"><span class="nav-text"><a href="#&#x5B57;&#x4F53;" class="headerlink" title="&#x5B57;&#x4F53;"></a>&#x5B57;&#x4F53;</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-基本语法"><span class="nav-text"><a href="#1-&#x57FA;&#x672C;&#x8BED;&#x6CD5;" class="headerlink" title="1. &#x57FA;&#x672C;&#x8BED;&#x6CD5;"></a>1. &#x57FA;&#x672C;&#x8BED;&#x6CD5;</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-字体"><span class="nav-text"><a href="#1-1-&#x5B57;&#x4F53;" class="headerlink" title="1.1 &#x5B57;&#x4F53;"></a>1.1 &#x5B57;&#x4F53;</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-列表"><span class="nav-text"><a href="#1-2-&#x5217;&#x8868;" class="headerlink" title="1.2 &#x5217;&#x8868;"></a>1.2 &#x5217;&#x8868;</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-3-表格"><span class="nav-text"><a href="#1-3-&#x8868;&#x683C;" class="headerlink" title="1.3 &#x8868;&#x683C;"></a>1.3 &#x8868;&#x683C;</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#矩阵"><span class="nav-text"><a href="#&#x77E9;&#x9635;" class="headerlink" title="&#x77E9;&#x9635;"></a>&#x77E9;&#x9635;</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-公式插入"><span class="nav-text"><a href="#2-&#x516C;&#x5F0F;&#x63D2;&#x5165;" class="headerlink" title="2. &#x516C;&#x5F0F;&#x63D2;&#x5165;"></a>2. &#x516C;&#x5F0F;&#x63D2;&#x5165;</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-多行赋值"><span class="nav-text"><a href="#2-1-&#x591A;&#x884C;&#x8D4B;&#x503C;" class="headerlink" title="2.1 &#x591A;&#x884C;&#x8D4B;&#x503C;"></a>2.1 &#x591A;&#x884C;&#x8D4B;&#x503C;</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-多行公式对齐"><span class="nav-text"><a href="#2-2-&#x591A;&#x884C;&#x516C;&#x5F0F;&#x5BF9;&#x9F50;" class="headerlink" title="2.2 &#x591A;&#x884C;&#x516C;&#x5F0F;&#x5BF9;&#x9F50;"></a>2.2 &#x591A;&#x884C;&#x516C;&#x5F0F;&#x5BF9;&#x9F50;</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-自动编号"><span class="nav-text"><a href="#2-3-&#x81EA;&#x52A8;&#x7F16;&#x53F7;" class="headerlink" title="2.3 &#x81EA;&#x52A8;&#x7F16;&#x53F7;"></a>2.3 &#x81EA;&#x52A8;&#x7F16;&#x53F7;</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-4-禁止自动编号"><span class="nav-text"><a href="#2-4-&#x7981;&#x6B62;&#x81EA;&#x52A8;&#x7F16;&#x53F7;" class="headerlink" title="2.4 &#x7981;&#x6B62;&#x81EA;&#x52A8;&#x7F16;&#x53F7;"></a>2.4 &#x7981;&#x6B62;&#x81EA;&#x52A8;&#x7F16;&#x53F7;</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-5-公式手动编号："><span class="nav-text"><a href="#2-5-&#x516C;&#x5F0F;&#x624B;&#x52A8;&#x7F16;&#x53F7;&#xFF1A;" class="headerlink" title="2.5 &#x516C;&#x5F0F;&#x624B;&#x52A8;&#x7F16;&#x53F7;&#xFF1A;"></a>2.5 &#x516C;&#x5F0F;&#x624B;&#x52A8;&#x7F16;&#x53F7;&#xFF1A;</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-6-行间公式编号"><span class="nav-text"><a href="#2-6-&#x884C;&#x95F4;&#x516C;&#x5F0F;&#x7F16;&#x53F7;" class="headerlink" title="2.6  &#x884C;&#x95F4;&#x516C;&#x5F0F;&#x7F16;&#x53F7;"></a>2.6  &#x884C;&#x95F4;&#x516C;&#x5F0F;&#x7F16;&#x53F7;</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -1032,29 +1086,42 @@
   
   
 
-  
-  
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-        }
-      });
-    </script>
-
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Queue(function() {
+  <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": {
+        preferredFont: "TeX",
+        availableFonts: ["STIX","TeX"],
+        linebreaks: { automatic:true },
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ],
+        processEscapes: true,
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } },
+        Macros: { href: "{}" }
+    },
+    messageStyle: "none"
+    });
+</script>
+<!-- 给MathJax元素添加has-jax class -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
         var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
         }
-      });
-    </script>
-    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-  
-
+    });
+</script>
+<!-- 通过连接CDN加载MathJax的js代码 -->
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
 
   
 

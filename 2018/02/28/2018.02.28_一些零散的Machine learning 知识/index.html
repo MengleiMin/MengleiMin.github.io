@@ -90,7 +90,7 @@
 <meta property="og:description" content="1. Basic knowledge1.1 What is an F Statistic?An F statistic is a value you get when you run an ANOVA test or a regression analysis to find out if the means between two populations are significantly di">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http://memicat.com/images/2018.2.28_1.jpg">
-<meta property="og:updated_time" content="2018-03-05T12:41:08.733Z">
+<meta property="og:updated_time" content="2018-03-06T17:32:25.034Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="一些零散的Machine learning 知识">
 <meta name="twitter:description" content="1. Basic knowledge1.1 What is an F Statistic?An F statistic is a value you get when you run an ANOVA test or a regression analysis to find out if the means between two populations are significantly di">
@@ -378,12 +378,10 @@
 </ul>
 <p>从另一个角度看， λ 决定了EWMA估计器跟踪实际数据突然发生变化的能力，即时效性， 显然随着λ 增大， 估计器的时效性就越强，反之，越弱; 另一方面，由于 λ 的存在，EWMA还表现出一定的吸收瞬时突发的能力，这种能力称为平稳性。显然随着 λ 减小， 估计器的平稳性增强，反之降低。</p>
 <p>1.从概率角度看，EWMA是一种理想的最大似然估计技术，它采用一个权重因子 λ 对数据进行估计，当前估计值由前一次估计值和当前的抽样值共同决定。<br>2.从信号处理角度看，EWMA可以看成是一个低通滤波器，通过控制 λ 值，剔除短期波动、保留长期发展趋势提供了信号的平滑形式。</p>
-<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ol>
-<li><a href="https://www.zhihu.com/question/20983193" target="_blank" rel="noopener">https://www.zhihu.com/question/20983193</a></li>
-<li>Cao S, Rhinehart R R. An efficient method for on-line identification of steady state[J]. Journal of Process Control, 1995, 5(6): 363-374.</li>
-<li><a href="http://zjz06.blogspot.se/2011/08/fixed-factorsrandom-factorscovariates.html" target="_blank" rel="noopener">http://zjz06.blogspot.se/2011/08/fixed-factorsrandom-factorscovariates.html</a></li>
-<li><a href="http://blog.csdn.net/kuvinxu/article/details/6922138" target="_blank" rel="noopener">http://blog.csdn.net/kuvinxu/article/details/6922138</a></li>
-</ol>
+<h4 id="1-5-参数（Parameters）和超参数（Hyperparameters）-5"><a href="#1-5-参数（Parameters）和超参数（Hyperparameters）-5" class="headerlink" title="1.5 参数（Parameters）和超参数（Hyperparameters）[5]"></a>1.5 参数（Parameters）和超参数（Hyperparameters）[5]</h4><p>参数：就是模型可以根据数据可以自动学习出的变量，应该就是参数。比如，深度学习的权重，偏差等<br>超参数：就是用来确定模型的一些参数，超参数不同，模型是不同的(这个模型不同的意思就是有微小的区别，比如假设都是CNN模型，如果层数不同，模型不一样，虽然都是CNN模型)，超参数一般就是根据经验确定的变量。在深度学习中，超参数有：学习速率，迭代次数，层数，每层神经元的个数等等。</p>
+<h4 id="1-6-多元正态分布"><a href="#1-6-多元正态分布" class="headerlink" title="1.6 多元正态分布"></a>1.6 多元正态分布</h4><p><a href="https://zh.wikipedia.org/wiki/%E5%A4%9A%E5%85%83%E6%AD%A3%E6%80%81%E5%88%86%E5%B8%83" target="_blank" rel="noopener">https://zh.wikipedia.org/wiki/%E5%A4%9A%E5%85%83%E6%AD%A3%E6%80%81%E5%88%86%E5%B8%83</a></p>
+<h4 id="1-7-马氏距离"><a href="#1-7-马氏距离" class="headerlink" title="1.7 马氏距离"></a>1.7 马氏距离</h4><p><a href="https://baike.baidu.com/item/%E9%A9%AC%E6%B0%8F%E8%B7%9D%E7%A6%BB?fr=aladdin" target="_blank" rel="noopener">https://baike.baidu.com/item/%E9%A9%AC%E6%B0%8F%E8%B7%9D%E7%A6%BB?fr=aladdin</a></p>
+<h4 id="1-8-Jeffrey’s-prior"><a href="#1-8-Jeffrey’s-prior" class="headerlink" title="1.8 Jeffrey’s prior"></a>1.8 Jeffrey’s prior</h4><h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><p>1.<a href="https://www.zhihu.com/question/20983193" target="_blank" rel="noopener">https://www.zhihu.com/question/20983193</a><br>2.Cao S, Rhinehart R R. An efficient method for on-line identification of steady state[J]. Journal of Process Control, 1995, 5(6): 363-374.<br>3.<a href="http://zjz06.blogspot.se/2011/08/fixed-factorsrandom-factorscovariates.html" target="_blank" rel="noopener">http://zjz06.blogspot.se/2011/08/fixed-factorsrandom-factorscovariates.html</a><br>4.<a href="http://blog.csdn.net/kuvinxu/article/details/6922138" target="_blank" rel="noopener">http://blog.csdn.net/kuvinxu/article/details/6922138</a><br>5.<a href="http://blog.csdn.net/uestc_c2_403/article/details/77428736" target="_blank" rel="noopener">http://blog.csdn.net/uestc_c2_403/article/details/77428736</a></p>
 
       
     </div>
@@ -443,8 +441,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/02/21/2018.02.21_一个分布式挖掘快速在线学习算法/" rel="next" title="一个分布式挖掘快速在线学习算法 (Online learning algorithm)">
-                <i class="fa fa-chevron-left"></i> 一个分布式挖掘快速在线学习算法 (Online learning algorithm)
+              <a href="/2018/02/21/2018.02.21_最小二乘估计/" rel="next" title="最小二乘估计（Least Squares Estimator）">
+                <i class="fa fa-chevron-left"></i> 最小二乘估计（Least Squares Estimator）
               </a>
             
           </div>
@@ -584,7 +582,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -606,7 +604,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">34</span>
+                  <span class="site-state-item-count">32</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
@@ -674,7 +672,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-Basic-knowledge"><span class="nav-text"><a href="#1-Basic-knowledge" class="headerlink" title="1. Basic knowledge"></a>1. Basic knowledge</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-What-is-an-F-Statistic"><span class="nav-text"><a href="#1-1-What-is-an-F-Statistic" class="headerlink" title="1.1 What is an F Statistic?"></a>1.1 What is an F Statistic?</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-样本方差为什么除以”n-1“"><span class="nav-text"><a href="#1-2-&#x6837;&#x672C;&#x65B9;&#x5DEE;&#x4E3A;&#x4EC0;&#x4E48;&#x9664;&#x4EE5;&#x201D;n-1&#x201C;" class="headerlink" title="1.2 &#x6837;&#x672C;&#x65B9;&#x5DEE;&#x4E3A;&#x4EC0;&#x4E48;&#x9664;&#x4EE5;&#x201D;n-1&#x201C;?"></a>1.2 &#x6837;&#x672C;&#x65B9;&#x5DEE;&#x4E3A;&#x4EC0;&#x4E48;&#x9664;&#x4EE5;&#x201D;n-1&#x201C;?</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-3-如何区分“Factor”-“Covariates”"><span class="nav-text"><a href="#1-3-&#x5982;&#x4F55;&#x533A;&#x5206;&#x201C;Factor&#x201D;-&#x201C;Covariates&#x201D;" class="headerlink" title="1.3 &#x5982;&#x4F55;&#x533A;&#x5206;&#x201C;Factor&#x201D;, &#x201C;Covariates&#x201D;?"></a>1.3 &#x5982;&#x4F55;&#x533A;&#x5206;&#x201C;Factor&#x201D;, &#x201C;Covariates&#x201D;?</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-4-指数加权移动平均值-Exponentially-Weighted-Moving-Average-EWMA"><span class="nav-text"><a href="#1-4-&#x6307;&#x6570;&#x52A0;&#x6743;&#x79FB;&#x52A8;&#x5E73;&#x5747;&#x503C;-Exponentially-Weighted-Moving-Average-EWMA" class="headerlink" title="1.4 &#x6307;&#x6570;&#x52A0;&#x6743;&#x79FB;&#x52A8;&#x5E73;&#x5747;&#x503C;(Exponentially Weighted Moving-Average,EWMA)"></a>1.4 &#x6307;&#x6570;&#x52A0;&#x6743;&#x79FB;&#x52A8;&#x5E73;&#x5747;&#x503C;(Exponentially Weighted Moving-Average,EWMA)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Reference"><span class="nav-text"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-Basic-knowledge"><span class="nav-text"><a href="#1-Basic-knowledge" class="headerlink" title="1. Basic knowledge"></a>1. Basic knowledge</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-What-is-an-F-Statistic"><span class="nav-text"><a href="#1-1-What-is-an-F-Statistic" class="headerlink" title="1.1 What is an F Statistic?"></a>1.1 What is an F Statistic?</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-样本方差为什么除以”n-1“"><span class="nav-text"><a href="#1-2-&#x6837;&#x672C;&#x65B9;&#x5DEE;&#x4E3A;&#x4EC0;&#x4E48;&#x9664;&#x4EE5;&#x201D;n-1&#x201C;" class="headerlink" title="1.2 &#x6837;&#x672C;&#x65B9;&#x5DEE;&#x4E3A;&#x4EC0;&#x4E48;&#x9664;&#x4EE5;&#x201D;n-1&#x201C;?"></a>1.2 &#x6837;&#x672C;&#x65B9;&#x5DEE;&#x4E3A;&#x4EC0;&#x4E48;&#x9664;&#x4EE5;&#x201D;n-1&#x201C;?</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-3-如何区分“Factor”-“Covariates”"><span class="nav-text"><a href="#1-3-&#x5982;&#x4F55;&#x533A;&#x5206;&#x201C;Factor&#x201D;-&#x201C;Covariates&#x201D;" class="headerlink" title="1.3 &#x5982;&#x4F55;&#x533A;&#x5206;&#x201C;Factor&#x201D;, &#x201C;Covariates&#x201D;?"></a>1.3 &#x5982;&#x4F55;&#x533A;&#x5206;&#x201C;Factor&#x201D;, &#x201C;Covariates&#x201D;?</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-4-指数加权移动平均值-Exponentially-Weighted-Moving-Average-EWMA"><span class="nav-text"><a href="#1-4-&#x6307;&#x6570;&#x52A0;&#x6743;&#x79FB;&#x52A8;&#x5E73;&#x5747;&#x503C;-Exponentially-Weighted-Moving-Average-EWMA" class="headerlink" title="1.4 &#x6307;&#x6570;&#x52A0;&#x6743;&#x79FB;&#x52A8;&#x5E73;&#x5747;&#x503C;(Exponentially Weighted Moving-Average,EWMA)"></a>1.4 &#x6307;&#x6570;&#x52A0;&#x6743;&#x79FB;&#x52A8;&#x5E73;&#x5747;&#x503C;(Exponentially Weighted Moving-Average,EWMA)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-5-参数（Parameters）和超参数（Hyperparameters）-5"><span class="nav-text"><a href="#1-5-&#x53C2;&#x6570;&#xFF08;Parameters&#xFF09;&#x548C;&#x8D85;&#x53C2;&#x6570;&#xFF08;Hyperparameters&#xFF09;-5" class="headerlink" title="1.5 &#x53C2;&#x6570;&#xFF08;Parameters&#xFF09;&#x548C;&#x8D85;&#x53C2;&#x6570;&#xFF08;Hyperparameters&#xFF09;[5]"></a>1.5 &#x53C2;&#x6570;&#xFF08;Parameters&#xFF09;&#x548C;&#x8D85;&#x53C2;&#x6570;&#xFF08;Hyperparameters&#xFF09;[5]</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-6-多元正态分布"><span class="nav-text"><a href="#1-6-&#x591A;&#x5143;&#x6B63;&#x6001;&#x5206;&#x5E03;" class="headerlink" title="1.6 &#x591A;&#x5143;&#x6B63;&#x6001;&#x5206;&#x5E03;"></a>1.6 &#x591A;&#x5143;&#x6B63;&#x6001;&#x5206;&#x5E03;</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-7-马氏距离"><span class="nav-text"><a href="#1-7-&#x9A6C;&#x6C0F;&#x8DDD;&#x79BB;" class="headerlink" title="1.7 &#x9A6C;&#x6C0F;&#x8DDD;&#x79BB;"></a>1.7 &#x9A6C;&#x6C0F;&#x8DDD;&#x79BB;</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-8-Jeffrey’s-prior"><span class="nav-text"><a href="#1-8-Jeffrey&#x2019;s-prior" class="headerlink" title="1.8 Jeffrey&#x2019;s prior"></a>1.8 Jeffrey&#x2019;s prior</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Reference"><span class="nav-text"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</span></a></li></ol></div>
             
 
           </div>
@@ -1017,29 +1015,42 @@
   
   
 
-  
-  
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-        }
-      });
-    </script>
-
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Queue(function() {
+  <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": {
+        preferredFont: "TeX",
+        availableFonts: ["STIX","TeX"],
+        linebreaks: { automatic:true },
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ],
+        processEscapes: true,
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } },
+        Macros: { href: "{}" }
+    },
+    messageStyle: "none"
+    });
+</script>
+<!-- 给MathJax元素添加has-jax class -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
         var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
         }
-      });
-    </script>
-    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-  
-
+    });
+</script>
+<!-- 通过连接CDN加载MathJax的js代码 -->
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
 
   
 
