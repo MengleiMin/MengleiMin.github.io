@@ -232,28 +232,6 @@
   </entry>
   
   <entry>
-    <title>Hexo常用数学公式</title>
-    <link href="http://memicat.com/2018/02/14/2018.02.14_Hexo%20%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F/"/>
-    <id>http://memicat.com/2018/02/14/2018.02.14_Hexo 数学公式/</id>
-    <published>2018-02-13T23:00:00.000Z</published>
-    <updated>2018-03-08T11:57:48.280Z</updated>
-    
-    <content type="html"><![CDATA[<p>本文主要记录我在写博客期间遇到的一些常用的及特殊的数学公式，怕自己忘了，所以记录下来怕自己忘记。<br><a id="more"></a></p><h3 id="常见数学符号"><a href="#常见数学符号" class="headerlink" title="常见数学符号"></a>常见数学符号</h3><p>$\theta$: \theta<br>$\times$: \times<br>$\prod$: \prod<br>$\pm$: \pm<br>$\mp$: \mp<br>$\ell$: \ell<br>$\digamma:$ \digamma<br>$\hat{\mkern1mu a}:$ \hat{\mkern1mu a}<br>$\to:$ \to<br>$\langle:$ \langle<br>$\rangle:$ \rangle<br>$\min \limits_w:$\min \limits_w<br>$\lambda:$ \lambda<br>$\forall:$ \forall<br>$\exists:$ \exists<br>$\subseteqq:$\subseteqq<br>$\in:$\in<br>$\bar {\mkern1mu W_k}:$\bar {\mkern1mu W_k}<br>$\Rightarrow:$\Rightarrow<br>$\rightarrow:$\rightarrow<br>$\infty:$\infty<br>$\succsim:$\succsim<br>$\precsim:$\precsim<br>$\succapprox:$\succapprox<br>$\precapprox:$\precapprox<br>$\succ:$\succ<br>$\prec:$\prec<br>$\beta:$\beta<br>$\theta:$\theta<br>$\zeta:$\zata<br>$\partial:$\partial<br>$\varpropto:$ \varpropto<br>ξ:ξ<br>$\Omega:$\Omega:<br>$\omege:$\omege:<br>$\sim:$\sim<br>$\mathcal{L}:$\mathcal{L}<br>$\cdot:$\cdot<br>$\lmoustache:$\lmoustache<br>$\int:$\int<br>*</p><h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><p><a href="http://mohu.org/info/symbols/symbols.htm" target="_blank" rel="noopener">http://mohu.org/info/symbols/symbols.htm</a></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;本文主要记录我在写博客期间遇到的一些常用的及特殊的数学公式，怕自己忘了，所以记录下来怕自己忘记。&lt;br&gt;
-    
-    </summary>
-    
-      <category term="Hexo" scheme="http://memicat.com/categories/Hexo/"/>
-    
-    
-      <category term="Math formul" scheme="http://memicat.com/tags/Math-formul/"/>
-    
-  </entry>
-  
-  <entry>
     <title>Hexo常用排版格式</title>
     <link href="http://memicat.com/2018/02/14/2018.02.14_Hexo%20%E6%8E%92%E7%89%88%E6%A0%BC%E5%BC%8F/"/>
     <id>http://memicat.com/2018/02/14/2018.02.14_Hexo 排版格式/</id>
@@ -274,6 +252,28 @@
       <category term="Latex排版" scheme="http://memicat.com/tags/Latex%E6%8E%92%E7%89%88/"/>
     
       <category term="Hexo排版" scheme="http://memicat.com/tags/Hexo%E6%8E%92%E7%89%88/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hexo常用数学公式</title>
+    <link href="http://memicat.com/2018/02/14/2018.02.14_Hexo%20%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F/"/>
+    <id>http://memicat.com/2018/02/14/2018.02.14_Hexo 数学公式/</id>
+    <published>2018-02-13T23:00:00.000Z</published>
+    <updated>2018-03-08T11:57:48.280Z</updated>
+    
+    <content type="html"><![CDATA[<p>本文主要记录我在写博客期间遇到的一些常用的及特殊的数学公式，怕自己忘了，所以记录下来怕自己忘记。<br><a id="more"></a></p><h3 id="常见数学符号"><a href="#常见数学符号" class="headerlink" title="常见数学符号"></a>常见数学符号</h3><p>$\theta$: \theta<br>$\times$: \times<br>$\prod$: \prod<br>$\pm$: \pm<br>$\mp$: \mp<br>$\ell$: \ell<br>$\digamma:$ \digamma<br>$\hat{\mkern1mu a}:$ \hat{\mkern1mu a}<br>$\to:$ \to<br>$\langle:$ \langle<br>$\rangle:$ \rangle<br>$\min \limits_w:$\min \limits_w<br>$\lambda:$ \lambda<br>$\forall:$ \forall<br>$\exists:$ \exists<br>$\subseteqq:$\subseteqq<br>$\in:$\in<br>$\bar {\mkern1mu W_k}:$\bar {\mkern1mu W_k}<br>$\Rightarrow:$\Rightarrow<br>$\rightarrow:$\rightarrow<br>$\infty:$\infty<br>$\succsim:$\succsim<br>$\precsim:$\precsim<br>$\succapprox:$\succapprox<br>$\precapprox:$\precapprox<br>$\succ:$\succ<br>$\prec:$\prec<br>$\beta:$\beta<br>$\theta:$\theta<br>$\zeta:$\zata<br>$\partial:$\partial<br>$\varpropto:$ \varpropto<br>ξ:ξ<br>$\Omega:$\Omega:<br>$\omege:$\omege:<br>$\sim:$\sim<br>$\mathcal{L}:$\mathcal{L}<br>$\cdot:$\cdot<br>$\lmoustache:$\lmoustache<br>$\int:$\int<br>*</p><h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><p><a href="http://mohu.org/info/symbols/symbols.htm" target="_blank" rel="noopener">http://mohu.org/info/symbols/symbols.htm</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;本文主要记录我在写博客期间遇到的一些常用的及特殊的数学公式，怕自己忘了，所以记录下来怕自己忘记。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Hexo" scheme="http://memicat.com/categories/Hexo/"/>
+    
+    
+      <category term="Math formul" scheme="http://memicat.com/tags/Math-formul/"/>
     
   </entry>
   
